@@ -1,4 +1,4 @@
-/* Atelier — DA alignée sur LennUX (Syne, pilules, cartes 20px, fond beige, thème auto clair/sombre) — accent orange */
+@font-face {font-family: "Syne";src: url("assets/Syne.ttf") format("truetype");}
 :root{
   --Primary:#FF6B2D;--PrimaryRGB:255,107,45;--DarkPrimary:#C2410C;
   --Charcoal:#1c1c1e;--Danger:#e53e3e;
