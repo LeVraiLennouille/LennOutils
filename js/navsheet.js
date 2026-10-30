@@ -35,7 +35,7 @@
       curEl.textContent = c ? c.textContent.trim() : '';
       var st = document.getElementById('rail-st');
       var extra = st ? st.textContent.trim() : '';
-      appEl.textContent = appName + (extra ? ' · ' + extra : '');
+      appEl.textContent = extra ? extra + ' · ' + appName : appName;
     }
     sync();
     new MutationObserver(sync).observe(rail, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['aria-current'] });
