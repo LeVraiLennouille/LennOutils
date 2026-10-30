@@ -6,12 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Compresser une image — Atelier</title>
   <meta name="description" content="Compressez vos images PNG, JPG, WEBP, AVIF ou SVG directement dans le navigateur, avec aperçu en temps réel.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#FF6B2D">
   <link href="style.css" rel="stylesheet">
+  <script src="js/theme.js"></script>
 </head>
 
 <body>
@@ -24,6 +22,9 @@
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
             <span class="lb">Accueil</span>
           </a></li>
+      </ul>
+      <h4 class="rail-group">Outils</h4>
+      <ul class="rail-nav">
         <li><a class="rail-btn" title="Compresser" href="compresser.html" aria-current="page">
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -84,16 +85,17 @@
     <main class="workspace" id="workspace">
 
       <section class="tool-panel" id="panel-compress" aria-labelledby="h-compress">
-        <div class="panel-head">
-          <h1 id="h-compress">Compresser une image</h1>
-          <p>Réduisez le poids d'un fichier en conservant son format d'origine. Le curseur de qualité et, pour le PNG,
+        <div class="PageHead">
+          <span class="Eyebrow">Compresser</span>
+          <h1 class="MainTitle" id="h-compress">Compresser <em>une image</em></h1>
+          <p class="MainDesc">Réduisez le poids d'un fichier en conservant son format d'origine. Le curseur de qualité et, pour le PNG,
             la réduction de palette, agissent en temps réel sur l'aperçu.</p>
         </div>
         <div class="panel-body">
           <div class="stage-col">
             <div class="dropzone" id="cp-dropzone">
               <div class="dz-inner">
-                <svg class="dz-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"
+                <svg class="dz-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
                   stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 16V4M12 4l-4 4M12 4l4 4" />
                   <path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" /></svg>
@@ -133,8 +135,7 @@
                     <div class="tt">Réduire la palette</div>
                     <div class="desc">Diminue le nombre de couleurs (PNG)</div>
                   </div>
-                  <label class="switch"><input type="checkbox" id="cp-quantize-toggle"><span
-                      class="track"></span></label>
+                  <span class="Toggle"><input type="checkbox" id="cp-quantize-toggle"></span>
                 </div>
                 <select id="cp-colors-select" disabled style="margin-top:9px;">
                   <option value="256">256 couleurs</option>

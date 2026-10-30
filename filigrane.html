@@ -12,6 +12,7 @@
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#FF6B2D">
   <link href="style.css" rel="stylesheet">
+  <script src="js/theme.js"></script>
 </head>
 
 <body>
@@ -24,6 +25,9 @@
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
             <span class="lb">Accueil</span>
           </a></li>
+      </ul>
+      <h4 class="rail-group">Outils</h4>
+      <ul class="rail-nav">
         <li><a class="rail-btn" title="Compresser" href="compresser.html">
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -84,16 +88,17 @@
     <main class="workspace" id="workspace">
 
       <section class="tool-panel" id="panel-watermark" aria-labelledby="h-watermark">
-        <div class="panel-head">
-          <h1 id="h-watermark">Ajouter un filigrane</h1>
-          <p>Texte ou logo, positionné à la souris ou par préréglage, avec dix typographies au choix. Sur un SVG, le
+        <div class="PageHead">
+          <span class="Eyebrow">Filigrane</span>
+          <h1 class="MainTitle" id="h-watermark">Ajouter <em>un filigrane</em></h1>
+          <p class="MainDesc">Texte ou logo, positionné à la souris ou par préréglage, avec dix typographies au choix. Sur un SVG, le
             filigrane est inséré nativement pour rester 100% vectoriel.</p>
         </div>
         <div class="panel-body">
           <div class="stage-col">
             <div class="dropzone" id="wm-dropzone">
               <div class="dz-inner">
-                <svg class="dz-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"
+                <svg class="dz-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
                   stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 16V4M12 4l-4 4M12 4l4 4" />
                   <path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" /></svg>
@@ -174,12 +179,11 @@
               </div>
               <div class="toggle-row" id="wm-stroke-row">
                 <div class="tt">Contour</div>
-                <label class="switch"><input type="checkbox" id="wm-stroke-toggle"><span class="track"></span></label>
+                <span class="Toggle"><input type="checkbox" id="wm-stroke-toggle"></span>
               </div>
               <div class="toggle-row" id="wm-shadow-row">
                 <div class="tt">Ombre portée</div>
-                <label class="switch"><input type="checkbox" id="wm-shadow-toggle" checked><span
-                    class="track"></span></label>
+                <span class="Toggle"><input type="checkbox" id="wm-shadow-toggle" checked></span>
               </div>
             </div>
             <div class="card control-card">
@@ -189,7 +193,7 @@
                   <div class="tt">Répéter en mosaïque</div>
                   <div class="desc">Filigrane répété sur toute l'image</div>
                 </div>
-                <label class="switch"><input type="checkbox" id="wm-tile-toggle"><span class="track"></span></label>
+                <span class="Toggle"><input type="checkbox" id="wm-tile-toggle"></span>
               </div>
               <div id="wm-position-block" style="margin-top:12px;">
                 <div class="pos-grid" id="wm-pos-grid" role="group" aria-label="Position du filigrane">

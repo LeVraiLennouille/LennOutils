@@ -6,12 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Convertir une image — Atelier</title>
   <meta name="description" content="Convertissez vos images entre PNG, JPG, WEBP, AVIF et SVG, entièrement dans le navigateur.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#FF6B2D">
   <link href="style.css" rel="stylesheet">
+  <script src="js/theme.js"></script>
 </head>
 
 <body>
@@ -24,6 +22,9 @@
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
             <span class="lb">Accueil</span>
           </a></li>
+      </ul>
+      <h4 class="rail-group">Outils</h4>
+      <ul class="rail-nav">
         <li><a class="rail-btn" title="Compresser" href="compresser.html">
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -84,16 +85,17 @@
     <main class="workspace" id="workspace">
 
       <section class="tool-panel" id="panel-convert" aria-labelledby="h-convert">
-        <div class="panel-head">
-          <h1 id="h-convert">Convertir une image</h1>
-          <p>Changez de format en conservant le meilleur rendu possible. Certaines cases sont grisées lorsque le
+        <div class="PageHead">
+          <span class="Eyebrow">Convertir</span>
+          <h1 class="MainTitle" id="h-convert">Convertir <em>une image</em></h1>
+          <p class="MainDesc">Changez de format en conservant le meilleur rendu possible. Certaines cases sont grisées lorsque le
             navigateur ou la nature du format ne permet techniquement pas la conversion.</p>
         </div>
         <div class="panel-body">
           <div class="stage-col">
             <div class="dropzone" id="cv-dropzone">
               <div class="dz-inner">
-                <svg class="dz-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"
+                <svg class="dz-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
                   stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 16V4M12 4l-4 4M12 4l4 4" />
                   <path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" /></svg>
