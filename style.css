@@ -148,25 +148,31 @@ dialog.Modal::backdrop{background:var(--Scrim)}
 .Badge,.badge{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:6px 14px;border-radius:var(--Pill);font-size:.78rem;font-weight:600;line-height:1.3;flex:none}
 .Badge,.badge-accent{background:linear-gradient(135deg,var(--Primary),var(--DarkPrimary));color:#fff}
 
-/* ---------- Mobile : barre d'onglets horizontale collée en haut ---------- */
+/* ---------- Mobile : barre du haut + menu en feuille (navsheet.js) ---------- */
+.MobileTop,.rail-sheet-head,.rail-scrim{display:none}
 @media(max-width:860px){
   :root{--CardPad:20px}
-  .app{grid-template-columns:1fr}
-  .rail{position:sticky;top:0;height:auto;width:auto;flex-direction:row;align-items:center;gap:6px;
-    overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:none;
+  .app{display:block}
+  .MobileTop{position:sticky;top:0;z-index:1000;display:flex;align-items:center;gap:12px;
     padding:calc(8px + env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) 8px max(12px,env(safe-area-inset-left,0px));
-    box-shadow:var(--ShadowBar)}
-  .rail::-webkit-scrollbar{display:none}
-  .rail-brand{padding:0 8px 0 0;position:sticky;left:0;z-index:2;background:var(--Nav)}
-  .rail-brand .mark{width:38px;height:38px;border-radius:10px}
-  .LogoTx,.rail-group{display:none}
-  .rail-nav{flex-direction:row;gap:6px;flex:none}
-  .rail-nav li{flex:none;scroll-snap-align:center}
-  .rail-btn{width:auto;white-space:nowrap;padding:8px 14px;gap:8px;min-height:40px;font-size:.85rem;scroll-snap-align:center}
-  .rail-btn .ic{width:17px;height:17px}
-  .rail-end{margin:0 0 0 8px;padding:0;display:flex;align-items:center;flex:none}
-  .rail-end .ThemeBtn{padding:8px 12px;white-space:nowrap}
-  .ThemeBtn .lb{display:none}
+    background:var(--Nav);box-shadow:var(--ShadowBar)}
+  .MobileTop .mark{width:38px;height:38px;border-radius:10px;flex:none;display:block;object-fit:cover}
+  .MobileTop-txt{flex:1;min-width:0;display:grid;line-height:1.25}
+  .MobileTop-app{font-size:.72rem;font-weight:800;text-transform:uppercase;color:var(--Link);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .MobileTop-cur{font-size:1rem;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .MobileTop-btn{flex:none;display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--Borders);border-radius:50%;background:var(--Card);color:var(--Link);cursor:pointer}
+  .MobileTop-btn svg,.rail-close svg{display:block;width:20px;height:20px}
+  .rail-scrim{display:block;position:fixed;inset:0;z-index:1290;background:var(--Scrim);opacity:0;visibility:hidden;transition:opacity .25s,visibility 0s .25s}
+  .rail{position:fixed;top:auto;right:0;bottom:0;left:0;height:auto;max-height:min(84dvh,680px);align-self:auto;z-index:1300;
+    padding:0 16px calc(16px + env(safe-area-inset-bottom,0px));border-radius:var(--R) var(--R) 0 0;box-shadow:var(--ShadowModal);
+    transform:translateY(105%);visibility:hidden;transition:transform .28s cubic-bezier(.2,.8,.2,1),visibility 0s .28s}
+  html.rail-open{overflow:hidden}
+  html.rail-open .rail-scrim{opacity:1;visibility:visible;transition:opacity .25s}
+  html.rail-open .rail{transform:none;visibility:visible;transition:transform .28s cubic-bezier(.2,.8,.2,1)}
+  .rail-sheet-head{position:sticky;top:0;z-index:3;display:flex;align-items:center;justify-content:center;flex:none;min-height:56px;margin:0 -16px 4px;background:var(--Nav);touch-action:none}
+  .rail-sheet-head .grab{width:40px;height:4px;border-radius:99px;background:var(--Borders)}
+  .rail-close{position:absolute;right:12px;top:6px;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:none;color:var(--Link);cursor:pointer}
+  .rail-end{margin-top:12px;padding-top:12px;border-top:1px solid var(--Borders)}
   .workspace{padding:20px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px))}
   .PageHead,.SectionTitle{margin-bottom:22px}
   .Input,.num,.text-input,select,textarea,input:where(:not([type]),[type=text],[type=email],[type=number],[type=search],[type=url],[type=tel],[type=password],[type=date],[type=time]){font-size:16px}
@@ -355,8 +361,10 @@ canvas.stage-media{cursor:crosshair}
   .panel-body{grid-template-columns:1fr}
   .controls-col{position:static}
 }
-/* Mobile : barre d'onglets horizontale, collée en haut */
+/* Mobile : le menu s'ouvre en feuille ; les outils y sont en grille de 2 colonnes */
 @media(max-width:860px){
+  .rail-group+.rail-nav{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .rail-group+.rail-nav .rail-btn{padding:8px 12px;gap:10px;min-width:0}
   .home{padding:24px max(16px,env(safe-area-inset-right,0px)) 56px max(16px,env(safe-area-inset-left,0px))}
   .controls-col{gap:12px}
   .dropzone{min-height:280px}
