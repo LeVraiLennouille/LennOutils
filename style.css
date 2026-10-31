@@ -124,6 +124,15 @@ input[type=range]::-moz-range-thumb{width:34px;height:16px;border-radius:99px;ba
 .Toggle input[type="checkbox"]:checked{background:var(--Primary)}
 .Toggle input[type="checkbox"]:checked::after{left:21px}
 
+/* ---------- Liens du réseau Lennouille ---------- */
+.rail-credit{display:block;flex:none;margin-top:12px;padding:12px 16px 0;border-top:1px solid var(--Borders);font-size:.78rem;font-weight:700;line-height:1.3;color:var(--MinMuted);text-decoration:none}
+.rail-credit:hover{color:var(--Link);text-decoration:underline}
+.SiteFoot{display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px;margin-top:clamp(48px,6vw,80px);padding-top:20px;border-top:1px solid var(--Borders);font-size:.85rem}
+.SiteFoot a{color:var(--Link);font-weight:700;text-decoration:none}
+.SiteFoot a:hover{text-decoration:underline}
+.SiteFoot nav{display:flex;flex-wrap:wrap;gap:6px 20px}
+@media(pointer:coarse){.SiteFoot a{display:inline-flex;align-items:center;min-height:44px}}
+
 /* ---------- Fenêtres modales ---------- */
 .Overlay{position:fixed;inset:0;z-index:1400;display:flex;align-items:center;justify-content:center;padding:16px;background:var(--Scrim)}
 .Modal{padding:28px;border:1px solid var(--Borders);border-radius:var(--R);background:var(--Card);color:var(--Tx);box-shadow:var(--ShadowModal)}
@@ -358,7 +367,7 @@ canvas.stage-media{cursor:crosshair}
   a.rail-btn{width:48px;height:48px;padding:0;justify-content:center;border-radius:var(--R2)}
   .rail-btn .ic{width:20px;height:20px}
   .rail-btn .lb{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
-  .rail-group{display:none}
+  .rail-group,.rail-credit{display:none}
   .rail-end .ThemeBtn{width:48px;height:48px;padding:0;border-radius:var(--R2)}
   .ThemeBtn .lb{display:none}
 }
