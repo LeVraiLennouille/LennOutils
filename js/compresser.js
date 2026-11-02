@@ -124,5 +124,6 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     Compress.init();
+    if (window.Batch) Batch.attach(Compress, { run: 'process', suffix: 'compresse' });
   });
 })();

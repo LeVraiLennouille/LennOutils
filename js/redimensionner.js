@@ -35,10 +35,16 @@
         controlsSvg: $('rs-controls-svg'),
         svgPercent: $('rs-svg-percent'),
         svgPercentValue: $('rs-svg-percent-value'),
+        presetSelect: $('rs-preset-select'),
+        fitBlock: $('rs-fit-block'),
+        fitSelect: $('rs-fit-select'),
+        presetHint: $('rs-preset-hint'),
         downloadBtn: $('rs-download-btn'),
         resetBtn: $('rs-reset-btn'),
       };
       Utils.setupDropzone(this.els.dropzone, this.els.input, f => this.onFile(f));
+      this.els.presetSelect.addEventListener('change', () => this.onPreset());
+      this.els.fitSelect.addEventListener('change', () => this.process());
       this.els.modePercentBtn.addEventListener('click', () => this.setMode('percent'));
       this.els.modePixelBtn.addEventListener('click', () => this.setMode('pixel'));
       this.els.percentSlider.addEventListener('input', () => {
@@ -60,8 +66,24 @@
       this.els.downloadBtn.addEventListener('click', () => this.download());
       this.els.resetBtn.addEventListener('click', () => this.reset());
     },
+    onPreset() {
+      const v = this.els.presetSelect.value;
+      if (!v) { this.setMode('percent'); return; }
+      const [w, h] = v.split('x').map(Number);
+      this.state.preset = { w, h };
+      this.state.mode = 'preset';
+      this.els.modePercentBtn.setAttribute('aria-pressed', 'false');
+      this.els.modePixelBtn.setAttribute('aria-pressed', 'false');
+      this.els.percentBlock.style.display = 'none';
+      this.els.pixelBlock.style.display = 'none';
+      this.els.fitBlock.style.display = 'block';
+      this.els.presetHint.textContent = 'Sortie : ' + w + ' × ' + h + ' px';
+      if (this.state.data) this.process();
+    },
     setMode(mode) {
       this.state.mode = mode;
+      this.els.presetSelect.value = '';
+      this.els.fitBlock.style.display = 'none';
       this.els.modePercentBtn.setAttribute('aria-pressed', String(mode === 'percent'));
       this.els.modePixelBtn.setAttribute('aria-pressed', String(mode === 'pixel'));
       this.els.percentBlock.style.display = mode === 'percent' ? 'block' : 'none';
@@ -96,6 +118,8 @@
         this.els.svgPercent.value = 100;
         this.els.svgPercentValue.textContent = '100%';
         this.state.mode = 'percent';
+        this.els.presetSelect.value = '';
+        this.els.fitBlock.style.display = 'none';
         this.els.modePercentBtn.setAttribute('aria-pressed', 'true');
         this.els.modePixelBtn.setAttribute('aria-pressed', 'false');
         this.els.percentBlock.style.display = 'block';
@@ -129,26 +153,55 @@
           this.els.statAfter.textContent = newW + ' × ' + newH;
           this.els.statSize.textContent = Utils.bytesToSize(this._resultBlob.size);
         } else {
-          let targetW, targetH;
-          if (this.state.mode === 'percent') {
-            const pct = parseInt(this.els.percentSlider.value, 10) / 100;
-            targetW = data.width * pct;
-            targetH = data.height * pct;
+          let outCanvas, newW, newH;
+          if (this.state.mode === 'preset') {
+            const P = this.state.preset, fit = this.els.fitSelect.value;
+            newW = P.w; newH = P.h;
+            const sc = fit === 'cover' ? Math.max(P.w / data.width, P.h / data.height) : Math.min(P.w / data.width, P.h / data.height);
+            let cw = data.width, ch = data.height, sx = 0, sy = 0, rw = P.w, rh = P.h, dx = 0, dy = 0;
+            if (fit === 'cover') {
+              cw = Math.min(data.width, Math.round(P.w / sc)); ch = Math.min(data.height, Math.round(P.h / sc));
+              sx = Math.round((data.width - cw) / 2); sy = Math.round((data.height - ch) / 2);
+            } else if (fit === 'contain') {
+              rw = Math.max(1, Math.round(data.width * sc)); rh = Math.max(1, Math.round(data.height * sc));
+              dx = Math.round((P.w - rw) / 2); dy = Math.round((P.h - rh) / 2);
+            }
+            const srcCanvas = document.createElement('canvas');
+            srcCanvas.width = cw; srcCanvas.height = ch;
+            srcCanvas.getContext('2d').drawImage(data.img, sx, sy, cw, ch, 0, 0, cw, ch);
+            const srcImgData = srcCanvas.getContext('2d').getImageData(0, 0, cw, ch);
+            const outData = Engine.resizeLanczos(srcImgData.data, cw, ch, rw, rh);
+            const part = document.createElement('canvas');
+            part.width = rw; part.height = rh;
+            part.getContext('2d').putImageData(new ImageData(outData, rw, rh), 0, 0);
+            outCanvas = document.createElement('canvas');
+            outCanvas.width = newW; outCanvas.height = newH;
+            const octx = outCanvas.getContext('2d');
+            if (fit === 'contain' && data.format === 'jpg') { octx.fillStyle = '#fff'; octx.fillRect(0, 0, newW, newH); }
+            octx.drawImage(part, dx, dy);
           } else {
-            targetW = parseInt(this.els.widthInput.value, 10) || data.width;
-            targetH = parseInt(this.els.heightInput.value, 10) || data.height;
-          }
-          const capped = Utils.capDimensions(targetW, targetH);
-          if (capped.capped) Utils.toast('Dimensions limitées à ~30 mégapixels pour rester fluide dans le navigateur.');
-          const newW = capped.width,
+            let targetW, targetH;
+            if (this.state.mode === 'percent') {
+              const pct = parseInt(this.els.percentSlider.value, 10) / 100;
+              targetW = data.width * pct;
+              targetH = data.height * pct;
+            } else {
+              targetW = parseInt(this.els.widthInput.value, 10) || data.width;
+              targetH = parseInt(this.els.heightInput.value, 10) || data.height;
+              if (this.state.batch && this.state.lockAspect) targetH = targetW * (data.height / data.width);
+            }
+            const capped = Utils.capDimensions(targetW, targetH);
+            if (capped.capped) Utils.toast('Dimensions limitées à ~30 mégapixels pour rester fluide dans le navigateur.');
+            newW = capped.width;
             newH = capped.height;
-          const srcCanvas = Utils.canvasFrom(data.img, data.width, data.height);
-          const srcImgData = srcCanvas.getContext('2d').getImageData(0, 0, data.width, data.height);
-          const outData = Engine.resizeLanczos(srcImgData.data, data.width, data.height, newW, newH);
-          const outCanvas = document.createElement('canvas');
-          outCanvas.width = newW;
-          outCanvas.height = newH;
-          outCanvas.getContext('2d').putImageData(new ImageData(outData, newW, newH), 0, 0);
+            const srcCanvas = Utils.canvasFrom(data.img, data.width, data.height);
+            const srcImgData = srcCanvas.getContext('2d').getImageData(0, 0, data.width, data.height);
+            const outData = Engine.resizeLanczos(srcImgData.data, data.width, data.height, newW, newH);
+            outCanvas = document.createElement('canvas');
+            outCanvas.width = newW;
+            outCanvas.height = newH;
+            outCanvas.getContext('2d').putImageData(new ImageData(outData, newW, newH), 0, 0);
+          }
           const mime = Utils.mimeFor(data.format);
           const blob = await Utils.canvasToBlob(outCanvas, mime, 0.92);
           this._resultBlob = blob;
@@ -182,5 +235,6 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     Resize.init();
+    if (window.Batch) Batch.attach(Resize, { run: 'process', suffix: 'redimensionne' });
   });
 })();

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Supprimer les métadonnées EXIF — Atelier</title>
+  <meta name="description" content="Supprimez la position GPS, l&#x27;appareil et les autres métadonnées EXIF de vos photos, sans perte de qualité et sans envoi de fichier.">
+  <link rel="canonical" href="https://outils.lennouille.fr/exif.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Lenny Gadroy">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lennouille">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Supprimer les métadonnées EXIF — Atelier">
+  <meta property="og:description" content="Supprimez la position GPS, l&#x27;appareil et les autres métadonnées EXIF de vos photos, sans perte de qualité et sans envoi de fichier.">
+  <meta property="og:url" content="https://outils.lennouille.fr/exif.html">
+  <meta property="og:image" content="https://outils.lennouille.fr/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Supprimer les métadonnées EXIF — Atelier">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="fonts/Syne.ttf" as="font" type="font/ttf" crossorigin>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Supprimer les métadonnées EXIF — Atelier","url":"https://outils.lennouille.fr/exif.html","description":"Supprimez la position GPS, l&#x27;appareil et les autres métadonnées EXIF de vos photos, sans perte de qualité et sans envoi de fichier.","inLanguage":"fr","applicationCategory":"MultimediaApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@type":"Person","name":"Lenny Gadroy","url":"https://lennouille.fr/"},"publisher":{"@type":"Organization","name":"Lennouille","url":"https://lennouille.fr/"},"image":"https://outils.lennouille.fr/assets/og.png","isPartOf":{"@type":"WebApplication","name":"LennOutils","url":"https://outils.lennouille.fr/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Atelier","item":"https://outils.lennouille.fr/"},{"@type":"ListItem","position":2,"name":"Supprimer les métadonnées EXIF","item":"https://outils.lennouille.fr/exif.html"}]}]}</script>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#FF6B2D">
+  <link href="style.css" rel="stylesheet">
+  <script src="js/theme.js"></script>
+<script src="js/navsheet.js" defer></script>
+</head>
+
+<body>
+  <div class="app">
+
+    <nav class="rail" aria-label="Outils">
+      <a class="rail-brand" href="index.html" aria-label="Atelier — retour à l'accueil"><img class="mark" src="assets/icon.svg" alt="" width="44" height="44"><span class="LogoTx">Atelier</span></a>
+      <ul class="rail-nav" id="rail-nav">
+        <li><a class="rail-btn" title="Accueil" href="index.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+            <span class="lb">Accueil</span>
+          </a></li>
+      </ul>
+      <p class="rail-group">Outils</p>
+      <ul class="rail-nav">
+        <li><a class="rail-btn" title="Compresser" href="exif.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 3v4a2 2 0 0 1-2 2H3" />
+                <path d="M15 3v4a2 2 0 0 0 2 2h4" />
+                <path d="M9 21v-4a2 2 0 0 0-2-2H3" />
+                <path d="M15 21v-4a2 2 0 0 1 2-2h4" /></svg></span>
+            <span class="lb">Compresser</span>
+          </a></li>
+        <li><a class="rail-btn" title="Redimensionner" href="redimensionner.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 14v6h6" />
+                <path d="M20 10V4h-6" />
+                <path d="M4 20l7-7" />
+                <path d="M20 4l-7 7" /></svg></span>
+            <span class="lb">Redimensionner</span>
+          </a></li>
+        <li><a class="rail-btn" title="Convertir" href="convertir.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12a9 9 0 0 1 15-6.7L21 8" />
+                <path d="M21 3v5h-5" />
+                <path d="M21 12a9 9 0 0 1-15 6.7L3 16" />
+                <path d="M3 21v-5h5" /></svg></span>
+            <span class="lb">Convertir</span>
+          </a></li>
+        <li><a class="rail-btn" title="Recadrer" href="recadrer.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2v14a2 2 0 0 0 2 2h14" />
+                <path d="M18 22V8a2 2 0 0 0-2-2H2" /></svg></span>
+            <span class="lb">Recadrer</span>
+          </a></li>
+        <li><a class="rail-btn" title="Améliorer" href="ameliorer.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3l1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6L12 3z" />
+                <path d="M19 15l.7 2.3L22 18l-2.3.7L19 21l-.7-2.3L16 18l2.3-.7L19 15z" /></svg></span>
+            <span class="lb">Améliorer</span>
+          </a></li>
+        <li><a class="rail-btn" title="Détourer" href="detourer.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="3 3" />
+                <circle cx="12" cy="12" r="5" /></svg></span>
+            <span class="lb">Détourer</span>
+          </a></li>
+        <li><a class="rail-btn" title="Filigrane" href="filigrane.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3c-3 4-5 6.5-5 9a5 5 0 0 0 10 0c0-2.5-2-5-5-9z" /></svg></span>
+            <span class="lb">Filigrane</span>
+          </a></li>
+        <li><a class="rail-btn" title="Favicon" href="favicon.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 7.5l1.4 2.9 3.2.4-2.3 2.2.6 3.2-2.9-1.5-2.9 1.5.6-3.2-2.3-2.2 3.2-.4z"/></svg></span>
+            <span class="lb">Favicon</span>
+          </a></li>
+        <li><a class="rail-btn" title="Métadonnées" href="exif.html" aria-current="page">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+            <span class="lb">Métadonnées</span>
+          </a></li>
+        <li><a class="rail-btn" title="Partage" href="partage.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.3M8.2 13.2l7.6 4.3"/></svg></span>
+            <span class="lb">Partage</span>
+          </a></li>
+      </ul>
+    <div class="rail-end"></div>
+    <a class="rail-credit" href="https://lennouille.fr/" target="_blank" rel="noopener">Lennouille — UI/UX Design</a>
+    </nav>
+
+    <main class="workspace" id="workspace">
+
+      <section class="tool-panel" id="panel-exif" aria-labelledby="h-exif">
+        <div class="PageHead">
+          <span class="Eyebrow">Métadonnées</span>
+          <h1 class="MainTitle" id="h-exif">Effacer <em>les métadonnées</em></h1>
+          <p class="MainDesc">Retirez la position GPS, l'appareil et les autres informations cachées de vos photos. Les images JPG, PNG et WebP ne sont pas ré-encodées : aucune perte de qualité.</p>
+        </div>
+        <div class="panel-body">
+          <div class="stage-col">
+            <div class="dropzone" id="md-dropzone">
+              <div class="dz-inner">
+                <svg class="dz-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 16V4M12 4l-4 4M12 4l4 4" />
+                  <path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" /></svg>
+                <div class="dz-title">Glissez des images ou <b>parcourez vos fichiers</b></div>
+                <div class="dz-sub">PNG, JPG, SVG, WEBP ou AVIF</div>
+              </div>
+              <input type="file" id="md-file-input" multiple
+                accept=".png,.jpg,.jpeg,.svg,.webp,.avif,image/png,image/jpeg,image/svg+xml,image/webp,image/avif"
+                aria-label="Choisir une image">
+            </div>
+            <div class="stage md-stage" id="md-stage">
+              <div class="loading-overlay" id="md-loading"><span class="spinner"></span><span class="msg">Analyse…</span></div>
+              <ul class="md-list" id="md-list"></ul>
+            </div>
+          </div>
+          <div class="controls-col">
+            <div class="card control-card">
+              <h3>Options</h3>
+              <div class="field">
+                <div class="toggle-row">
+                  <div>
+                    <div class="tt">Conserver l'orientation</div>
+                    <div class="desc">Évite qu'une photo s'affiche couchée</div>
+                  </div>
+                  <span class="Toggle"><input type="checkbox" id="md-orient-toggle" checked></span>
+                </div>
+              </div>
+              <div class="field">
+                <div class="toggle-row">
+                  <div>
+                    <div class="tt">Conserver le profil de couleurs</div>
+                    <div class="desc">Garde le rendu des couleurs (ICC)</div>
+                  </div>
+                  <span class="Toggle"><input type="checkbox" id="md-icc-toggle" checked></span>
+                </div>
+              </div>
+              <p class="hint">Tout est traité dans votre navigateur : aucune image n'est envoyée.</p>
+            </div>
+            <button class="btn btn-accent btn-block" id="md-download-btn" disabled>Télécharger</button>
+            <button class="btn btn-text btn-block" id="md-reset-btn">Recommencer</button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="SiteFoot"><a href="https://lennouille.fr/" target="_blank" rel="noopener">lennouille.fr</a><nav aria-label="Autres outils Lennouille"><a href="https://audits.lennouille.fr/" target="_blank" rel="noopener">Auditeur</a><a href="https://simu.lennouille.fr/" target="_blank" rel="noopener">Simulateur</a></nav></footer>
+  </main>
+  </div>
+  <script src="js/common.js"></script>
+  <script src="js/batch.js"></script>
+  <script src="js/exif.js"></script>
+
+</body>
+
+</html>

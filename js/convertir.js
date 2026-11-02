@@ -142,5 +142,6 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     Convert.init();
+    if (window.Batch) Batch.attach(Convert, { run: 'process', suffix: 'converti' });
   });
 })();

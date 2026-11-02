@@ -200,6 +200,42 @@ dialog.Modal::backdrop{background:var(--Scrim)}
 }
 /* ===== fin du socle commun ===== */
 
+/* ---------- Favicon, métadonnées, image de partage ---------- */
+.fv-stage{flex-direction:column;align-items:stretch;justify-content:flex-start;gap:24px}
+.fv-grid{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:center;gap:20px 24px}
+.fv-item{display:grid;justify-items:center;gap:8px;margin:0}
+.fv-item canvas{display:block;image-rendering:auto;border-radius:4px;box-shadow:0 0 0 1px var(--Borders)}
+.fv-item figcaption{font-size:.75rem;color:var(--MinMuted);font-variant-numeric:tabular-nums}
+.fv-codecard{padding:16px 18px;border:1px solid var(--Borders);border-radius:var(--R3);background:var(--Card)}
+.fv-codecard h3{margin:0 0 10px;font-size:1rem}
+.fv-code{margin:0 0 10px;padding:12px 14px;max-width:100%;overflow:auto;border-radius:var(--R3);background:var(--Faint);font-size:.75rem;line-height:1.6;white-space:pre}
+.md-stage{align-items:stretch;justify-content:flex-start;padding:16px}
+.md-list{width:100%;margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.md-item{padding:14px 16px;border:1px solid var(--Borders);border-radius:var(--R3);background:var(--Card)}
+.md-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;align-items:baseline}
+.md-head b{min-width:0;overflow-wrap:anywhere}
+.md-head .mono{font-size:.8rem;color:var(--MinMuted)}
+.md-sub,.md-clean,.md-err{margin:10px 0 6px;font-size:.8rem;color:var(--MinMuted)}
+.md-err{color:var(--DangerTx)}
+.md-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.md-tag{padding:4px 10px;border-radius:99px;background:var(--Faint);font-size:.78rem;overflow-wrap:anywhere}
+.md-tag span{font-weight:800;margin-right:4px}
+.md-tag.warn{background:rgba(245,158,11,.18)}
+.md-tag.keep{background:rgba(34,197,94,.15)}
+.og-stage{padding:16px}
+.og-stage canvas{width:100%;height:auto;max-height:70vh;object-fit:contain}
+textarea.text-input{display:block;width:100%;resize:vertical;min-height:64px;font:inherit}
+
+/* ---------- Traitement par lot ---------- */
+.BatchBar{display:grid;gap:10px;margin:0 0 10px;padding:14px 16px;border:1px solid var(--Borders);border-left:4px solid var(--Primary);border-radius:var(--R3);background:var(--Card)}
+.BatchBar[hidden],.BatchProg[hidden]{display:none}
+.BatchInfo{margin:0;font-size:.85rem;color:var(--Mu)}
+.BatchInfo b{color:var(--Tx)}
+.BatchProg{display:grid;gap:6px}
+.BatchProg .bar{height:6px;border-radius:99px;background:var(--Borders);overflow:hidden}
+.BatchProg i{display:block;width:0;height:100%;background:var(--Primary);transition:width .2s}
+.BatchProg span{font-size:.75rem;color:var(--MinMuted)}
+
 /* =====================================================================
    COMPOSANTS PROPRES À LennOutils
    ===================================================================== */

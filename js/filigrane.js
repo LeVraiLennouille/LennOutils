@@ -417,5 +417,6 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     Watermark.init();
+    if (window.Batch) Batch.attach(Watermark, { run: 'render', suffix: 'filigrane' });
   });
 })();

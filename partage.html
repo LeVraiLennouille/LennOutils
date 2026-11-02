@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Créer une image de partage — Atelier</title>
+  <meta name="description" content="Créez l&#x27;image Open Graph affichée quand vous partagez un lien : titre, fond, logo et format adaptés aux réseaux sociaux.">
+  <link rel="canonical" href="https://outils.lennouille.fr/partage.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Lenny Gadroy">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lennouille">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Créer une image de partage — Atelier">
+  <meta property="og:description" content="Créez l&#x27;image Open Graph affichée quand vous partagez un lien : titre, fond, logo et format adaptés aux réseaux sociaux.">
+  <meta property="og:url" content="https://outils.lennouille.fr/partage.html">
+  <meta property="og:image" content="https://outils.lennouille.fr/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Créer une image de partage — Atelier">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="fonts/Syne.ttf" as="font" type="font/ttf" crossorigin>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Créer une image de partage — Atelier","url":"https://outils.lennouille.fr/partage.html","description":"Créez l&#x27;image Open Graph affichée quand vous partagez un lien : titre, fond, logo et format adaptés aux réseaux sociaux.","inLanguage":"fr","applicationCategory":"MultimediaApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@type":"Person","name":"Lenny Gadroy","url":"https://lennouille.fr/"},"publisher":{"@type":"Organization","name":"Lennouille","url":"https://lennouille.fr/"},"image":"https://outils.lennouille.fr/assets/og.png","isPartOf":{"@type":"WebApplication","name":"LennOutils","url":"https://outils.lennouille.fr/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Atelier","item":"https://outils.lennouille.fr/"},{"@type":"ListItem","position":2,"name":"Créer une image de partage","item":"https://outils.lennouille.fr/partage.html"}]}]}</script>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#FF6B2D">
+  <link href="style.css" rel="stylesheet">
+  <script src="js/theme.js"></script>
+<script src="js/navsheet.js" defer></script>
+</head>
+
+<body>
+  <div class="app">
+
+    <nav class="rail" aria-label="Outils">
+      <a class="rail-brand" href="index.html" aria-label="Atelier — retour à l'accueil"><img class="mark" src="assets/icon.svg" alt="" width="44" height="44"><span class="LogoTx">Atelier</span></a>
+      <ul class="rail-nav" id="rail-nav">
+        <li><a class="rail-btn" title="Accueil" href="index.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+            <span class="lb">Accueil</span>
+          </a></li>
+      </ul>
+      <p class="rail-group">Outils</p>
+      <ul class="rail-nav">
+        <li><a class="rail-btn" title="Compresser" href="partage.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 3v4a2 2 0 0 1-2 2H3" />
+                <path d="M15 3v4a2 2 0 0 0 2 2h4" />
+                <path d="M9 21v-4a2 2 0 0 0-2-2H3" />
+                <path d="M15 21v-4a2 2 0 0 1 2-2h4" /></svg></span>
+            <span class="lb">Compresser</span>
+          </a></li>
+        <li><a class="rail-btn" title="Redimensionner" href="redimensionner.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 14v6h6" />
+                <path d="M20 10V4h-6" />
+                <path d="M4 20l7-7" />
+                <path d="M20 4l-7 7" /></svg></span>
+            <span class="lb">Redimensionner</span>
+          </a></li>
+        <li><a class="rail-btn" title="Convertir" href="convertir.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12a9 9 0 0 1 15-6.7L21 8" />
+                <path d="M21 3v5h-5" />
+                <path d="M21 12a9 9 0 0 1-15 6.7L3 16" />
+                <path d="M3 21v-5h5" /></svg></span>
+            <span class="lb">Convertir</span>
+          </a></li>
+        <li><a class="rail-btn" title="Recadrer" href="recadrer.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2v14a2 2 0 0 0 2 2h14" />
+                <path d="M18 22V8a2 2 0 0 0-2-2H2" /></svg></span>
+            <span class="lb">Recadrer</span>
+          </a></li>
+        <li><a class="rail-btn" title="Améliorer" href="ameliorer.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3l1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6L12 3z" />
+                <path d="M19 15l.7 2.3L22 18l-2.3.7L19 21l-.7-2.3L16 18l2.3-.7L19 15z" /></svg></span>
+            <span class="lb">Améliorer</span>
+          </a></li>
+        <li><a class="rail-btn" title="Détourer" href="detourer.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="3 3" />
+                <circle cx="12" cy="12" r="5" /></svg></span>
+            <span class="lb">Détourer</span>
+          </a></li>
+        <li><a class="rail-btn" title="Filigrane" href="filigrane.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3c-3 4-5 6.5-5 9a5 5 0 0 0 10 0c0-2.5-2-5-5-9z" /></svg></span>
+            <span class="lb">Filigrane</span>
+          </a></li>
+        <li><a class="rail-btn" title="Favicon" href="favicon.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 7.5l1.4 2.9 3.2.4-2.3 2.2.6 3.2-2.9-1.5-2.9 1.5.6-3.2-2.3-2.2 3.2-.4z"/></svg></span>
+            <span class="lb">Favicon</span>
+          </a></li>
+        <li><a class="rail-btn" title="Métadonnées" href="exif.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+            <span class="lb">Métadonnées</span>
+          </a></li>
+        <li><a class="rail-btn" title="Partage" href="partage.html" aria-current="page">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.3M8.2 13.2l7.6 4.3"/></svg></span>
+            <span class="lb">Partage</span>
+          </a></li>
+      </ul>
+    <div class="rail-end"></div>
+    <a class="rail-credit" href="https://lennouille.fr/" target="_blank" rel="noopener">Lennouille — UI/UX Design</a>
+    </nav>
+
+    <main class="workspace" id="workspace">
+
+      <section class="tool-panel" id="panel-partage" aria-labelledby="h-partage">
+        <div class="PageHead">
+          <span class="Eyebrow">Partage</span>
+          <h1 class="MainTitle" id="h-partage">Créer <em>une image de partage</em></h1>
+          <p class="MainDesc">Composez l'image qui s'affiche quand vous partagez un lien : titre, sous-titre, fond et logo, au bon format.</p>
+        </div>
+        <div class="panel-body">
+          <div class="stage-col">
+            <div class="stage is-active og-stage" id="og-stage">
+              <canvas class="stage-media" id="og-canvas" role="img" aria-label="Aperçu de l'image de partage"></canvas>
+            </div>
+          </div>
+          <div class="controls-col">
+            <div class="card control-card">
+              <h3>Contenu</h3>
+              <div class="field"><label for="og-format">Format</label>
+                <select id="og-format">
+                  <option value="og">Lien partagé — 1200 × 630</option>
+                  <option value="wide">Grand format 16:9 — 1600 × 900</option>
+                  <option value="square">Carré — 1080 × 1080</option>
+                  <option value="story">Story — 1080 × 1920</option>
+                </select></div>
+              <div class="field"><label for="og-title">Titre</label>
+                <textarea class="text-input" id="og-title" rows="2" maxlength="140">Titre de votre page</textarea></div>
+              <div class="field"><label for="og-subtitle">Sous-titre</label>
+                <textarea class="text-input" id="og-subtitle" rows="2" maxlength="200">Une courte description qui donne envie de cliquer</textarea></div>
+              <div class="field"><label for="og-site">Adresse du site</label>
+                <input class="text-input" type="text" id="og-site" value="votresite.fr" maxlength="60"></div>
+            </div>
+            <div class="card control-card">
+              <h3>Fond</h3>
+              <div class="seg seg-block" id="og-bg-seg" role="group" aria-label="Type de fond">
+                <button type="button" data-bg="color" aria-pressed="false">Uni</button>
+                <button type="button" data-bg="gradient" aria-pressed="true">Dégradé</button>
+                <button type="button" data-bg="image" aria-pressed="false">Image</button>
+              </div>
+              <div class="color-row" style="margin-top:14px;"><input type="color" id="og-color1" value="#1f3a5f" aria-label="Couleur du fond"></div>
+              <div class="color-row" id="og-color2-row" style="margin-top:10px;"><input type="color" id="og-color2" value="#2f7d6d" aria-label="Seconde couleur du dégradé"></div>
+              <div class="field" id="og-img-field" style="display:none;margin-top:14px;">
+                <label for="og-bg-file">Image de fond</label>
+                <input class="text-input" type="file" id="og-bg-file" accept="image/*">
+                <div class="field-row" style="margin-top:12px;"><label for="og-dim">Assombrir</label><span class="val" id="og-dim-value">45%</span></div>
+                <input type="range" id="og-dim" min="0" max="85" value="45">
+              </div>
+            </div>
+            <div class="card control-card">
+              <h3>Texte</h3>
+              <div class="seg seg-block" id="og-align-seg" role="group" aria-label="Alignement">
+                <button type="button" data-align="left" aria-pressed="true">À gauche</button>
+                <button type="button" data-align="center" aria-pressed="false">Centré</button>
+              </div>
+              <div class="field" style="margin-top:14px;"><label for="og-font">Typographie</label>
+                <select id="og-font"><option value="syne">Syne</option><option value="sans">Sans-serif</option><option value="serif">Serif</option><option value="mono">Monospace</option></select></div>
+              <div class="field"><div class="field-row"><label for="og-size">Taille du titre</label><span class="val" id="og-size-value">100%</span></div>
+                <input type="range" id="og-size" min="50" max="140" value="100"></div>
+              <div class="field"><label for="og-text-color">Couleur du texte</label>
+                <div class="color-row"><input type="color" id="og-text-color" value="#ffffff"></div></div>
+              <div class="field">
+                <div class="toggle-row">
+                  <div>
+                    <div class="tt">Barre d'accent</div>
+                    <div class="desc">Un trait de couleur au-dessus du titre</div>
+                  </div>
+                  <span class="Toggle"><input type="checkbox" id="og-accent-toggle" checked></span>
+                </div>
+                <div class="color-row" style="margin-top:9px;"><input type="color" id="og-accent-color" value="#ff6b2d" aria-label="Couleur de la barre d'accent"></div>
+              </div>
+            </div>
+            <div class="card control-card">
+              <h3>Logo</h3>
+              <div class="field"><label for="og-logo-file">Fichier logo</label>
+                <input class="text-input" type="file" id="og-logo-file" accept="image/*">
+                <p class="hint">PNG ou SVG à fond transparent conseillé.</p></div>
+              <div class="field"><label for="og-logo-pos">Position</label>
+                <select id="og-logo-pos"><option value="top-left">En haut à gauche</option><option value="top-right">En haut à droite</option><option value="bottom-right">En bas à droite</option></select></div>
+              <div class="field"><div class="field-row"><label for="og-logo-size">Taille</label></div>
+                <input type="range" id="og-logo-size" min="40" max="200" value="100"></div>
+            </div>
+            <div class="field"><label for="og-file-format">Format du fichier</label>
+              <select id="og-file-format"><option value="png">PNG</option><option value="jpg">JPG</option></select></div>
+            <button class="btn btn-accent btn-block" id="og-download-btn">Télécharger l'image</button>
+            <button class="btn btn-text btn-block" id="og-reset-btn">Recommencer</button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="SiteFoot"><a href="https://lennouille.fr/" target="_blank" rel="noopener">lennouille.fr</a><nav aria-label="Autres outils Lennouille"><a href="https://audits.lennouille.fr/" target="_blank" rel="noopener">Auditeur</a><a href="https://simu.lennouille.fr/" target="_blank" rel="noopener">Simulateur</a></nav></footer>
+  </main>
+  </div>
+  <script src="js/common.js"></script>
+  <script src="js/batch.js"></script>
+  <script src="js/partage.js"></script>
+
+</body>
+
+</html>
