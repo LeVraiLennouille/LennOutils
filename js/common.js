@@ -111,8 +111,42 @@
       }
     },
 
+    /* HEIC / HEIF : décodage local (libheif, chargé uniquement à la demande) puis conversion en PNG pour le reste de l'outil. */
+    _loadScript(src) {
+      return new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = src; s.onload = resolve; s.onerror = () => reject(new Error('Le décodeur HEIC n’a pas pu être chargé.'));
+        document.head.appendChild(s);
+      });
+    },
+    async _heicToPngBlob(file) {
+      if (!window.libheif) await this._loadScript('js/vendor/libheif-bundle.js');
+      // la version « bundle » expose une fabrique à appeler une fois (initialise le WebAssembly intégré)
+      if (!this._heif) this._heif = typeof window.libheif === 'function' ? await window.libheif() : window.libheif;
+      const decoder = new this._heif.HeifDecoder();
+      const imgs = decoder.decode(new Uint8Array(await file.arrayBuffer()));
+      if (!imgs || !imgs.length) throw new Error('Ce fichier HEIC est illisible.');
+      const im = imgs[0], w = im.get_width(), h = im.get_height();
+      if (!w || !h || w * h > 120e6) throw new Error('Image HEIC trop grande ou invalide.');
+      const cnv = document.createElement('canvas');
+      cnv.width = w; cnv.height = h;
+      const ctx = cnv.getContext('2d'), id = ctx.createImageData(w, h);
+      await new Promise((res, rej) => im.display(id, out => (out ? res() : rej(new Error('Décodage HEIC impossible.')))));
+      ctx.putImageData(id, 0, 0);
+      const blob = await new Promise(r => cnv.toBlob(r, 'image/png'));
+      cnv.width = cnv.height = 0;
+      if (!blob) throw new Error('Conversion HEIC impossible.');
+      return blob;
+    },
+
     async loadImage(file) {
-      const format = this.detectFormat(file);
+      let format = this.detectFormat(file);
+      if (format === 'heic') {
+        const png = await this._heicToPngBlob(file);
+        const url = URL.createObjectURL(png);
+        const img = await this._loadImgEl(url).catch(e => { URL.revokeObjectURL(url); throw e; });
+        return { img, url, width: img.naturalWidth, height: img.naturalHeight, format: 'jpg', sourceFormat: 'heic', isVector: false, fileSize: file.size, fileName: file.name };
+      }
       if (format === 'svg') {
         const text = await this.readFileAsText(file);
         const dims = this.parseSVGSize(text);

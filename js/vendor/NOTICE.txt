@@ -1,0 +1,5 @@
+libheif-bundle.js — libheif-js 1.23.5 (https://github.com/catdad-experiments/libheif-js)
+Compilation WebAssembly de libheif (https://github.com/strukturag/libheif), distribuée sous licence LGPL-3.0.
+Le fichier n'est pas modifié ; le texte de la licence est dans LIBHEIF-LICENSE.txt.
+Il sert uniquement à décoder les images HEIC/HEIF dans le navigateur (aucune image n'est envoyée sur un serveur).
+Il n'est chargé que lorsqu'un fichier HEIC est déposé.
