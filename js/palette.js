@@ -45,7 +45,7 @@
         const lb = el.querySelector('.nm') ? 'Mes audits' : (el.querySelector('.lb') ? el.querySelector('.lb').textContent : el.textContent);
         out.push({ label: lb.trim(), group: 'Actions', kind: 'act', el });
       });
-      document.querySelectorAll('.SiteFoot a').forEach(el => out.push({ label: el.textContent.trim(), group: 'Liens', kind: 'link', el }));
+      document.querySelectorAll('main:not([hidden]) .SiteFoot a').forEach(el => out.push({ label: el.textContent.trim(), group: 'Liens', kind: 'link', el }));
       return out.filter(i => i.label);
     }
 

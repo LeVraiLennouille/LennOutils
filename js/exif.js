@@ -161,10 +161,8 @@
         loading: $('md-loading'), keepOrient: $('md-orient-toggle'), keepIcc: $('md-icc-toggle'),
         downloadBtn: $('md-download-btn'), resetBtn: $('md-reset-btn'),
       };
-      Utils.setupDropzone(this.els.dropzone, this.els.input, () => {});
-      // setupDropzone gère le dépôt ; on récupère la liste complète via Batch.queue
-      const origQueue = Batch.setQueue.bind(Batch);
-      Batch.setQueue = files => { origQueue(files); if (files.length) this.run(files); };
+      // setupDropzone transmet la liste complète des images déposées (2e argument)
+      Utils.setupDropzone(this.els.dropzone, this.els.input, (first, all) => this.run(all || [first]));
       this.els.keepOrient.addEventListener('change', () => this.rerun());
       this.els.keepIcc.addEventListener('change', () => this.rerun());
       this.els.downloadBtn.addEventListener('click', () => this.download());

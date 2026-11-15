@@ -77,6 +77,9 @@
   const Batch = {
     queue: [],
     tool: null,
+    tools: {},     // vue (data-view) -> outil rattaché
+    queues: {},    // vue -> file d'attente mémorisée quand on change d'outil
+    current: null, // vue affichée (définie par le routeur de img.html)
     zip,
     zipSink,
     isImg,
@@ -92,6 +95,15 @@
         if (e && e.name === 'AbortError') throw e;
         return null;
       }
+    },
+
+    /* Page unique : appelé à chaque changement de vue. Chaque outil garde sa propre file d'images. */
+    activate(key) {
+      if (this.current) this.queues[this.current] = this.queue;
+      this.current = key;
+      this.queue = this.queues[key] || [];
+      this.tool = this.tools[key] || null;
+      this.refresh();
     },
 
     setQueue(files) { this.queue = files; this.refresh(); },
@@ -117,7 +129,10 @@
       bar.querySelector('.bt-zip').addEventListener('click', () => this.run(tool));
       const reset = tool.reset.bind(tool);
       tool.reset = () => { this.setQueue([]); reset(); };
-      this.tool = tool;
+      const view = tool.els.dropzone && tool.els.dropzone.closest('[data-view]');
+      const key = view ? view.dataset.view : null;
+      if (key) this.tools[key] = tool;
+      if (!key || !this.current || key === this.current) this.tool = tool;
     },
 
     async run(tool) {
@@ -194,7 +209,7 @@
       if (!files.length) { Utils.toast('Ce fichier n’est pas une image prise en charge.'); return; }
       if (!multiple) files = files.slice(0, 1);
       Batch.setQueue(files);
-      onFile(files[0]);
+      onFile(files[0], files);
     };
     const sub = dropzoneEl.querySelector('.dz-sub');
     if (sub && !sub.dataset.hint) {
@@ -212,6 +227,8 @@
       if (list.length) handle(list);
     });
     document.addEventListener('paste', e => {
+      const view = dropzoneEl.closest('[data-view]');
+      if (view && view.hidden) return;   // page unique : seul l'outil affiché réagit au collage
       const fs = [...((e.clipboardData && e.clipboardData.files) || [])].filter(isImg);
       if (!fs.length) return;
       e.preventDefault(); handle(fs);
