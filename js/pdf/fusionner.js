@@ -1,4 +1,3 @@
-/* Atelier PDF — Fusionner des PDF */
 (()=>{
 const {lib,ld,out}=PDFK;
 PDFK.tools.push(

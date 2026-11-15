@@ -1,4 +1,3 @@
-/* Atelier PDF — Organiser et diviser */
 (()=>{
 const {$,base,ld,rg,pg,out}=PDFK;
 PDFK.tools.push(

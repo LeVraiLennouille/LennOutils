@@ -1,20 +1,10 @@
-/* =====================================================================
-   ACCENT — propre à LennOutils (seul bloc à changer d'une app à l'autre)
-   ===================================================================== */
 :root{--Primary:#FF6B2D;--PrimaryRGB:255,107,45;--DarkPrimary:#C2410C;--LinkLight:#B03807;--LinkDark:#FF8A57;--SoftDarkA:.2;--FaintDarkA:.1}
 :root{--Chk1:#d9d2c8;--Chk2:#f3efe8;--Overlay:rgba(255,255,255,.86)}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--Chk1:#2c2c30;--Chk2:#1f1f22;--Overlay:rgba(20,20,22,.86)}}
 :root[data-theme="dark"]{--Chk1:#2c2c30;--Chk2:#1f1f22;--Overlay:rgba(20,20,22,.86)}
 
-/* =====================================================================
-   LENN DESIGN SYSTEM v1 — socle commun
-   Bloc IDENTIQUE dans LennAudits, LennOutils et LennSimu.
-   Ne pas modifier d'un seul côté : copier le bloc entier dans les 3 dépôts.
-   Seules les variables d'accent (en tête de fichier) changent d'une app à l'autre.
-   ===================================================================== */
 @font-face{font-family:"Syne";src:url("fonts/Syne.ttf") format("truetype");font-weight:400 800;font-style:normal;font-display:swap}
 
-/* ---------- Jetons ---------- */
 :root{
   --Charcoal:#1c1c1e;--Danger:#e53e3e;--Success:#22c55e;
   --Bg:#e8e2d8;--Card:#fff;--Nav:#fff;--Tx:#1c1c1e;--Mu:#3B3B3B;--MinMuted:#777;--Borders:#d4cdc4;--DarkBorders:#b8b1a8;
@@ -31,7 +21,6 @@
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--Bg:#141416;--Card:#232326;--Nav:#1b1b1e;--Tx:#f3efe8;--Mu:#c9c4bb;--MinMuted:#9a958d;--Borders:#3a3a3e;--DarkBorders:#4a4a4f;--DangerTx:#fc8181;--OkTx:#4ade80;--WarnTx:#FBBF24;--WarnBg:rgba(250,204,21,.16);--Link:var(--LinkDark);--Soft:rgba(var(--PrimaryRGB),var(--SoftDarkA));--Faint:rgba(var(--PrimaryRGB),var(--FaintDarkA));--Shadow:0 4px 24px rgba(0,0,0,.35);color-scheme:dark}}
 :root[data-theme="dark"]{--Bg:#141416;--Card:#232326;--Nav:#1b1b1e;--Tx:#f3efe8;--Mu:#c9c4bb;--MinMuted:#9a958d;--Borders:#3a3a3e;--DarkBorders:#4a4a4f;--DangerTx:#fc8181;--OkTx:#4ade80;--WarnTx:#FBBF24;--WarnBg:rgba(250,204,21,.16);--Link:var(--LinkDark);--Soft:rgba(var(--PrimaryRGB),var(--SoftDarkA));--Faint:rgba(var(--PrimaryRGB),var(--FaintDarkA));--Shadow:0 4px 24px rgba(0,0,0,.35);color-scheme:dark}
 
-/* ---------- Base ---------- */
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--Bg);color:var(--Tx);font:15px/1.55 var(--font);-webkit-font-smoothing:antialiased}
@@ -43,12 +32,10 @@ input:is([type=checkbox],[type=radio],[type=range],[type=color],[type=file]):foc
 input:is([type=checkbox],[type=radio]){accent-color:var(--Primary)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
 
-/* ---------- Barre de progression ---------- */
 .ReadingProgress,.StepProgress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(to right,var(--DarkPrimary),var(--Primary));z-index:1100;pointer-events:none}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) :is(.ReadingProgress,.StepProgress){background:linear-gradient(to right,var(--Primary),var(--Link))}}
 :root[data-theme="dark"] :is(.ReadingProgress,.StepProgress){background:linear-gradient(to right,var(--Primary),var(--Link))}
 
-/* ---------- Structure : barre latérale + contenu ---------- */
 .app{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:100vh}
 .rail{position:sticky;top:0;height:100vh;height:100dvh;align-self:start;z-index:1000;display:flex;flex-direction:column;gap:2px;overflow-y:auto;overscroll-behavior:contain;
   padding:calc(20px + env(safe-area-inset-top,0px)) 14px calc(16px + env(safe-area-inset-bottom,0px));
@@ -73,20 +60,16 @@ input:is([type=checkbox],[type=radio]){accent-color:var(--Primary)}
 .rail::-webkit-scrollbar-thumb{background:var(--Borders);border-radius:4px}
 .workspace{min-width:0;padding:clamp(28px,4vw,56px) clamp(16px,4vw,48px)}
 
-/* ---------- En-tête de page ---------- */
 .Eyebrow{display:block;font-size:.82rem;font-weight:800;text-transform:uppercase;color:var(--Link);margin-bottom:12px}
 .MainTitle{margin:0;font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:800;line-height:1.15;overflow-wrap:break-word;hyphens:auto}
 .MainDesc{margin:12px 0 0;color:var(--Mu);max-width:60ch}
 .PageHead,.SectionTitle{margin:0 0 32px;text-align:left}
 .PageHead{max-width:720px}
 
-/* Titre bicolore : noir + mots d'accent dans la couleur de l'app */
 :is(h1,h2) em{font-style:normal;color:var(--Link)}
 
-/* ---------- Cartes ---------- */
 .card,.Card{padding:var(--CardPad);background:var(--Card);border:1px solid var(--Borders);border-radius:var(--R);box-shadow:var(--Shadow)}
 
-/* ---------- Boutons (pilules) ---------- */
 .btn,.BtnSolid,.ArrowBtn,.BtnMain,.btn-ghost,.Ghost,.BtnGhost{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border:1.5px solid transparent;border-radius:var(--Pill);font:inherit;font-size:.95rem;font-weight:800;line-height:1.1;white-space:nowrap;max-width:100%;text-decoration:none;cursor:pointer;transition:background-color .3s,color .3s,box-shadow .3s,border-color .15s}
 .btn-accent,.BtnSolid,.ArrowBtn,.BtnMain{background:var(--Primary);color:#fff;border-color:var(--Primary)}
 .btn-accent:hover,.BtnSolid:hover,.ArrowBtn:hover,.BtnMain:hover{background:#fff;color:var(--DarkPrimary);box-shadow:0 8px 20px rgba(var(--PrimaryRGB),.3)}
@@ -96,7 +79,6 @@ input:is([type=checkbox],[type=radio]){accent-color:var(--Primary)}
 :is(.btn,.BtnSolid,.ArrowBtn,.BtnMain,.btn-ghost,.Ghost,.BtnGhost):disabled{opacity:.45;cursor:not-allowed}
 :is(.btn-accent,.BtnSolid,.ArrowBtn,.BtnMain):disabled:hover{background:var(--Primary);color:#fff;box-shadow:none}
 
-/* ---------- Champs ---------- */
 .Input,.num,.text-input,select,textarea,input:where(:not([type]),[type=text],[type=email],[type=number],[type=search],[type=url],[type=tel],[type=password],[type=date],[type=time]){width:100%;padding:10px 14px;border:1px solid var(--Borders);border-radius:var(--R3);background:var(--Card);color:var(--Tx);transition:border-color .15s,box-shadow .15s}
 .Input:hover,
 .num:hover,
@@ -117,14 +99,12 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:34px;heigh
 input[type=range]::-moz-range-track{height:1px;background:var(--Tx)}
 input[type=range]::-moz-range-thumb{width:34px;height:16px;border-radius:99px;background:var(--Primary);border:0;cursor:pointer}
 
-/* ---------- Interrupteur ---------- */
 .Toggle{display:inline-flex;flex:none}
 .Toggle input[type="checkbox"]{position:relative;display:block;flex:none;width:42px;height:24px;margin:0;padding:0;border:0;appearance:none;-webkit-appearance:none;border-radius:var(--Pill);background:var(--DarkBorders);cursor:pointer;transition:background .2s}
 .Toggle input[type="checkbox"]::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:left .2s}
 .Toggle input[type="checkbox"]:checked{background:var(--Primary)}
 .Toggle input[type="checkbox"]:checked::after{left:21px}
 
-/* ---------- Liens du réseau Lennouille ---------- */
 .rail-credit{display:block;flex:none;margin-top:12px;padding:12px 16px 0;border-top:1px solid var(--Borders);font-size:.78rem;font-weight:700;line-height:1.3;color:var(--MinMuted);text-decoration:none}
 .rail-credit:hover{color:var(--Link);text-decoration:underline}
 .SiteFoot{display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px;margin-top:clamp(48px,6vw,80px);padding-top:20px;border-top:1px solid var(--Borders);font-size:.85rem}
@@ -133,14 +113,12 @@ input[type=range]::-moz-range-thumb{width:34px;height:16px;border-radius:99px;ba
 .SiteFoot nav{display:flex;flex-wrap:wrap;gap:6px 20px}
 @media(pointer:coarse){.SiteFoot a{display:inline-flex;align-items:center;min-height:44px}}
 
-/* ---------- Fenêtres modales ---------- */
 .Overlay{position:fixed;inset:0;z-index:1400;display:flex;align-items:center;justify-content:center;padding:16px;background:var(--Scrim)}
 .Modal{padding:28px;border:1px solid var(--Borders);border-radius:var(--R);background:var(--Card);color:var(--Tx);box-shadow:var(--ShadowModal)}
 dialog.Modal{width:min(560px,calc(100vw - 32px));max-height:calc(100vh - 48px);max-height:calc(100dvh - 32px);overflow:hidden}
 dialog.Modal[open]{display:flex;flex-direction:column}
 dialog.Modal::backdrop{background:var(--Scrim)}
 
-/* ---------- Toast d'erreur ---------- */
 .ToastContainer{position:fixed;right:24px;bottom:24px;z-index:1500;display:flex;flex-direction:column;gap:10px;width:min(380px,calc(100vw - 48px));pointer-events:none}
 .Toast{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border-radius:14px;background:var(--Card);border:1px solid rgba(229,62,62,.3);border-left:3px solid var(--Danger);box-shadow:var(--ShadowPop);pointer-events:auto;animation:ToastIn .35s cubic-bezier(.22,1,.36,1)}
 .Toast.ToastOut{animation:ToastOut .25s ease forwards}
@@ -153,7 +131,6 @@ dialog.Modal::backdrop{background:var(--Scrim)}
 @keyframes ToastIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
 @keyframes ToastOut{from{opacity:1;transform:none}to{opacity:0;transform:translateY(8px) scale(.98)}}
 
-/* ---------- Palette « Aller à… » (Audits et Outils) ---------- */
 .PaletteBtn{display:flex;align-items:center;gap:10px;width:100%;margin:0 0 6px;padding:9px 14px;border:1px solid var(--Borders);border-radius:var(--Pill);background:var(--Card);color:var(--MinMuted);font:inherit;font-size:.88rem;font-weight:600;text-align:left;cursor:pointer;flex:none;transition:border-color .2s,color .2s}
 .PaletteBtn:hover{border-color:var(--Primary);color:var(--Link)}
 .PaletteBtn .pal-ic{display:block;width:16px;height:16px;flex:none}
@@ -172,11 +149,9 @@ dialog.Modal.Palette{align-self:flex-start;margin:min(12vh,96px) auto auto;paddi
 .PalHint{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0;padding:10px 16px;border-top:1px solid var(--Borders);font-size:.74rem;color:var(--MinMuted)}
 @media(pointer:coarse){.PaletteBtn kbd,.PalHint{display:none}}
 
-/* ---------- Pastilles ---------- */
 .Badge,.badge{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:6px 14px;border-radius:var(--Pill);font-size:.78rem;font-weight:600;line-height:1.3;flex:none}
 .Badge,.badge-accent{background:linear-gradient(135deg,var(--Primary),var(--DarkPrimary));color:#fff}
 
-/* ---------- Mobile : barre du haut + menu en feuille (navsheet.js) ---------- */
 .MobileTop,.rail-sheet-head,.rail-scrim{display:none}
 @media(max-width:860px){
   :root{--CardPad:20px}
@@ -217,9 +192,7 @@ dialog.Modal.Palette{align-self:flex-start;margin:min(12vh,96px) auto auto;paddi
   .Toggle input[type="checkbox"]{width:46px;height:28px}
   .Toggle input[type="checkbox"]::after{width:22px;height:22px}
 }
-/* ===== fin du socle commun ===== */
 
-/* ---------- Favicon, métadonnées, image de partage ---------- */
 .fv-stage{flex-direction:column;align-items:stretch;justify-content:flex-start;gap:24px}
 .fv-grid{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:center;gap:20px 24px}
 .fv-item{display:grid;justify-items:center;gap:8px;margin:0}
@@ -245,7 +218,6 @@ dialog.Modal.Palette{align-self:flex-start;margin:min(12vh,96px) auto auto;paddi
 .og-stage canvas{width:100%;height:auto;max-height:70vh;object-fit:contain}
 textarea.text-input{display:block;width:100%;resize:vertical;min-height:64px;font:inherit}
 
-/* ---------- Traitement par lot ---------- */
 .BatchBar{display:grid;gap:10px;margin:0 0 10px;padding:14px 16px;border:1px solid var(--Borders);border-left:4px solid var(--Primary);border-radius:var(--R3);background:var(--Card)}
 .BatchBar[hidden],.BatchProg[hidden]{display:none}
 .BatchInfo{margin:0;font-size:.85rem;color:var(--Mu)}
@@ -255,9 +227,6 @@ textarea.text-input{display:block;width:100%;resize:vertical;min-height:64px;fon
 .BatchProg i{display:block;width:0;height:100%;background:var(--Primary);transition:width .2s}
 .BatchProg span{font-size:.75rem;color:var(--MinMuted)}
 
-/* =====================================================================
-   COMPOSANTS PROPRES À LennOutils
-   ===================================================================== */
 html,body{height:100%}
 h1,h2,h3{margin:0;font-family:var(--font);font-weight:800}
 p{margin:0}
@@ -265,7 +234,7 @@ a{color:inherit}
 svg{display:block}
 .mono{font-family:var(--font);font-variant-numeric:tabular-nums}
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-/* ---------- Structure : barre latérale + contenu ---------- */
+
 .workspace{max-width:1100px}
 .tool-panel{display:block;animation:panelIn .22s ease both}
 @keyframes panelIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
@@ -273,14 +242,14 @@ svg{display:block}
 .panel-body{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;align-items:start}
 .controls-col{position:sticky;top:24px;display:flex;flex-direction:column;gap:16px}
 .stage-col{min-width:0;display:flex;flex-direction:column;gap:16px}
-/* ---------- Cartes ---------- */
+
 .control-card h3{font-size:1.05rem;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
-/* ---------- Boutons (pilules) ---------- */
+
 .btn-text{background:transparent;color:var(--MinMuted);font-weight:600;padding:8px 6px}
 .btn-text:hover{color:var(--Link)}
 .btn-block{width:100%}
 .btn .ic{width:15px;height:15px;flex:none}
-/* ---------- Segments, chips ---------- */
+
 .seg{display:inline-flex;border:1px solid var(--Borders);border-radius:999px;padding:3px;background:transparent;gap:2px}
 .seg button{border:0;background:none;padding:7px 14px;border-radius:999px;font-size:.85rem;font-weight:600;color:var(--Mu);transition:background .2s}
 .seg button:hover{background:var(--Soft)}
@@ -291,7 +260,7 @@ svg{display:block}
 .aspect-chip{padding:6px 14px;border-radius:999px;border:1px solid var(--Borders);background:transparent;font-size:.85rem;font-weight:500;color:var(--Mu);transition:all .15s}
 .aspect-chip:hover{border-color:var(--Primary);color:var(--Link);background:var(--Soft)}
 .aspect-chip[aria-pressed="true"]{background:linear-gradient(135deg,var(--Primary),var(--DarkPrimary));color:#fff;border-color:transparent;font-weight:700}
-/* ---------- Champs ---------- */
+
 .field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
 .field:last-child{margin-bottom:0}
 .field-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
@@ -311,7 +280,7 @@ input[type="color"]::-webkit-color-swatch-wrapper{padding:0;border-radius:8px;ov
 input[type="color"]::-webkit-color-swatch{border:none;border-radius:8px}
 .hint{font-size:.78rem;color:var(--MinMuted);line-height:1.5}
 .toolbar-row{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
-/* ---------- Zone de dépôt & scène ---------- */
+
 .dropzone{position:relative;border:2px dashed var(--DarkBorders);border-radius:var(--R);background:var(--Card);box-shadow:var(--Shadow);min-height:380px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .15s,background-color .15s}
 .dropzone:hover,.dropzone.is-drag{border-color:var(--Primary);background:var(--Soft)}
 .dropzone .dz-inner{display:flex;flex-direction:column;align-items:center;gap:14px;padding:40px;text-align:center;pointer-events:none}
@@ -325,7 +294,7 @@ input[type="color"]::-webkit-color-swatch{border:none;border-radius:8px}
 .stage-media{max-width:100%;max-height:60vh;display:block;border-radius:6px}
 canvas.stage-media{cursor:crosshair}
 .checkerboard{background-image:linear-gradient(45deg,var(--Chk1) 25%,transparent 25%),linear-gradient(-45deg,var(--Chk1) 25%,transparent 25%),linear-gradient(45deg,transparent 75%,var(--Chk1) 75%),linear-gradient(-45deg,transparent 75%,var(--Chk1) 75%);background-size:16px 16px;background-position:0 0,0 8px,8px -8px,-8px 0;background-color:var(--Chk2)}
-/* ---------- Statistiques, notices, badges ---------- */
+
 .stat-strip{display:flex;align-items:center;gap:22px;padding:16px 20px;background:var(--Card);border:1px solid var(--Borders);border-top:4px solid var(--Primary);border-radius:var(--R2);box-shadow:var(--Shadow);flex-wrap:wrap}
 .stat{display:flex;flex-direction:column;gap:3px}
 .stat .k{font-size:.75rem;font-weight:700;color:var(--Mu)}
@@ -347,7 +316,7 @@ canvas.stage-media{cursor:crosshair}
 .spinner{width:28px;height:28px;border:3px solid var(--Borders);border-top-color:var(--Primary);border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-overlay .msg{font-size:.85rem;font-weight:600;color:var(--Mu)}
-/* ---------- Comparateur avant/après ---------- */
+
 .compare{position:relative;border-radius:8px;overflow:hidden;user-select:none;line-height:0;max-height:60vh}
 .compare .base{display:block;width:100%;height:auto}
 .compare .overlay{position:absolute;inset:0;width:100%;height:100%}
@@ -359,7 +328,7 @@ canvas.stage-media{cursor:crosshair}
 .compare .tag{position:absolute;top:10px;font-size:.72rem;font-weight:700;padding:4px 12px;background:rgba(28,28,30,.75);color:#fff;border-radius:999px;z-index:2}
 .compare .tag.before{left:10px}
 .compare .tag.after{right:10px}
-/* ---------- Recadrage ---------- */
+
 .crop-stage{position:relative;user-select:none;touch-action:none;line-height:0}
 .crop-stage img{display:block;max-width:100%;max-height:58vh}
 .crop-box{position:absolute;border:2px solid var(--Primary);box-shadow:0 0 0 2000px var(--Scrim);cursor:move}
@@ -377,7 +346,7 @@ canvas.stage-media{cursor:crosshair}
 .crop-handle.h-s{bottom:-8px;left:50%;transform:translateX(-50%);cursor:ns-resize}
 .crop-handle.h-sw{bottom:-8px;left:-8px;cursor:nesw-resize}
 .crop-handle.h-w{top:50%;left:-8px;transform:translateY(-50%);cursor:ew-resize}
-/* ---------- Filigrane & détourage ---------- */
+
 .pos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;width:112px}
 .pos-btn{aspect-ratio:1;border:1px solid var(--Borders);border-radius:10px;background:var(--Card);position:relative;transition:all .15s}
 .pos-btn:hover{border-color:var(--Primary);background:var(--Soft)}
@@ -390,7 +359,7 @@ canvas.stage-media{cursor:crosshair}
 .wm-text-handle:hover{border-color:rgba(255,255,255,.9);background:rgba(255,107,45,.18)}
 .wm-text-handle.is-dragging{border-color:var(--Primary);background:rgba(255,107,45,.26)}
 .brush-cursor{position:absolute;border:1.5px solid #1c1c1e;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);box-shadow:0 0 0 1px rgba(255,255,255,.9);display:none;z-index:6}
-/* ---------- Accueil ---------- */
+
 .home-body{height:auto;min-height:100%}
 .home{min-width:0;width:100%;max-width:1400px;padding:clamp(28px,4vw,56px) clamp(16px,4vw,48px) 96px}
 .home-mark{width:60px;height:60px;border-radius:var(--R2);display:block;object-fit:cover;margin-bottom:26px;box-shadow:0 10px 24px -12px rgba(255,107,45,.6)}
@@ -407,12 +376,11 @@ canvas.stage-media{cursor:crosshair}
 .tool-go{display:inline-flex;gap:6px;font-weight:700;color:var(--Link)}
 .tool-go span{display:inline-block;transition:transform .3s}
 .tool-card:hover .tool-go span{transform:translateX(4px)}
-/* ---------- Responsive ---------- */
-/* Grand écran → ordinateur portable */
+
 @media(max-width:1180px){
   .tool-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
-/* Tablette : barre latérale repliée en rail d'icônes (survol = info-bulle native via title) */
+
 @media(min-width:861px) and (max-width:1100px){
   .app{grid-template-columns:76px minmax(0,1fr)}
   .rail{padding:calc(20px + env(safe-area-inset-top,0px)) 10px 16px;align-items:center}
@@ -426,12 +394,12 @@ canvas.stage-media{cursor:crosshair}
   .rail-end .ThemeBtn{width:48px;height:48px;padding:0;border-radius:var(--R2)}
   .ThemeBtn .lb{display:none}
 }
-/* Contrôles sous l'aperçu */
+
 @media(max-width:980px){
   .panel-body{grid-template-columns:minmax(0,1fr)}
   .controls-col{position:static}
 }
-/* Mobile : le menu s'ouvre en feuille ; les outils y sont en grille de 2 colonnes */
+
 @media(max-width:860px){
   .home-mark{display:none}
   .rail-group+.rail-nav{display:grid;grid-template-columns:1fr 1fr;gap:6px}
@@ -448,7 +416,7 @@ canvas.stage-media{cursor:crosshair}
   .tool-card{padding:20px}
   .tool-card-top{margin-bottom:2px}
 }
-/* Petit mobile */
+
 @media(max-width:480px){
   .tool-grid{grid-template-columns:1fr}
   .PageHead .MainDesc{font-size:.92rem}
@@ -456,39 +424,35 @@ canvas.stage-media{cursor:crosshair}
   .toolbar-row .btn-sm{flex:1;padding:8px 10px}
   .stat-sep{display:none}
 }
-/* Écrans tactiles : cibles confortables */
+
 @media(pointer:coarse){
   .seg button,.aspect-chip{min-height:44px}
   .crop-handle::after{content:"";position:absolute;inset:-14px}
   .pos-grid{width:132px}
   input[type=range]{height:32px}
 }
-/* Paysage bas (téléphone couché) */
+
 @media(max-height:480px) and (min-width:861px){
   .rail{overflow-y:auto}
   a.rail-btn{padding-block:6px}
 }
 
-/* ---------- Page courante dans le groupe « Atelier » ---------- */
 .rail-btn[data-here]{background:var(--Soft);font-weight:700}
 
-/* =====================================================================
-   OUTILS COULEUR (colors.html)
-   ===================================================================== */
 input[aria-invalid="true"]{border-color:var(--Danger)}
 h3.sec{font-size:1.05rem;margin:0 0 12px}
 .stage-col>h3.sec{margin-top:8px}
-/* Nuancier */
+
 .sw-row{display:flex;min-height:96px;border:1px solid var(--Borders);border-radius:var(--R2);overflow:hidden}
 .sw{flex:1;min-width:0;display:flex;align-items:flex-end;justify-content:center;padding:8px 2px;border:0;font:700 .72rem/1.2 var(--font);cursor:pointer;transition:flex .2s}
 .sw:hover{flex:1.5}
 .sw span{max-width:100%;overflow:hidden;text-overflow:ellipsis}
 .sw:focus-visible{outline-offset:-4px}
-/* Convertisseur */
+
 .cv-row{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:12px;align-items:center;padding:6px 0}
 .cv-row label{font-weight:800;font-size:.85rem;color:var(--Mu)}
 .cv-prev{height:120px;margin-top:16px;border:1px solid var(--Borders);border-radius:var(--R2)}
-/* Contraste */
+
 .ct-score{display:flex;align-items:baseline;justify-content:center;gap:4px;padding:44px 20px;border:1px solid var(--Borders);border-radius:var(--R);box-shadow:var(--Shadow);font-weight:800}
 .ct-score b{font-size:clamp(3rem,9vw,5rem);line-height:1;font-variant-numeric:tabular-nums}
 .ct-score span{font-size:1.4rem}
@@ -503,7 +467,7 @@ h3.sec{font-size:1.05rem;margin:0 0 12px}
 .ct-fix{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .ct-fix:empty{display:none}
 .ct-fix .Ghost{white-space:normal;text-align:left}
-/* Roue */
+
 .wh-card{display:grid;place-items:center}
 #wh{width:min(100%,360px);height:auto;touch-action:none;cursor:crosshair}
 .wh-stack{display:grid;gap:0;margin:4px 0 16px;border:1px solid var(--Borders);border-radius:var(--R2);overflow:hidden}
@@ -511,7 +475,7 @@ h3.sec{font-size:1.05rem;margin:0 0 12px}
 .wh-all{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 24px}
 .wh-all .sw-row{min-height:64px}
 .wh-all .toolbar-row{margin-bottom:8px}
-/* Daltonisme */
+
 .da-head,.da-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
 .da-head{margin-bottom:8px;font-size:.74rem;font-weight:700;color:var(--MinMuted)}
 .da-row{margin-bottom:6px}
@@ -520,7 +484,7 @@ h3.sec{font-size:1.05rem;margin:0 0 12px}
 .da-imgs figure{margin:0;display:grid;gap:6px}
 .da-imgs canvas{width:100%;height:auto;border-radius:var(--R3);border:1px solid var(--Borders)}
 .da-imgs figcaption{font-size:.78rem;font-weight:700;color:var(--Mu)}
-/* Graphiques */
+
 .gr-prev{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:20px;align-items:center}
 .gr-prev svg{width:100%;height:auto}
 .stat .v.warn{color:var(--DangerTx)}

@@ -1,4 +1,3 @@
-/* Atelier PDF — Sécurité : protéger, déverrouiller, censurer, signer */
 (()=>{
 const {$,base,lib,ld,js,pg,out,geo,ras,asPdf,img}=PDFK;
 PDFK.tools.push(

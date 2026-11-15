@@ -1,16 +1,8 @@
-/* =====================================================================
-   colors-core.js — socle commun des outils couleur (colors.html)
-   Maths couleur (sRGB, HSL, HSV, CMYK, OKLab/OKLCH), analyse de saisie,
-   couleur de base partagée entre les outils, composants d'interface et
-   simulation de la vision des couleurs. Expose window.Colors.
-   Dépend de js/common.js (Utils).
-   ===================================================================== */
 (function () {
   'use strict';
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const cl = (v, a, b) => Math.min(b, Math.max(a, v)), R = (v, d = 0) => +(+v).toFixed(d);
 
-  /* ---------- Maths couleur : sRGB 0-255, OKLab (B. Ottosson) ---------- */
   const lin = v => (v /= 255) <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4;
   const gam = v => 255 * (v <= .0031308 ? 12.92 * v : 1.055 * v ** (1 / 2.4) - .055);
   const toHex = c => '#' + [c.r, c.g, c.b].map(v => Math.round(cl(v, 0, 255)).toString(16).padStart(2, '0')).join('').toUpperCase();
@@ -76,7 +68,6 @@
     oklch: c => { const x = oklch(c); return `oklch(${R(x.L * 100, 1)}% ${R(x.C, 3)} ${R(x.h, 1)})`; }
   };
 
-  /* ---------- Utilitaires d'interface ---------- */
   const store = { get() { try { return localStorage.getItem('lenn.colors.base'); } catch (e) { return null; } }, set(v) { try { localStorage.setItem('lenn.colors.base', v); } catch (e) {} } };
   const B = { c: parse(store.get()) || parse('#47A490'), subs: [] };
   const setBase = (c, src) => { B.c = c; store.set(toHex(c)); B.subs.forEach(f => f !== src && f(c)); };
@@ -103,7 +94,6 @@
   const bindSeg = (id, fn) => { const h = $('#' + id); h.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $$('button', h).forEach(x => x.setAttribute('aria-pressed', x === b)); fn(b.dataset.v); }); };
   const load = async (f) => { try { return await Utils.loadImage(f); } catch (e) { Utils.toast(e.message); return null; } };
 
-  /* ---------- Liste des outils ---------- */
   const IC = {
     convertisseur: '<path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/>',
     contraste: '<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/>',
@@ -126,9 +116,8 @@
   ];
   const mk = (k, body) => { const t = TL.find(x => x[0] === k); $('#view-' + k).innerHTML = `<section class="tool-panel" aria-labelledby="h-${k}"><div class="PageHead"><span class="Eyebrow">${t[1]}</span><h1 class="MainTitle" id="h-${k}">${t[2]}</h1><p class="MainDesc">${t[3]}</p></div><div class="panel-body">${body}</div></section>`; };
 
-  /* ---------- Daltonisme : matrices de Machado et al. (2009), sévérité 1,0, appliquées en RGB linéaire ---------- */
   const MX = { prot: [.152286, 1.052583, -.204868, .114503, .786281, .099216, -.003882, -.048116, 1.051998], deut: [.367322, .860646, -.227968, .280085, .672501, .047413, -.01182, .04294, .968881], trit: [1.255528, -.076749, -.178779, -.078411, .930809, .147602, .004733, .691367, .3039], achro: [.2126, .7152, .0722, .2126, .7152, .0722, .2126, .7152, .0722] };
-  const mat = (t, s) => MX[t].map((v, i) => v * s + (i % 4 === 0 ? 1 - s : 0)); // interpolation linéaire depuis l'identité (approximation des sévérités intermédiaires)
+  const mat = (t, s) => MX[t].map((v, i) => v * s + (i % 4 === 0 ? 1 - s : 0));
   function sim(c, t, s) { if (t === 'n') return c; const m = mat(t, s), r = lin(c.r), g = lin(c.g), b = lin(c.b); return { r: gam(cl(m[0] * r + m[1] * g + m[2] * b, 0, 1)), g: gam(cl(m[3] * r + m[4] * g + m[5] * b, 0, 1)), b: gam(cl(m[6] * r + m[7] * g + m[8] * b, 0, 1)) }; }
   const TY = [['n', 'Vision normale'], ['prot', 'Protanopie'], ['deut', 'Deutéranopie'], ['trit', 'Tritanopie'], ['achro', 'Achromatopsie']];
   window.Colors = { $, $$, cl, R, lin, gam, toHex, hsl, fromHsl, hsv, fromHsv, cmyk, fromCmyk, oklab, fromOklab, oklch, fromOklch, ratio, dE, ink, parse, FMT, B, setBase, pub, getLast, css, copy, sw, swRow, cf, rng, bindRng, dz, seg, bindSeg, load, IC, svg, TL, mk, MX, mat, sim, TY };

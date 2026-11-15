@@ -1,9 +1,3 @@
-/* =====================================================================
-   navsheet.js — menu mobile en feuille (fichier IDENTIQUE dans les 3 apps)
-   Sous 860 px : barre fixe en haut (logo, app, section en cours, bouton menu).
-   Le bouton ouvre la barre latérale (.rail) sous forme de feuille depuis le bas.
-   Fermeture : croix, fond, Échap, glisser vers le bas, ou choix d'une entrée.
-   ===================================================================== */
 (function () {
   var mq = window.matchMedia ? matchMedia('(max-width:860px)') : { matches: false };
 
@@ -13,7 +7,6 @@
     var html = document.documentElement;
     rail.id = rail.id || 'rail';
 
-    /* --- barre du haut --- */
     var mark = rail.querySelector('.rail-brand .mark');
     var appName = (rail.querySelector('.rail-brand .LogoTx') || {}).textContent || '';
     var top = document.createElement('header');
@@ -40,7 +33,6 @@
     sync();
     new MutationObserver(sync).observe(rail, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['aria-current'] });
 
-    /* --- feuille : poignée, croix, fond --- */
     var head = document.createElement('div');
     head.className = 'rail-sheet-head';
     head.innerHTML =
@@ -86,14 +78,12 @@
     closeBtn.addEventListener('click', function () { close(); });
     scrim.addEventListener('click', function () { close(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen()) close(); });
-    /* choisir une entrée (ou une action) referme la feuille, sauf le bouton de thème */
     rail.addEventListener('click', function (e) {
       if (!isOpen()) return;
       var t = e.target.closest('button,a');
       if (!t || t === closeBtn || t.id === 'theme-btn') return;
       close(false);
     }, true);
-    /* glisser la poignée vers le bas */
     var y0 = null;
     head.addEventListener('touchstart', function (e) { y0 = e.touches[0].clientY; }, { passive: true });
     head.addEventListener('touchmove', function (e) {

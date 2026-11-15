@@ -1,4 +1,3 @@
-/* Atelier PDF — Comparer */
 (()=>{
 const {$,lib,js,cvs,out}=PDFK;
 PDFK.tools.push(

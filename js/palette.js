@@ -1,7 +1,3 @@
-/* =====================================================================
-   palette.js — « Aller à… » (Ctrl + K / ⌘ + K) — fichier IDENTIQUE dans Audits et Outils
-   Construit la liste à partir de la barre latérale : sections / outils, actions et liens.
-   ===================================================================== */
 (function () {
   'use strict';
 
@@ -13,7 +9,6 @@
     const rail = document.querySelector('.rail');
     if (!rail) return;
 
-    /* ---- bouton d'ouverture dans la barre latérale ---- */
     const btn = document.createElement('button');
     btn.type = 'button'; btn.className = 'PaletteBtn'; btn.id = 'pal-btn';
     btn.setAttribute('aria-haspopup', 'dialog');
@@ -21,7 +16,6 @@
     const firstNav = rail.querySelector('.rail-nav');
     rail.insertBefore(btn, firstNav);
 
-    /* ---- fenêtre ---- */
     const dlg = document.createElement('dialog');
     dlg.className = 'Modal Palette'; dlg.id = 'palette'; dlg.setAttribute('aria-label', 'Aller à…');
     dlg.innerHTML = '<div class="PalHead"><input class="PalIn" type="text" id="pal-in" role="combobox" aria-expanded="true" aria-controls="pal-list" aria-autocomplete="list" placeholder="Rechercher une section, un outil, une action…" autocomplete="off" spellcheck="false"></div>' +
@@ -31,13 +25,12 @@
     const input = dlg.querySelector('#pal-in'), list = dlg.querySelector('#pal-list');
     let items = [], shown = [], active = 0;
 
-    /* ---- collecte des entrées depuis la page ---- */
     function collect() {
       const out = [];
       rail.querySelectorAll('.rail-btn').forEach(el => {
         const lb = el.querySelector('.lb'), label = (lb ? lb.textContent : el.textContent).trim();
         let grp = '', n = el.closest('.rail-nav');
-        while (n && (n = n.previousElementSibling)) { if (n.classList.contains('rail-group')) { grp = n.textContent.trim(); break; } if (n.classList.contains('rail-nav')) { /* groupe sans titre : on continue */ } }
+        while (n && (n = n.previousElementSibling)) { if (n.classList.contains('rail-group')) { grp = n.textContent.trim(); break; } if (n.classList.contains('rail-nav')) { } }
         out.push({ label, group: grp || 'Navigation', kind: 'nav', current: el.hasAttribute('aria-current'), el });
       });
       rail.querySelectorAll('.rail-end button, .AuditSwitch').forEach(el => {
@@ -49,7 +42,6 @@
       return out.filter(i => i.label);
     }
 
-    /* ---- recherche ---- */
     function score(it, toks) {
       const l = norm(it.label), g = norm(it.group);
       let s = 0;

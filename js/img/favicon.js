@@ -1,8 +1,6 @@
 (function () {
   'use strict';
 
-  // Dépend de js/common.js (Utils) et js/batch.js (Batch.zip).
-
   const SIZES = [16, 32, 48, 180, 192, 512];
 
   function roundRectPath(ctx, x, y, w, h, r) {
@@ -12,7 +10,6 @@
     ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r);
   }
 
-  /* Fichier .ico contenant des PNG (pris en charge par tous les navigateurs actuels). */
   function buildIco(items) {
     const n = items.length, head = new DataView(new ArrayBuffer(6 + 16 * n));
     head.setUint16(2, 1, true); head.setUint16(4, n, true);
@@ -137,7 +134,6 @@
           { name: 'code-a-copier.html', data: new TextEncoder().encode(this.snippet() + '\n') }
         ];
         if (this.state.data.format === 'svg') files.push({ name: 'favicon.svg', data: new TextEncoder().encode(this.state.data.svgText) });
-        // les entrées « blob » (ICO) sont converties en octets pour l'archive
         for (const f of files) if (f.blob && !f.data) f.data = new Uint8Array(await f.blob.arrayBuffer());
         Utils.download(await Batch.zip(files), 'favicons.zip');
       } catch (e) {

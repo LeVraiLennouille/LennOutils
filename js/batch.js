@@ -1,12 +1,3 @@
-/* =====================================================================
-   batch.js — glisser-déposer multiple, collage (Ctrl + V) et traitement par lot
-   Dépend de js/common.js (Utils). À charger après common.js, avant les scripts d'outils.
-   - Utils.setupDropzone accepte plusieurs fichiers si l'input a l'attribut « multiple »
-     et reconnaît le collage d'images depuis le presse-papiers.
-   - Batch.attach(outil, { run, suffix }) ajoute « Tout télécharger (.zip) » : les réglages
-     en cours sont appliqués à chaque image, puis l'archive est téléchargée.
-   - Batch.zip(fichiers) crée une archive ZIP (sans compression) côté navigateur.
-   ===================================================================== */
 (function () {
   'use strict';
 
@@ -14,7 +5,6 @@
   const isImg = f => IMG.test(f.type || '') || EXT.test(f.name || '');
   const stamp = () => new Date().toISOString().slice(0, 10);
 
-  /* ---------- ZIP (méthode « stored ») ---------- */
   const CRC_T = (() => {
     const t = new Uint32Array(256);
     for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; }
@@ -22,14 +12,12 @@
   })();
   const crcUpdate = (c, u8) => { for (let i = 0; i < u8.length; i++) c = CRC_T[(c ^ u8[i]) & 255] ^ (c >>> 8); return c; };
   const crc32 = u8 => (crcUpdate(0xFFFFFFFF, u8) ^ 0xFFFFFFFF) >>> 0;
-  /* CRC d'un Blob lu par morceaux de 4 Mo : le fichier n'est jamais chargé en entier dans la mémoire de la page. */
   async function crcBlob(blob) {
     let c = 0xFFFFFFFF;
     for (let o = 0; o < blob.size; o += 4194304) c = crcUpdate(c, new Uint8Array(await blob.slice(o, o + 4194304).arrayBuffer()));
     return (c ^ 0xFFFFFFFF) >>> 0;
   }
 
-  /* Écrivain ZIP vers n'importe quel objet { write(chunk), close() } (fichier sur disque ou simple tableau). */
   function zipSink(w) {
     const enc = new TextEncoder(), cen = [];
     let off = 0, csize = 0, count = 0;
@@ -64,7 +52,6 @@
     };
   }
 
-  /* Archive en mémoire : les Blob sont référencés (pas recopiés), seul l'en-tête est créé. */
   async function zip(files) {
     const parts = [], sink = zipSink({ write: async chunk => { parts.push(chunk); }, close: async () => {} });
     for (const f of files) await sink.add(f.name, f.data || f.blob);
@@ -72,20 +59,18 @@
     return new Blob(parts, { type: 'application/zip' });
   }
 
-  /* ---------- Zone de dépôt : plusieurs fichiers + collage ---------- */
   const MB = 1048576;
   const Batch = {
     queue: [],
     tool: null,
-    tools: {},     // vue (data-view) -> outil rattaché
-    queues: {},    // vue -> file d'attente mémorisée quand on change d'outil
-    current: null, // vue affichée (définie par le routeur de img.html)
+    tools: {},
+    queues: {},
+    current: null,
     zip,
     zipSink,
     isImg,
-    VOLUME_BYTES: 200 * MB,   // sans écriture directe sur disque : une archive est téléchargée tous les ~200 Mo
+    VOLUME_BYTES: 200 * MB,
 
-    /* Ouvre un fichier de sortie quand le navigateur sait écrire directement sur le disque (Chrome, Edge) ; sinon null. */
     async openSink(name) {
       if (!window.showSaveFilePicker) return null;
       try {
@@ -97,7 +82,6 @@
       }
     },
 
-    /* Page unique : appelé à chaque changement de vue. Chaque outil garde sa propre file d'images. */
     activate(key) {
       if (this.current) this.queues[this.current] = this.queue;
       this.current = key;
@@ -140,9 +124,8 @@
       if (files.length < 2) return;
       const prog = bar.querySelector('.BatchProg'), fill = prog.querySelector('i'), lab = prog.querySelector('span'), btn = bar.querySelector('.bt-zip');
       const base = 'atelier-' + opt.suffix + '-' + stamp();
-      // 1) sortie directe sur disque si possible (à demander tout de suite : le clic doit être récent)
       let sink = null, writable = null;
-      try { writable = await this.openSink(base + '.zip'); } catch (e) { return; }  // annulé par l'utilisateur
+      try { writable = await this.openSink(base + '.zip'); } catch (e) { return; }
       if (writable) sink = zipSink(writable);
       const orig = Utils.download, first = tool.state.data, names = new Set(), fails = [];
       let pending = [], pendingBytes = 0, volumes = 0, done = 0;
@@ -183,7 +166,7 @@
             if (data && data !== first && data.url) URL.revokeObjectURL(data.url);
             data = null;
           }
-          await new Promise(r => setTimeout(r, 0));   // laisse respirer la page et le ramasse-miettes
+          await new Promise(r => setTimeout(r, 0));
         }
         if (!done) throw new Error('Aucune image n’a pu être traitée.');
         lab.textContent = 'Création de l’archive…';
@@ -228,7 +211,7 @@
     });
     document.addEventListener('paste', e => {
       const view = dropzoneEl.closest('[data-view]');
-      if (view && view.hidden) return;   // page unique : seul l'outil affiché réagit au collage
+      if (view && view.hidden) return;
       const fs = [...((e.clipboardData && e.clipboardData.files) || [])].filter(isImg);
       if (!fs.length) return;
       e.preventDefault(); handle(fs);

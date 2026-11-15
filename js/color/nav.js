@@ -1,7 +1,3 @@
-/* =====================================================================
-   colors-nav.js — rail de navigation, accueil et routage par ancre de colors.html
-   Doit être chargé en dernier (après les fichiers des outils).
-   ===================================================================== */
 (function () {
   'use strict';
   const { $, $$, svg, TL } = Colors;
@@ -10,7 +6,6 @@
   $('#view-accueil').innerHTML = `<header class="PageHead home-head"><img class="home-mark" src="assets/icon.svg" alt="Atelier" width="60" height="60"><p class="Eyebrow">Accueil</p><h1 class="MainTitle">Sept outils pour <em>travailler vos couleurs.</em></h1><p class="MainDesc">Convertir, contrôler un contraste, mélanger, composer des harmonies, simuler le daltonisme, créer des palettes de données ou en extraire d’une image : tout se passe dans votre navigateur.</p></header>
     <ul class="tool-grid" aria-label="Choix de l'outil">${TL.map((t, i) => `<li><a class="tool-card" href="#${t[0]}"><span class="tool-card-top"><span class="tool-ic">${svg(t[0])}</span><span class="tool-num mono">0${i + 1}</span></span><h2>${t[1]}</h2><p>${t[4]}</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li>`).join('')}</ul>
     <footer class="SiteFoot"><a href="https://lennouille.fr/" target="_blank" rel="noopener">lennouille.fr</a><nav aria-label="Autres outils Lennouille"><a href="img.html">Outils image</a><a href="https://audits.lennouille.fr/" target="_blank" rel="noopener">Auditeur</a><a href="https://simu.lennouille.fr/" target="_blank" rel="noopener">Simulateur</a></nav></footer>`;
-  /* ---------- Navigation par ancre : colors.html#contraste, … (sans ancre = accueil) ---------- */
   const HOME = 'accueil', views = {}, links = $$('.rail .rail-btn'); let shown = null;
   $$('[data-view]').forEach(m => { views[m.dataset.view] = m; });
   const TITLES = { accueil: 'Atelier — outils couleur' }; TL.forEach(t => { TITLES[t[0]] = t[1] + ' — Atelier'; });

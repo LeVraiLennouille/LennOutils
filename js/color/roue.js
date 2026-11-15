@@ -1,7 +1,3 @@
-/* =====================================================================
-   roue.js — roue, anneau de luminosité et sept harmonies
-   Dépend de js/color/colors-core.js
-   ===================================================================== */
 (function () {
   'use strict';
   const { $, $$, cl, R, lin, gam, toHex, hsl, fromHsl, hsv, fromHsv, cmyk, fromCmyk, oklab, fromOklab, oklch, fromOklch, ratio, dE, ink, parse, FMT, B, setBase, pub, getLast, css, copy, sw, swRow, cf, rng, bindRng, dz, seg, bindSeg, load, IC, svg, TL, mk, MX, mat, sim, TY } = Colors;

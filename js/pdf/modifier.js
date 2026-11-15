@@ -1,4 +1,3 @@
-/* Atelier PDF — Modifier : éditer, pivoter, numéroter, filigrane, rogner */
 (()=>{
 const {base,ld,pg,out,geo,safe,img,num,ZN}=PDFK;
 const rgb=h=>{const n=parseInt(h.slice(1),16);return PDFLib.rgb((n>>16)/255,(n>>8&255)/255,(n&255)/255)};

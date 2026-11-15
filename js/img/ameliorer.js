@@ -1,8 +1,6 @@
 (function () {
   'use strict';
 
-  // Dépend de js/common.js (Utils, Engine).
-
   const Enhance = {
     state: {
       data: null,

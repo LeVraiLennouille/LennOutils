@@ -1,8 +1,6 @@
 (function () {
   'use strict';
 
-  // Dépend de js/common.js (Utils).
-
   const FORMATS = { og: [1200, 630], square: [1080, 1080], story: [1080, 1920], wide: [1600, 900] };
   const FONTS = {
     syne: s => '800 ' + s + 'px Syne, system-ui, sans-serif',
@@ -79,7 +77,6 @@
       try { await document.fonts.load(f(40)); } catch (err) {}
       const c = e.canvas; c.width = W; c.height = H;
       const ctx = c.getContext('2d');
-      // fond
       if (st.bg === 'gradient') {
         const g = ctx.createLinearGradient(0, 0, W, H); g.addColorStop(0, e.color1.value); g.addColorStop(1, e.color2.value);
         ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
@@ -95,7 +92,6 @@
       const color = e.textColor.value;
       ctx.textBaseline = 'alphabetic'; ctx.textAlign = center ? 'center' : 'left';
       const tx = center ? W / 2 : P;
-      // titre : taille réglable, réduite automatiquement s'il dépasse 4 lignes
       let ts = Math.round((W >= H ? W * 0.072 : W * 0.085) * parseInt(e.size.value, 10) / 100), lines;
       const title = e.title.value.trim() || ' ';
       for (;;) { ctx.font = f(ts); lines = wrap(ctx, title, maxW); if (lines.length <= 4 || ts <= 24) break; ts = Math.round(ts * 0.94); }
@@ -118,7 +114,6 @@
         sub.forEach((l, i) => ctx.fillText(l, tx, y + ss * 0.9 + i * slh));
         ctx.globalAlpha = 1;
       }
-      // ligne du site
       const site = e.site.value.trim();
       if (site) {
         const fs = Math.max(18, Math.round(Math.min(W, H) * 0.032));
@@ -126,7 +121,6 @@
         ctx.fillText(site, tx, H - P + fs * 0.1);
         ctx.globalAlpha = 1;
       }
-      // logo
       if (st.logo) {
         const lw0 = st.logo.naturalWidth || st.logo.width, lh0 = st.logo.naturalHeight || st.logo.height;
         const maxH = H * 0.13 * parseInt(e.logoSize.value, 10) / 100, sc = Math.min(maxH / lh0, (W * 0.35) / lw0), w = lw0 * sc, h = lh0 * sc;

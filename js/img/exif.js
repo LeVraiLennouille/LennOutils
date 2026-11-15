@@ -1,13 +1,8 @@
 (function () {
   'use strict';
 
-  // Dépend de js/common.js (Utils, Engine) et js/batch.js (Batch).
-  // JPEG, PNG et WebP : les métadonnées sont retirées sans ré-encoder l'image (aucune perte).
-  // SVG : nettoyage du balisage d'éditeur. Autres formats : ré-encodage (les métadonnées ne sont pas conservées).
-
   const ascii = (u8, o, n) => { let s = ''; for (let i = 0; i < n; i++) s += String.fromCharCode(u8[o + i]); return s; };
 
-  /* ---------- Lecture EXIF (TIFF) ---------- */
   function parseTiff(buf, start) {
     try {
       const dv = new DataView(buf), len = buf.byteLength;
@@ -62,7 +57,6 @@
     return r;
   }
 
-  /* ---------- JPEG ---------- */
   function stripJpeg(u8, opt) {
     const dv = new DataView(u8.buffer, u8.byteOffset, u8.byteLength);
     if (u8.length < 4 || dv.getUint16(0) !== 0xFFD8) throw new Error('JPEG invalide');
@@ -100,7 +94,6 @@
     return { blob: new Blob(keep, { type: 'image/jpeg' }), report };
   }
 
-  /* ---------- PNG ---------- */
   function stripPng(u8) {
     const dv = new DataView(u8.buffer, u8.byteOffset, u8.byteLength);
     if (ascii(u8, 1, 3) !== 'PNG') throw new Error('PNG invalide');
@@ -126,7 +119,6 @@
     return { blob: new Blob(keep, { type: 'image/png' }), report };
   }
 
-  /* ---------- WebP ---------- */
   function stripWebp(u8) {
     if (ascii(u8, 0, 4) !== 'RIFF' || ascii(u8, 8, 4) !== 'WEBP') throw new Error('WebP invalide');
     const dv = new DataView(u8.buffer, u8.byteOffset, u8.byteLength), chunks = [], other = new Set();
@@ -161,7 +153,6 @@
         loading: $('md-loading'), keepOrient: $('md-orient-toggle'), keepIcc: $('md-icc-toggle'),
         downloadBtn: $('md-download-btn'), resetBtn: $('md-reset-btn'),
       };
-      // setupDropzone transmet la liste complète des images déposées (2e argument)
       Utils.setupDropzone(this.els.dropzone, this.els.input, (first, all) => this.run(all || [first]));
       this.els.keepOrient.addEventListener('change', () => this.rerun());
       this.els.keepIcc.addEventListener('change', () => this.rerun());
@@ -186,7 +177,6 @@
       else if (format === 'png') out = stripPng(u8);
       else if (format === 'webp') out = stripWebp(u8);
       if (out) return { name: base + '-sans-metadonnees.' + Utils.extFor(format), blob: out.blob, report: out.report, format };
-      // autres formats : ré-encodage via le canvas (métadonnées non conservées)
       const data = await Utils.loadImage(file);
       const c = Utils.canvasFrom(data.img, data.width, data.height);
       let blob = await Utils.canvasToBlob(c, 'image/webp', 0.95);

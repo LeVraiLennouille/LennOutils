@@ -29,9 +29,7 @@
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#FF6B2D">
   <link href="style.css" rel="stylesheet">
-  <style>
-    /* Page unique : une seule vue (data-view) est visible à la fois */
-    [data-view][hidden]{display:none!important}
+  <style>    [data-view][hidden]{display:none!important}
     [data-view] [tabindex="-1"]:focus{outline:none}
     .seg.wrap{flex-wrap:wrap;border-radius:18px}.tool-switch{display:grid;gap:10px;margin-bottom:16px}.tool-switch:empty{display:none}.tool-switch .toolbar-row{justify-content:flex-start;gap:12px}.tool-switch .hint{min-width:84px}.tool-desc{margin-bottom:16px}.tool-desc[hidden]{display:none}
     .panel-body.solo{grid-template-columns:minmax(0,520px)}.solo .stage-col{display:none}
@@ -48,7 +46,7 @@
     .Stage{position:relative;max-width:100%;margin:0 auto;border-radius:var(--R3);overflow:hidden;line-height:0;box-shadow:var(--Shadow)}.Stage canvas{max-width:100%}.Ov{position:absolute;inset:0;cursor:crosshair;touch-action:none}.Zb{position:absolute;background:rgba(var(--PrimaryRGB),.25);border:2px solid var(--Primary)}
     .Pad{width:100%;height:150px;border:1px dashed var(--DarkBorders);border-radius:var(--R3);background:var(--Card);touch-action:none;cursor:crosshair}
     @media(max-width:980px){.panel-body.solo{grid-template-columns:minmax(0,1fr)}}
-  </style>
+</style>
   <script src="js/theme.js"></script>
 <script src="js/navsheet.js" defer></script>
 <script src="js/palette.js" defer></script>
@@ -137,9 +135,7 @@
 <script src="js/pdf/securite.js" defer></script>
 <script src="js/pdf/comparer.js" defer></script>
 <script src="js/pdf/groupes.js" defer></script>
-<script>
-/* Navigation par ancre : pdf.html#fusionner, #convertir… (sans ancre = accueil) */
-(function () {
+<script>(function () {
   'use strict';
   var HOME = 'accueil', TITLES = {"accueil": "Atelier — outils PDF", "fusionner": "Fusionner — Atelier PDF", "organiser": "Organiser et diviser — Atelier PDF", "supprimer": "Supprimer et extraire — Atelier PDF", "compresser": "Compresser — Atelier PDF", "convertir": "Convertir — Atelier PDF", "modifier": "Modifier — Atelier PDF", "securite": "Sécurité — Atelier PDF", "comparer": "Comparer — Atelier PDF"}, views = {};
   document.querySelectorAll('[data-view]').forEach(function (m) { views[m.dataset.view] = m; });

@@ -1,7 +1,3 @@
-/* =====================================================================
-   extracteur.js — couleurs dominantes d'une image, couleurs déclarées d'un SVG
-   Dépend de js/color/colors-core.js
-   ===================================================================== */
 (function () {
   'use strict';
   const { $, $$, cl, R, lin, gam, toHex, hsl, fromHsl, hsv, fromHsv, cmyk, fromCmyk, oklab, fromOklab, oklch, fromOklch, ratio, dE, ink, parse, FMT, B, setBase, pub, getLast, css, copy, sw, swRow, cf, rng, bindRng, dz, seg, bindSeg, load, IC, svg, TL, mk, MX, mat, sim, TY } = Colors;
@@ -11,7 +7,6 @@
     let info = null, big = null, small = null, mode = 'px', cols = [], picks = [];
     const D2 = (p, q) => (p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2 + (p[2] - q[2]) ** 2;
     function kmeans(d, k) {
-      /* Les pixels sont d'abord regroupés en cases OKLab (pondérées) : les nuances rares des contours n'ouvrent pas de groupe. */
       const bk = new Map(); let tot = 0;
       for (let i = 0; i < d.data.length; i += 4) if (d.data[i + 3] > 127) { const o = oklab({ r: d.data[i], g: d.data[i + 1], b: d.data[i + 2] }), key = Math.round(o.L / .05) + ',' + Math.round(o.a / .05) + ',' + Math.round(o.b / .05); let e = bk.get(key); if (!e) bk.set(key, e = [0, 0, 0, 0]); e[0] += o.L; e[1] += o.a; e[2] += o.b; e[3]++; tot++; }
       if (!tot) return []; let P = [...bk.values()].map(e => [e[0] / e[3], e[1] / e[3], e[2] / e[3], e[3]]).filter(p => p[3] >= Math.max(2, tot * .003));

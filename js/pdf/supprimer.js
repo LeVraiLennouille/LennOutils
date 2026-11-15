@@ -1,4 +1,3 @@
-/* Atelier PDF — Supprimer et extraire */
 (()=>{
 const {$,base,ld,pg,out}=PDFK;
 PDFK.tools.push(

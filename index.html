@@ -29,14 +29,12 @@
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#FF6B2D">
   <link href="style.css" rel="stylesheet">
-  <style>
-    /* Page unique : une seule vue (data-view) est visible à la fois */
-    [data-view][hidden]{display:none!important}
+  <style>    [data-view][hidden]{display:none!important}
     [data-view] [tabindex="-1"]:focus{outline:none}
     .tool-card h3{font-size:.95rem;overflow-wrap:anywhere}
     html{scroll-behavior:smooth}.hub-sec{margin-top:clamp(40px,5vw,64px);scroll-margin-top:24px}.hub-head{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-bottom:20px}.hub-head>div{flex:1;min-width:220px}.hub-head h2{margin:0;font-size:1.6rem}.hub-head p{margin:2px 0 0;color:var(--Mu)}.hub-ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--DarkPrimary);color:#fff}.hub-ic svg{width:26px;height:26px}
     @media(max-width:860px){.hub-sec{scroll-margin-top:76px}}
-  </style>
+</style>
   <script src="js/theme.js"></script>
 <script src="js/navsheet.js" defer></script>
 <script src="js/palette.js" defer></script>
@@ -186,8 +184,7 @@
 <footer class="SiteFoot"><a href="https://lennouille.fr/" target="_blank" rel="noopener">lennouille.fr</a><nav aria-label="Autres outils Lennouille"><a href="https://audits.lennouille.fr/" target="_blank" rel="noopener">Auditeur</a><a href="https://simu.lennouille.fr/" target="_blank" rel="noopener">Simulateur</a></nav></footer>
 </main>
 </div>
-<script>
-(function(){var L=[].slice.call(document.querySelectorAll('.rail .rail-btn[data-sec]')),S=['accueil','img','pdf','colors'].map(function(i){return document.getElementById(i)});
+<script>(function(){var L=[].slice.call(document.querySelectorAll('.rail .rail-btn[data-sec]')),S=['accueil','img','pdf','colors'].map(function(i){return document.getElementById(i)});
 function f(){var c='accueil',y=innerHeight*.35;S.forEach(function(s){if(s.getBoundingClientRect().top<=y)c=s.id});if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)c=S[S.length-1].id;L.forEach(function(a){a.dataset.sec===c?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current')})}
 addEventListener('scroll',f,{passive:true});f()})();
 </script>

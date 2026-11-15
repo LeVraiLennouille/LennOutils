@@ -1,9 +1,3 @@
-/* =====================================================================
-   theme.js — bascule clair / sombre (fichier IDENTIQUE dans les 3 apps)
-   - Sans choix enregistré : suit le thème du système.
-   - Au clic : enregistre le choix (localStorage « lenn.theme »).
-   - Le bouton est ajouté en bas de la barre latérale (.rail-end).
-   ===================================================================== */
 (function () {
   var KEY = 'lenn.theme', root = document.documentElement;
   var mq = window.matchMedia ? matchMedia('(prefers-color-scheme: dark)') : null;

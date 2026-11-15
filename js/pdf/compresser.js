@@ -1,4 +1,3 @@
-/* Atelier PDF — Compresser */
 (()=>{
 const {$,fz,base,ld,js,out,ras,asPdf}=PDFK;
 PDFK.tools.push(
