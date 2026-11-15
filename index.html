@@ -4,16 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Les outils Lennouille : images, PDF et couleurs, directement dans ton navigateur.">
-<meta name="theme-color" content="#28A745">
+<meta name="theme-color" content="#FF6B2D">
 <title>Lennouille – Outils</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMyOEE3NDUiIGZpbGwtb3BhY2l0eT0iLjIiLz48cGF0aCBkPSJNMTggMjJoMjhNMTggMzJoMjhNMTggNDJoMTgiIHN0cm9rZT0iIzFFN0UzNCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4=">
-<style>/* =====================================================================
-   ACCENT — propre à LennAudits (seul bloc à changer d'une app à l'autre)
-   ===================================================================== */
-:root{--Primary:#28A745;--PrimaryRGB:40,167,69;--DarkPrimary:#1E7E34;--LinkLight:#1E7E34;--LinkDark:#5FD07A;--SoftDarkA:.2;--FaintDarkA:.1}
-:root{--Hero:#1c1c1e;--Foot:#0A2412;--G2:#5FD07A;--G3:#145A25;--G4:#8FD9A3;--G5:#2F9E4B}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--Hero:#0A2412}}
-:root[data-theme="dark"]{--Hero:#0A2412}
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRkY4QTRDIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRTg1MzBGIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSIxNiIgeT0iMTYiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIzLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxyZWN0IHg9IjM0IiB5PSIxNiIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiByeD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjMuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHJlY3QgeD0iMTYiIHk9IjM0IiB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHJ4PSIzIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMy41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cmVjdCB4PSIzNCIgeT0iMzQiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIzLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==">
+<style>/* ACCENT — Atelier (orange), identique à img.html */
+:root{--Primary:#FF6B2D;--PrimaryRGB:255,107,45;--DarkPrimary:#C84A0E;--LinkLight:#B23A0A;--LinkDark:#FF9A6B;--SoftDarkA:.22;--FaintDarkA:.1}
 
 /* =====================================================================
    LENN DESIGN SYSTEM v1 — socle commun
@@ -227,354 +222,54 @@ dialog.Modal.Palette{align-self:flex-start;margin:min(12vh,96px) auto auto;paddi
   .Toggle input[type="checkbox"]::after{width:22px;height:22px}
 }
 /* ===== fin du socle commun ===== */
-
-/* ---------- Mes audits, radar, priorisation ---------- */
-.AuditSwitch{position:relative;display:grid;gap:1px;width:100%;margin:0 0 8px;padding:9px 40px 9px 14px;border:1px solid var(--Borders);border-radius:var(--R3);background:var(--Card);color:var(--Tx);font:inherit;text-align:left;cursor:pointer;flex:none;transition:border-color .2s,background .2s}
-.AuditSwitch:hover{border-color:var(--Primary);background:var(--Faint)}
-.AuditSwitch .cap{font-size:.66rem;font-weight:800;text-transform:uppercase;color:var(--MinMuted)}
-.AuditSwitch .nm{font-size:.92rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.AuditSwitch svg{position:absolute;right:12px;top:50%;width:18px;height:18px;margin-top:-9px;color:var(--Link)}
-.AudList{display:grid;gap:10px;margin:18px 0 10px;overflow:auto;min-height:0}
-.AudRow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding:14px 16px;border:1px solid var(--Borders);border-radius:var(--R3);background:var(--Card)}
-.AudRow.on{border-color:var(--Primary);background:var(--Faint)}
-.AudNm{display:grid;gap:2px;min-width:0;flex:1 1 180px}
-.AudNm b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.AudNm small{font-size:.75rem;color:var(--MinMuted)}
-.AudIn{width:100%}
-.AudAct{display:flex;flex-wrap:wrap;gap:6px}
-.AudAct .Ghost{padding:6px 12px;font-size:.8rem}
-.AudErr{min-height:0;margin:0 0 8px;color:var(--DangerTx);font-size:.85rem}
-.AudErr:empty{display:none}
-.RadarSec .RadarCard{display:grid;flex-direction:initial;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center}
-.Radar{display:block;width:100%;height:auto}
-.Radar .rg{fill:none;stroke:var(--Borders);stroke-width:1}
-.Radar .rd{fill:rgba(var(--PrimaryRGB),.22);stroke:var(--Primary);stroke-width:2.5;stroke-linejoin:round}
-.Radar .rp{fill:var(--Primary);stroke:var(--Card);stroke-width:2}
-.Radar .rl{font:700 12px var(--font);fill:var(--Tx)}
-.Radar .rv{font-weight:800;fill:var(--Link)}
-.RadarKey{display:grid;gap:16px;margin:0;padding:0;list-style:none}
-.RadarLk{display:flex;justify-content:space-between;align-items:baseline;width:100%;padding:0 0 6px;border:0;background:none;color:var(--Tx);font:inherit;font-weight:700;cursor:pointer}
-.RadarLk:hover b{text-decoration:underline}
-.RadarLk b{color:var(--Link)}
-.Empty{margin:0;color:var(--MinMuted)}
-.Acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-.row.pr select{flex:0 0 130px}
-.PrGrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px;align-items:start}
-.Matrix{display:block;width:100%;max-width:460px;height:auto;margin:0 auto}
-.Matrix .mq{stroke:none}
-.Matrix .q-now{fill:rgba(34,197,94,.16)}.Matrix .q-next{fill:rgba(var(--PrimaryRGB),.14)}.Matrix .q-later{fill:rgba(120,120,128,.12)}.Matrix .q-skip{fill:rgba(245,158,11,.16)}
-.Matrix .mg{stroke:var(--Borders);stroke-width:.8}
-.Matrix .ml{font:800 9px var(--font);fill:var(--MinMuted);text-transform:uppercase}
-.Matrix .mt{font:600 9px var(--font);fill:var(--MinMuted)}
-.Matrix .ma{font:800 10px var(--font);fill:var(--Tx);text-transform:uppercase}
-.Matrix .md circle{stroke:var(--Card);stroke-width:2}
-.Matrix .md text{font:800 11px var(--font);fill:#fff}
-.Matrix .d-now circle{fill:#16a34a}.Matrix .d-next circle{fill:var(--DarkPrimary)}.Matrix .d-later circle{fill:#6b7280}.Matrix .d-skip circle{fill:#b45309}
-.Phase{margin:0 0 18px}
-.Phase h4{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin:0 0 8px;font-size:.95rem}
-.Phase h4 i{width:10px;height:10px;border-radius:50%;background:var(--MinMuted);flex:none}
-.Phase h4 small{flex:1 0 100%;font-size:.75rem;font-weight:500;color:var(--MinMuted)}
-.p-now h4 i{background:#16a34a}.p-next h4 i{background:var(--DarkPrimary)}.p-later h4 i{background:#6b7280}.p-skip h4 i{background:#b45309}
-.Phase ol{margin:0;padding:0;list-style:none}
-.Phase li{display:flex;gap:10px;align-items:baseline;padding:7px 0;border-top:1px solid var(--Borders)}
-.Phase li::before{content:attr(value);flex:none;min-width:22px;font-weight:800;color:var(--Link)}
-.Phase li span{flex:1;min-width:0;overflow-wrap:anywhere}
-.Phase li small{flex:none;color:var(--MinMuted)}
-.BkBar.Hidden{display:none}
-.BkLine{margin:-2px 0 8px;padding:0 4px;font-size:.72rem;color:var(--MinMuted)}
-.BkLine.warn{color:var(--DangerTx);font-weight:700}
-.BkBar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;margin:0 0 24px;padding:14px 18px;border:1px solid var(--Borders);border-left:4px solid #f59e0b;border-radius:var(--R3);background:var(--Card)}
-.BkBar p{margin:0;flex:1 1 260px;font-size:.9rem}
-.BkAct{display:flex;flex-wrap:wrap;gap:8px}
-.MrgOpts{display:grid;gap:10px;margin:16px 0}
-.MrgOpts .ck span{display:grid;gap:2px}
-.MrgOpts .ck small{font-size:.78rem;color:var(--MinMuted)}
-.AudInfo{margin:0 0 8px;font-size:.85rem;color:var(--Mu)}
-.AudInfo:empty{display:none}
-.AudInfo .Ghost{margin-left:8px;padding:4px 12px;font-size:.8rem}
-@media(max-width:900px){.PrGrid,.RadarSec .RadarCard{grid-template-columns:minmax(0,1fr)}}
-@media(max-width:560px){
-  .row.pr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 44px;gap:8px}
-  .row.pr>input:first-child{grid-column:1/-1}
-  .row.pr>button{margin:0}
-  .AudAct .Ghost{flex:1 1 auto}
-}
-
-/* =====================================================================
-   COMPOSANTS PROPRES À LennAudits
-   ===================================================================== */
-.Body{max-width:1100px}
-.nt :is(input,textarea):focus{box-shadow:none}
-.nt :is(input,textarea):focus-visible{outline:2px solid var(--Primary);outline-offset:2px}
-.card{margin-bottom:16px}
-.hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-.hd b{font-weight:800;font-size:1.1rem}
-.g2,.g3{display:grid;gap:0 16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.g3{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
-.f{display:block;margin:0 0 14px}
-.f>span,.q>span{display:block;font-size:.85rem;font-weight:700;color:var(--Mu);margin-bottom:5px}
-textarea{resize:vertical;overflow:hidden;min-height:46px}
-.row{display:flex;gap:6px;margin-bottom:8px;align-items:center}
-.row select{width:140px;flex:none}
-.q{display:block;background:var(--Card);border:1px solid var(--Borders);border-top:4px solid var(--c);border-radius:var(--R2);padding:16px;box-shadow:var(--Shadow)}
-.mx{gap:16px}
-.sc{display:flex;gap:14px;align-items:center;margin-bottom:16px;font-weight:600}
-.bar{flex:1;height:8px;border-radius:99px;background:var(--Borders);overflow:hidden}
-.bar i{display:block;height:100%;background:linear-gradient(to right,var(--DarkPrimary),var(--Primary))}
-.scr{overflow-x:auto;margin-bottom:14px}
-table{border-collapse:collapse;width:100%}
-th{text-align:left;font-size:.85rem;font-weight:700;color:var(--Mu);padding:6px 4px}
-td{padding:3px 4px;min-width:150px}
-td:last-child{min-width:0}
-h3{font-size:1.25rem;font-weight:800;margin:0 0 14px}
-.nts{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin-bottom:14px}
-.nt{position:relative;background:var(--n);color:#1c1c1e;border-radius:6px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.18)}
-.nt input,.nt textarea{background:transparent;border:0;border-radius:4px;color:#1c1c1e;padding:2px 0}
-.nt input{font-weight:800;padding-right:22px}
-.nt textarea{font-size:.85rem;min-height:60px}
-.nt ::placeholder{color:rgba(0,0,0,.45)}
-.nt .x{position:absolute;top:4px;right:4px;border:0;background:none;padding:2px 8px;color:rgba(0,0,0,.55)}
-.nt .x:hover{background:rgba(0,0,0,.1);color:#1c1c1e}
-.tg{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
-.nt .tg button{padding:1px 8px;font-size:.7rem;border:1px solid rgba(0,0,0,.25);color:#1c1c1e}
-.nt .tg button:hover{background:rgba(0,0,0,.12);color:#1c1c1e;border-color:rgba(0,0,0,.4)}
-.sl{display:block;margin:0 0 16px}
-.sl span{display:flex;justify-content:space-between;font-size:.8rem}
-.tb th{background:var(--Primary);color:#fff;padding:10px 12px;font-size:.9rem}
-.tb th:first-child{border-radius:12px 0 0 0}
-.tb th:nth-last-child(2){border-radius:0 12px 0 0}
-.tb th:last-child{background:none}
-.tb td{min-width:170px;vertical-align:top;padding:4px}
-.tb td:first-child{min-width:130px}
-.tb td:last-child{min-width:0}
-.tb td:first-child input{font-weight:800}
-.tb td.me textarea{background:var(--Soft)}
-main{display:block}
-:where(.Body) button:not([class]){padding:8px 18px;border:1px solid var(--Borders);background:transparent;color:var(--Mu);border-radius:999px;font-weight:500;transition:all .15s}
-:where(.Body) button:not([class]):hover{border-color:var(--Primary);color:var(--Link);background:var(--Soft)}
-.row button,td button{padding:6px 12px}
-@media(max-width:560px){
-  .row{flex-wrap:wrap;gap:8px;margin-bottom:14px}
-  .row>input,.row select{flex:1 1 100%;width:100%;min-width:0}
-  .row>button{flex:none}
-  .row>button:last-child{margin-left:auto}
-  .row:has(>select){display:grid;grid-template-columns:minmax(0,1fr) 44px;gap:8px}
-  .row:has(>select)>input:first-child{grid-column:1/-1}
-  .row:has(>select)>select{grid-column:1;grid-row:2;width:100%}
-  .row:has(>select)>button{grid-column:2;grid-row:2;margin:0}
-  .row:has(>select)>input:nth-of-type(2){grid-column:1/-1;grid-row:3}
-}
-@media(pointer:coarse){
-  .row button,td button,.nt .x{min-width:44px;min-height:44px}
-  .nt .x{top:0;right:0}
-  .nt .tg button{min-height:36px;padding:6px 12px}
-  .nt input,.nt textarea{min-height:40px}
-  .StepList .Link{padding:10px 0}
-}
-.Link{display:inline-flex;gap:6px;align-self:flex-start;border:0;background:none;padding:0;color:var(--Link);font-weight:700}
-.Card{position:relative;display:flex;flex-direction:column;gap:14px;transition:transform .3s,box-shadow .3s}
-.Card:hover{transform:translateY(-4px);box-shadow:var(--ShadowHover)}
-.Card:hover .Arrow{transform:translate(3px,-3px)}
-.Card>p{flex:1;font-size:.95rem;color:var(--Mu)}
-.Offer .Link::after{content:"";position:absolute;inset:0;z-index:1}
-.OfferGrid,.StatsGrid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.StatsGrid{gap:20px;grid-template-columns:repeat(3,minmax(0,1fr))}
-@media(max-width:700px){.StatsGrid{grid-template-columns:1fr}}
-.Badge{align-self:flex-start}
-.Stat{overflow:hidden}
-.Deco{position:absolute;top:0;right:0;width:68px;height:68px;background:linear-gradient(135deg,var(--Primary),var(--DarkPrimary));border-radius:0 20px 0 100%}
-.Number{font-size:clamp(2rem,3vw,2.6rem);font-weight:900;line-height:1;color:var(--Link)}
-.StatLabel{font-weight:800}
-.StepList{list-style:none;counter-reset:step;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px}
-.StepList li{min-width:0;counter-increment:step;border-top:2px solid var(--Primary);padding-top:18px;display:flex;flex-direction:column;gap:8px}
-.StepList li::before{content:counter(step);font-size:2.6rem;font-weight:800;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--Primary);margin-bottom:6px}
-.StepList h3{font-size:1.15rem;margin:0;overflow-wrap:break-word;hyphens:auto}
-.StepList p{font-size:.92rem;color:var(--Mu);flex:1}
-.CityFAQ{max-width:900px;margin-inline:auto}
-.FAQList{display:flex;flex-direction:column;gap:12px}
-details{background:var(--Card);border-radius:14px;padding:6px 22px;box-shadow:0 2px 16px rgba(0,0,0,.05)}
-summary{list-style:none;padding:16px 0;font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";flex:none;width:24px;height:24px;border-radius:50%;background:var(--Soft);color:var(--Link);display:flex;align-items:center;justify-content:center;font-weight:700;transition:transform .25s}
-details[open] summary{color:var(--Link)}
-details[open] summary::after{transform:rotate(45deg)}
-details p{padding-bottom:18px;color:var(--Mu);line-height:1.7}
-.Arrow{display:inline-block;transition:transform .3s}
-.rail-end .BtnSolid{justify-content:center}
-#st{font-size:.75rem;color:var(--MinMuted);padding:0 8px}
-.Body>section,.Body>.SectionTitle:not(:first-child){margin-top:clamp(48px,6vw,72px)}
-.Pager{display:flex;justify-content:space-between;gap:12px;margin-top:clamp(40px,5vw,64px);padding-top:20px;border-top:1px solid var(--Borders)}
-.Pager .Ghost{display:grid;gap:2px;max-width:48%;padding:10px 18px;border-radius:var(--R3);text-align:left}
-.Pager .Ghost:last-child{text-align:right;margin-left:auto}
-.Pager small{font-size:.72rem;font-weight:700;text-transform:uppercase;color:var(--MinMuted)}
-.Pager span{font-weight:700}
-.CityFAQ{margin-inline:0}
-.pfg{display:grid;gap:16px;margin-top:16px;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-areas:". ne ." "fo rv cl" ". su ."}
-.pf{display:flex;flex-direction:column;gap:8px;background:var(--Card);border:1px solid var(--Borders);border-top:4px solid var(--c);border-radius:var(--R2);padding:16px;box-shadow:var(--Shadow)}
-.pf>span{font-weight:800}
-.pf small{color:var(--MinMuted);margin-top:-4px}
-@media(max-width:860px){
-  .pfg{grid-template-columns:1fr;grid-template-areas:"ne" "fo" "rv" "cl" "su"}
-}
-#exb{overflow:auto;min-height:0;flex:1}
-.ExHd{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
-.ExHd h2{font-size:1.6rem;font-weight:800}
-.ExHd .Eyebrow{margin-bottom:4px}
-#ex .MainDesc{margin:8px 0 18px}
-.ExBar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;font-size:.85rem;color:var(--MinMuted)}
-#ex fieldset{border:0;padding:0;margin:0 0 14px}
-#ex legend{font-size:.72rem;font-weight:800;text-transform:uppercase;color:var(--Link);margin-bottom:6px;padding:0}
-.ck{display:flex;align-items:center;gap:12px;padding:9px 14px;border:1px solid var(--Borders);border-radius:var(--R3);margin-bottom:6px;cursor:pointer;font-weight:600}
-.ck:hover{border-color:var(--Primary);background:var(--Soft)}
-.ck input{width:18px;height:18px;border:0;padding:0;accent-color:var(--Primary);flex:none}
-.ExFt{display:flex;justify-content:flex-end;gap:10px;margin-top:8px}
-@media print{
-  :root{--Bg:#fff!important;--Card:#fff!important;--Tx:#000!important;--Mu:#333!important;--Borders:#ccc!important;--Link:#1E7E34!important}
-  body{font-size:12px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .rail,.MobileTop,.rail-scrim,.Pager,.SiteFoot,.BkBar,.ReadingProgress,.RadarSec,.Acts,button{display:none!important}
-  main{margin:0}
-  .workspace{padding:0}
-  .Body{max-width:none}
-  .PageHead,.SectionTitle{margin:0 0 14px}
-  .MainTitle{font-size:1.3rem}
-  .ps{margin-bottom:26px}
-  .card,.Card,.row,tr,.q,.nt,.pf,details,.StepList li{break-inside:avoid}
-  .Card,.card,.q,.nt,.pf{box-shadow:none}
-  .Card:hover{transform:none}
-  textarea{resize:none}
-  .scr{overflow:visible}
-  .tb td{min-width:0}
-}
-/* Modules : 4 cards par ligne, largeur de card conservée (~320px) */
-.Body:has(.OfferGrid){max-width:1444px}
-.OfferGrid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
-@media(max-width:560px){
-  .OfferGrid{grid-template-columns:1fr}
-}
-/* SWOT : grille 2x2 — PESTEL : grille 2x3 */
-.g2.mx,.g3.mx{grid-template-columns:repeat(2,minmax(0,1fr))}
-@media(max-width:560px){
-  .g2.mx,.g3.mx{grid-template-columns:1fr}
-}
-/* Export PDF : choix d'orientation A4 */
-#ex .ExOr{display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:none;margin:0 0 14px}
-#ex .ExOr legend{grid-column:1/-1}
-#ex .ExOr .ck{margin:0}
-.ck:has(input:checked){border-color:var(--Primary);background:var(--Soft)}
-.Pg{display:block;flex:none;width:14px;height:20px;border:2px solid var(--Link);border-radius:2px}
-.Pg.l{width:20px;height:14px}
-@page{size:A4 portrait}
-#ex .ExFm{grid-template-columns:repeat(3,minmax(0,1fr))}
-.ck{min-width:0}
-.ExBar{flex-wrap:wrap;gap:8px}
-@media(max-width:480px){
-  #ex .ExFm,#ex .ExOr{grid-template-columns:1fr}
-  #ex .ExFm .ck span{flex-direction:row;align-items:baseline;gap:8px}
-  .ExFt{flex-wrap:wrap}
-  .ExFt>*{flex:1 1 auto}
-}
-#ex .ExFm .ck span{display:flex;flex-direction:column;line-height:1.25}
-#ex .ck small{font-weight:500;font-size:.72rem;color:var(--MinMuted)}
-
-/* =====================================================================
-   LennAudits v1.2 — propre à LennAudits (hors socle commun)
-   Critères pondérés / modèles, preuves visuelles, suivi des actions, rappels
-   ===================================================================== */
-.Hint{margin:0 0 12px;font-size:.85rem;color:var(--MinMuted)}
-.TplRow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
-.TplRow select{flex:1 1 220px;width:auto}
-
-/* Grille de critères : note, poids, notes, actions */
-.row.au select:nth-of-type(2){width:132px}
-.RowAct{display:flex;gap:4px;flex:none}
-.RowAct button:disabled{opacity:.35;cursor:default}
-.row.au.off input,.row.au.off select{opacity:.5}
-.row.au.off>input:first-child{text-decoration:line-through}
-@media(max-width:860px){
-  .row.au{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
-  .row.au>input:first-child,.row.au>input:nth-of-type(2){grid-column:1/-1!important;grid-row:auto!important}
-  .row.au>select{grid-column:auto!important;grid-row:auto!important;width:100%!important}
-  .row.au>.RowAct{grid-column:1/-1;justify-content:flex-end}
-}
-
-/* Preuves visuelles dans les constats */
-.EvZone{margin-top:10px;padding-top:8px;border-top:1px dashed rgba(0,0,0,.28)}
-.EvList{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-bottom:8px}
-.EvFig{position:relative;margin:0;display:flex;flex-direction:column;gap:4px;min-width:0}
-.EvThumb{display:block;width:100%;padding:0;border:1px solid rgba(0,0,0,.3);border-radius:4px;overflow:hidden;background:#fff;aspect-ratio:4/3;cursor:zoom-in}
-.EvThumb img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
-.EvFig.Miss .EvThumb{display:grid;place-items:center;cursor:default}
-.EvFig.Miss .EvThumb::after{content:"Image introuvable sur cet appareil";padding:6px;text-align:center;font-size:.68rem;color:#555}
-.EvFig input,.EvUrl input{padding:3px 6px!important;border:1px solid rgba(0,0,0,.2)!important;background:rgba(255,255,255,.5)!important;font-size:.75rem;font-weight:500!important}
-.EvUrl{position:relative;grid-column:1/-1;display:flex;flex-direction:column;gap:4px;padding-right:28px}
-.x2{position:absolute;top:2px;right:2px;width:22px;height:22px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.88);color:#1c1c1e;font-size:.9rem;line-height:1}
-.x2:hover{background:#fff}
-.EvAct{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
-.EvAct button,.EvGo{padding:1px 8px;border:1px solid rgba(0,0,0,.25);border-radius:var(--Pill);background:none;color:#1c1c1e;font-size:.7rem;text-decoration:none}
-.EvAct button:hover:not(:disabled),.EvGo:hover{background:rgba(0,0,0,.12)}
-.EvAct button:disabled{opacity:.4}
-.EvAct small{flex:1 0 100%;font-size:.68rem;color:rgba(0,0,0,.6)}
-.EvGo{align-self:flex-start}
-@media(min-width:700px){.nt:has(.EvFig,.EvUrl){grid-column:span 2}}
-@media(pointer:coarse){.EvAct button,.EvGo{min-height:40px;padding:6px 14px}.x2{width:36px;height:36px}}
-.Modal.Lightbox{position:fixed;width:auto;max-width:min(94vw,1100px);padding:14px}
-.Lightbox::backdrop{background:var(--Scrim)}
-.Lightbox img{display:block;max-width:100%;max-height:78vh;margin:0 auto;border-radius:8px}
-.Lightbox p{margin:10px 0 0;text-align:center;color:var(--Mu)}
-.Lightbox [data-lb]{position:absolute;top:8px;right:8px;z-index:2;padding:4px 12px;background:var(--Card)}
-
-/* Priorisation : suivi des actions */
-.PrSum{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;margin-bottom:14px;font-weight:600}
-.PrSum .bar{flex:1 1 160px}
-.PrFlt{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-.Chip{padding:6px 14px;border:1px solid var(--Borders);border-radius:var(--Pill);background:var(--Card);color:var(--Tx);font-size:.85rem;font-weight:600;cursor:pointer}
-.Chip b{margin-left:6px;color:var(--Link)}
-.Chip.on{background:var(--Primary);border-color:var(--Primary);color:#fff}
-.Chip.on b{color:#fff}
-.PrItem{margin-bottom:12px;padding:14px;border:1px solid var(--Borders);border-radius:var(--R3);background:var(--Faint)}
-.PrItem.st-done{opacity:.72}
-.PrItem.st-done .PrTop input{text-decoration:line-through}
-.PrTop{display:flex;gap:8px;align-items:center;margin-bottom:10px}
-.PrTop input{flex:1;min-width:0}
-.PrFields{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
-.PrFields label{display:flex;flex-direction:column;gap:4px;min-width:0;font-size:.72rem;font-weight:700;text-transform:uppercase;color:var(--MinMuted)}
-.PrFields small{text-transform:none}
-.Src{display:inline-flex;align-items:center;gap:6px;flex:none;padding:3px 10px;border:1px solid color-mix(in srgb,var(--c) 55%,transparent);border-radius:var(--Pill);background:color-mix(in srgb,var(--c) 18%,transparent);color:var(--Tx);font-size:.72rem;font-weight:700;white-space:nowrap}
-.Src::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c)}
-.Late{color:var(--DangerTx);font-weight:700}
-.Pst{padding:2px 8px;border-radius:var(--Pill);background:var(--Soft);font-size:.72rem}
-.Pst.st-doing{background:var(--WarnBg);color:var(--WarnTx)}
-.Pst.st-done{background:var(--Primary);color:#fff}
-.Phase li{flex-wrap:wrap}
-.Phase li.done span{text-decoration:line-through;opacity:.6}
-.Phase li .Meta{flex:1 0 100%;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;padding-left:32px}
-
-/* Tableau de bord : rappel des sections incomplètes */
-.NextUp{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between;margin-bottom:24px;border-left:6px solid var(--Primary)}
-.NextUp h2{margin:2px 0 6px;font-size:1.4rem}
-.NextUp p{margin:0;color:var(--Mu)}
-.Offer.Todo{border-style:dashed;border-color:var(--Primary)}
-.TodoTag{align-self:flex-start;font-size:.7rem;font-weight:800;text-transform:uppercase;color:var(--Link)}
-.Pulse{animation:lennPulse 1.8s ease-out 1}
-@keyframes lennPulse{0%{box-shadow:0 0 0 0 rgba(var(--PrimaryRGB),.55)}100%{box-shadow:0 0 0 14px rgba(var(--PrimaryRGB),0)}}
-
-@media print{
-  .EvAct,.TplCard,.PrFlt,.x2{display:none!important}
-  .EvThumb{display:block!important}
-}
-
-.Hub{max-width:1100px;margin:0 auto;padding:calc(24px + env(safe-area-inset-top,0px)) 24px 24px}
-.HubTop{display:flex;align-items:center;justify-content:space-between;gap:12px}.HubBrand{display:flex;align-items:center;gap:10px;font:800 1.15rem var(--font);color:var(--Link);text-decoration:none}.HubBrand img{width:44px;height:44px;border-radius:12px}
-.HubTheme{border:1px solid var(--Borders);background:var(--Card);border-radius:var(--Pill);padding:8px 16px;font-weight:600}
-.HubHero{padding:48px 0 20px}.HubHero h1{font:800 clamp(2rem,6vw,3.4rem)/1.1 var(--font);margin:8px 0 12px}.HubHero h1 em{font-style:normal;color:var(--Link)}.HubHero p{max-width:560px;color:var(--Mu);margin:0}
-.HubNav{position:sticky;top:0;z-index:5;display:flex;gap:8px;padding:12px 0;background:var(--Bg)}.HubNav a{padding:8px 18px;border-radius:var(--Pill);border:1px solid var(--Borders);background:var(--Card);color:var(--Link);font-weight:700;text-decoration:none}.HubNav a:hover{border-color:var(--Primary)}
-.HubSec{margin:24px 0 48px;padding:24px;background:var(--Faint);border-radius:var(--R);scroll-margin-top:70px}.HubSecHd{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:8px}.HubSecHd>div{flex:1;min-width:220px}.HubSecHd h2{margin:0;font:800 1.6rem var(--font)}.HubSecHd p{margin:2px 0 0;color:var(--Mu)}
-.HubIc{width:52px;height:52px;border-radius:14px;background:var(--c);display:grid;place-items:center;flex:none}.HubIc svg{width:28px;height:28px}
-.Badge{padding:4px 12px;border-radius:var(--Pill);background:var(--WarnBg);color:var(--WarnTx);font-size:.8rem;font-weight:700}a.BtnSolid{text-decoration:none;display:inline-flex;align-items:center}
-.CatH{margin:24px 0 10px;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--Mu)}.Empty{margin:16px 0 0;padding:20px;border:1px dashed var(--DarkBorders);border-radius:var(--R2);color:var(--MinMuted);text-align:center}
-.TlGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
-.Tl{display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--Borders);border-radius:var(--R2);background:var(--Card);color:inherit;text-decoration:none;transition:transform .15s,box-shadow .15s}.Tl:hover,.Tl:focus-visible{transform:translateY(-2px);box-shadow:var(--ShadowHover)}.Tl b{display:block}.Tl small{display:block;color:var(--MinMuted);line-height:1.35;margin-top:2px}
-.TlIc{flex:none;width:44px;height:44px;border-radius:12px;background:var(--c);display:grid;place-items:center}.TlIc svg{width:24px;height:24px}
+/* ===== Atelier : composants communs (accueil, outils) ===== */
+html{scroll-behavior:smooth}
+.btn-accent,.BtnSolid,.ArrowBtn,.BtnMain,.Badge,.badge-accent{background:var(--DarkPrimary);border-color:var(--DarkPrimary)}.Badge{color:#fff}
+.rail-btn[aria-current]:not([aria-current="false"]){background:var(--DarkPrimary)}
+.btn-block{display:flex;width:100%}.btn-text{background:none;border-color:transparent;color:var(--Mu);font-weight:600}.btn-text:hover{color:var(--Link);background:var(--Soft)}
+.home-head{max-width:760px;margin-bottom:12px}.home-mark{display:block;width:60px;height:60px;border-radius:16px;margin-bottom:22px;box-shadow:var(--Shadow)}
+.home-head .MainTitle{font-size:clamp(2.1rem,5vw,3.5rem);line-height:1.05;letter-spacing:-.02em}
+.cat-head{display:flex;align-items:center;gap:12px;margin:40px 0 16px}.cat-head h2,.cat-head h3{margin:0;font-size:1.25rem}.cat-head span{font-size:.82rem;color:var(--MinMuted)}.cat-head::after{content:"";order:3;flex:1;height:1px;background:var(--Borders)}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin:0;padding:0;list-style:none}.tool-grid>li{display:flex}
+.tool-card{display:flex;flex-direction:column;gap:10px;flex:1;min-width:0;padding:22px;border:1px solid var(--Borders);border-radius:var(--R);background:var(--Card);box-shadow:var(--Shadow);color:var(--Tx);font:inherit;text-align:left;text-decoration:none;cursor:pointer;transition:transform .3s,box-shadow .3s,border-color .3s}
+.tool-card:hover{transform:translateY(-4px);box-shadow:var(--ShadowHover);border-color:var(--Primary)}
+.tool-card-top{display:flex;align-items:center;justify-content:space-between}
+.tool-ic{display:grid;place-items:center;flex:none;width:46px;height:46px;border-radius:14px;background:var(--Soft);color:var(--Link);transition:background .3s,color .3s}.tool-ic svg{width:24px;height:24px}
+.tool-card:hover .tool-ic,.hub-ic{background:var(--DarkPrimary);color:#fff}
+.tool-num{font-size:.8rem;font-weight:700;color:var(--MinMuted)}.mono{font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.tool-card :is(h2,h3,h4){margin:4px 0 0;font-size:1.2rem;line-height:1.2}.tool-card p{flex:1;margin:0;font-size:.92rem;color:var(--Mu)}
+.tool-go{font-size:.9rem;font-weight:800;color:var(--Link)}.tool-go span{display:inline-block;transition:transform .3s}.tool-card:hover .tool-go span{transform:translateX(4px)}
+.tool-panel{max-width:1200px}
+.panel-body{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;align-items:start}.panel-body.solo{grid-template-columns:minmax(0,520px)}.solo .stage-col{display:none}
+.stage-col,.controls-col{display:grid;gap:16px;min-width:0}.controls-col{position:sticky;top:24px}
+.control-card{margin:0}.control-card h3{margin:0 0 16px;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--Link)}
+.control-card:not(:has(.Opts>*)):not(:has(.Hint)){display:none}
+.Opts{display:grid;gap:16px}.Opts:empty{display:none}.field{display:grid;gap:6px}.field>label,.field .tt{font-size:.85rem;font-weight:700;color:var(--Mu)}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.field input[type=color]{width:64px;height:40px;padding:2px;border:1px solid var(--Borders);border-radius:var(--R3);background:var(--Card)}
+.Hint{margin:12px 0 0;font-size:.85rem;color:var(--MinMuted)}.Opts:empty+.Hint{margin:0}
+.Pad{width:100%;height:150px;border:1px dashed var(--DarkBorders);border-radius:var(--R3);background:var(--Card);touch-action:none;cursor:crosshair}
+.Act{display:grid;gap:8px}
+.dropzone{display:grid;place-items:center;min-height:300px;padding:32px 20px;border:2px dashed var(--DarkBorders);border-radius:var(--R);background:var(--Card);text-align:center;cursor:pointer;transition:border-color .2s,background .2s}.dropzone.compact{min-height:130px}
+.dropzone:hover,.dropzone.on,.dropzone:focus-visible{border-color:var(--Primary);background:var(--Faint)}
+.dz-icon{width:44px;height:44px;margin-bottom:12px;color:var(--Link)}.dz-title{font-size:1.05rem;font-weight:700}.dz-title b{color:var(--Link)}.dz-sub{margin-top:4px;font-size:.85rem;color:var(--MinMuted)}
+.FList{display:grid;gap:8px}.FList:empty{display:none}
+.FRow{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--Card);border:1px solid var(--Borders);border-radius:var(--R3)}
+.FRow .n{display:grid;place-items:center;flex:none;width:28px;height:28px;border-radius:50%;background:var(--Soft);color:var(--Link);font-size:.8rem;font-weight:800}
+.FRow b{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.FRow small{color:var(--MinMuted);font-variant-numeric:tabular-nums}
+.Rw{display:flex;gap:4px;flex:none}.Rw .Ghost{width:32px;height:32px;min-height:0;padding:0;border-radius:50%;line-height:1}
+@media(pointer:coarse){.Rw .Ghost{width:44px;height:44px}}
+.Prog span{display:block;margin-bottom:6px;font-size:.9rem;color:var(--Mu)}.Prog div{height:8px;border-radius:99px;background:var(--Borders);overflow:hidden}.Prog i{display:block;width:0;height:100%;background:linear-gradient(to right,var(--DarkPrimary),var(--Primary));transition:width .2s}
+.Res{padding:22px;background:var(--Card);border:1px solid var(--Borders);border-left:4px solid var(--Primary);border-radius:var(--R);box-shadow:var(--Shadow)}.Res h3{margin:0 0 6px;font-size:1.1rem}
+.ResRow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-top:1px solid var(--Borders)}.ResRow:first-child{border-top:0}.ResRow b{overflow-wrap:anywhere}.ResRow small{display:block;color:var(--MinMuted)}
+.ResAct{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}.ResAct:empty{display:none}
+.Err{padding:12px 16px;border-radius:var(--R3);background:rgba(229,62,62,.12);color:var(--DangerTx);font-weight:600}
+.Zn{padding:16px;background:var(--Card);border:1px solid var(--Borders);border-radius:var(--R);box-shadow:var(--Shadow)}.ZnBar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px;margin-bottom:12px}.ZnBar small{color:var(--MinMuted)}.ZnBar input{width:72px}
+.Stage{position:relative;max-width:100%;margin:0 auto;border-radius:var(--R3);overflow:hidden;line-height:0;box-shadow:var(--Shadow)}.Stage canvas{max-width:100%}.Ov{position:absolute;inset:0;cursor:crosshair;touch-action:none}.Zb{position:absolute;background:rgba(var(--PrimaryRGB),.25);border:2px solid var(--Primary)}
+#st{padding:0 8px;font-size:.75rem;color:var(--MinMuted)}.Empty{margin:0;color:var(--MinMuted)}
+.hub-sec{margin-top:clamp(40px,5vw,64px);scroll-margin-top:24px}.hub-head{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-bottom:8px}.hub-head>div{flex:1;min-width:220px}.hub-head h2{margin:0;font-size:1.6rem}.hub-head p{margin:2px 0 0;color:var(--Mu)}.hub-ic{width:52px;height:52px}
+@media(max-width:960px){.panel-body{grid-template-columns:minmax(0,1fr)}.controls-col{position:static}}
+@media(max-width:860px){.hub-sec{scroll-margin-top:76px}}
 </style>
 <script>/* =====================================================================
    theme.js — bascule clair / sombre (fichier IDENTIQUE dans les 3 apps)
@@ -622,17 +317,135 @@ details p{padding-bottom:18px;color:var(--Mu);line-height:1.7}
   });
 })();
 </script>
+<script>
+/* =====================================================================
+   navsheet.js — menu mobile en feuille (fichier IDENTIQUE dans les 3 apps)
+   Sous 860 px : barre fixe en haut (logo, app, section en cours, bouton menu).
+   Le bouton ouvre la barre latérale (.rail) sous forme de feuille depuis le bas.
+   Fermeture : croix, fond, Échap, glisser vers le bas, ou choix d'une entrée.
+   ===================================================================== */
+(function () {
+  var mq = window.matchMedia ? matchMedia('(max-width:860px)') : { matches: false };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var rail = document.querySelector('.rail'), app = document.querySelector('.app');
+    if (!rail || !app) return;
+    var html = document.documentElement;
+    rail.id = rail.id || 'rail';
+
+    /* --- barre du haut --- */
+    var mark = rail.querySelector('.rail-brand .mark');
+    var appName = (rail.querySelector('.rail-brand .LogoTx') || {}).textContent || '';
+    var top = document.createElement('header');
+    top.className = 'MobileTop';
+    top.innerHTML =
+      '<div class="MobileTop-txt"><span class="MobileTop-app"></span><span class="MobileTop-cur"></span></div>' +
+      '<button type="button" class="MobileTop-btn" aria-label="Ouvrir le menu" aria-haspopup="dialog" aria-expanded="false" aria-controls="' + rail.id + '">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>';
+    if (mark) {
+      var m = mark.cloneNode(true); m.setAttribute('alt', ''); m.setAttribute('aria-hidden', 'true');
+      top.insertBefore(m, top.firstChild);
+    }
+    app.insertBefore(top, app.firstChild);
+    var btn = top.querySelector('.MobileTop-btn');
+    var appEl = top.querySelector('.MobileTop-app'), curEl = top.querySelector('.MobileTop-cur');
+
+    function sync() {
+      var c = rail.querySelector('.rail-btn[aria-current]:not([aria-current="false"]) .lb');
+      curEl.textContent = c ? c.textContent.trim() : '';
+      var st = document.getElementById('rail-st');
+      var extra = st ? st.textContent.trim() : '';
+      appEl.textContent = extra ? extra + ' · ' + appName : appName;
+    }
+    sync();
+    new MutationObserver(sync).observe(rail, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['aria-current'] });
+
+    /* --- feuille : poignée, croix, fond --- */
+    var head = document.createElement('div');
+    head.className = 'rail-sheet-head';
+    head.innerHTML =
+      '<span class="grab" aria-hidden="true"></span>' +
+      '<button type="button" class="rail-close" aria-label="Fermer le menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>';
+    rail.insertBefore(head, rail.firstChild);
+    var closeBtn = head.querySelector('.rail-close');
+    var scrim = document.createElement('div');
+    scrim.className = 'rail-scrim';
+    document.body.appendChild(scrim);
+
+    var inertEls = [];
+    function setInert(on) {
+      if (on) {
+        var skip = /^(SCRIPT|STYLE|LINK)$/;
+        var els = [].filter.call(document.body.children, function (e) { return e !== app && e !== scrim && !skip.test(e.tagName); })
+          .concat([].filter.call(app.children, function (e) { return e !== rail; }));
+        els.forEach(function (e) { if (!e.inert) { e.inert = true; inertEls.push(e); } });
+      } else {
+        inertEls.forEach(function (e) { e.inert = false; });
+        inertEls = [];
+      }
+    }
+    function isOpen() { return html.classList.contains('rail-open'); }
+    function open() {
+      if (!mq.matches || isOpen()) return;
+      html.classList.add('rail-open');
+      btn.setAttribute('aria-expanded', 'true');
+      rail.setAttribute('role', 'dialog'); rail.setAttribute('aria-modal', 'true'); rail.setAttribute('aria-label', 'Menu');
+      setInert(true);
+      closeBtn.focus({ preventScroll: true });
+    }
+    function close(restoreFocus) {
+      if (!isOpen()) return;
+      html.classList.remove('rail-open');
+      btn.setAttribute('aria-expanded', 'false');
+      rail.removeAttribute('role'); rail.removeAttribute('aria-modal'); rail.removeAttribute('aria-label');
+      setInert(false);
+      if (restoreFocus !== false) btn.focus({ preventScroll: true });
+    }
+
+    btn.addEventListener('click', open);
+    closeBtn.addEventListener('click', function () { close(); });
+    scrim.addEventListener('click', function () { close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen()) close(); });
+    /* choisir une entrée (ou une action) referme la feuille, sauf le bouton de thème */
+    rail.addEventListener('click', function (e) {
+      if (!isOpen()) return;
+      var t = e.target.closest('button,a');
+      if (!t || t === closeBtn || t.id === 'theme-btn') return;
+      close(false);
+    }, true);
+    /* glisser la poignée vers le bas */
+    var y0 = null;
+    head.addEventListener('touchstart', function (e) { y0 = e.touches[0].clientY; }, { passive: true });
+    head.addEventListener('touchmove', function (e) {
+      if (y0 !== null && e.touches[0].clientY - y0 > 60) { y0 = null; close(); }
+    }, { passive: true });
+    head.addEventListener('touchend', function () { y0 = null; }, { passive: true });
+    if (mq.addEventListener) mq.addEventListener('change', function () { if (!mq.matches) close(false); });
+  });
+})();
+
+</script>
 </head>
 <body>
-<div class="Hub">
-<header class="HubTop"><a class="HubBrand" href="./"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMyOEE3NDUiIGZpbGwtb3BhY2l0eT0iLjIiLz48cGF0aCBkPSJNMTggMjJoMjhNMTggMzJoMjhNMTggNDJoMTgiIHN0cm9rZT0iIzFFN0UzNCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4=" alt="" width="44" height="44">Lennouille</a><button class="HubTheme" id="tg" type="button"></button></header>
-<section class="HubHero"><span class="Eyebrow">Outils</span><h1>Tous mes outils, <em>au même endroit</em></h1><p>Des outils gratuits qui fonctionnent dans ton navigateur : tes fichiers ne quittent jamais ton appareil.</p></section>
-<nav class="HubNav" aria-label="Sections"><a href="#img">Images</a><a href="#pdf">PDF</a><a href="#colors">Couleurs</a></nav>
-<main><section class="HubSec" id="img" style="--c:#4A8FD0"><div class="HubSecHd"><span class="HubIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="m4 18 5-5 4 4 3-3 4 4"/></svg></span><div><h2>Images</h2><p>10 outils pour compresser, redimensionner, convertir et retravailler tes images.</p></div><a class="BtnSolid sm" href="img.html">Ouvrir Images</a></div><div class="TlGrid"><a class="Tl" href="img.html#compresser" style="--c:#4A8FD0"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3v4a2 2 0 0 1-2 2H3" /> <path d="M15 3v4a2 2 0 0 0 2 2h4" /> <path d="M9 21v-4a2 2 0 0 0-2-2H3" /> <path d="M15 21v-4a2 2 0 0 1 2-2h4" /></svg></span><span><b>Compresser</b><small>Réduisez le poids d'une image en gardant son format, avec aperçu en temps réel.</small></span></a><a class="Tl" href="img.html#redimensionner" style="--c:#4A8FD0"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v6h6" /> <path d="M20 10V4h-6" /> <path d="M4 20l7-7" /> <path d="M20 4l-7 7" /></svg></span><span><b>Redimensionner</b><small>Changez les dimensions en pourcentage ou en pixels exacts, ratio verrouillable.</small></span></a><a class="Tl" href="img.html#convertir" style="--c:#4A8FD0"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8" /> <path d="M21 3v5h-5" /> <path d="M21 12a9 9 0 0 1-15 6.7L3 16" /> <path d="M3 21v-5h5" /></svg></span><span><b>Convertir</b><small>Passez d'un format à l'autre : PNG, JPG, WEBP, AVIF ou SVG.</small></span></a><a class="Tl" href="img.html#recadrer" style="--c:#4A8FD0"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v14a2 2 0 0 0 2 2h14" /> <path d="M18 22V8a2 2 0 0 0-2-2H2" /></svg></span><span><b>Recadrer</b><small>Recadrez à la souris, pivotez librement ou par pas de 90°, retournez en miroir.</small></span></a><a class="Tl" href="img.html#ameliorer" style="--c:#4A8FD0"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6L12 3z" /> <path d="M19 15l.7 2.3L22 18l-2.3.7L19 21l-.7-2.3L16 18l2.3-.7L19 15z" /></svg></span><span><b>Améliorer</b><small>Agrandissez jusqu'à 4× grâce au ré-échantillonnage Lanczos et à la netteté adaptative.</small></span></a><a class="Tl" href="img.html#detourer" style="--c:#4A8FD0"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="3 3" /> <circle cx="12" cy="12" r="5" /></svg></span><span><b>Détourer</b><small>Supprimez l'arrière-plan puis retouchez au pinceau, export en fond transparent.</small></span></a><a class="Tl" href="img.html#filigrane" style="--c:#4A8FD0"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-3 4-5 6.5-5 9a5 5 0 0 0 10 0c0-2.5-2-5-5-9z" /></svg></span><span><b>Filigrane</b><small>Ajoutez un texte ou un logo, en position libre ou répété en mosaïque.</small></span></a><a class="Tl" href="img.html#favicon" style="--c:#4A8FD0"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 7.5l1.4 2.9 3.2.4-2.3 2.2.6 3.2-2.9-1.5-2.9 1.5.6-3.2-2.3-2.2 3.2-.4z"/></svg></span><span><b>Favicon</b><small>Créez les icônes ICO, PNG, Apple et Android d'un site à partir d'une seule image, avec le code à copier.</small></span></a><a class="Tl" href="img.html#exif" style="--c:#4A8FD0"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span><b>Métadonnées</b><small>Retirez la position GPS, l'appareil et les autres informations cachées de vos photos, sans perte de qualité.</small></span></a><a class="Tl" href="img.html#partage" style="--c:#4A8FD0"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.3M8.2 13.2l7.6 4.3"/></svg></span><span><b>Image de partage</b><small>Composez l'image affichée quand vous partagez un lien : titre, fond et logo, au bon format.</small></span></a></div></section><section class="HubSec" id="pdf" style="--c:#E5603E"><div class="HubSecHd"><span class="HubIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h10l4 4v14H5zM15 3v4h4M9 15l2 2 4-4"/></svg></span><div><h2>PDF</h2><p>30 outils pour organiser, optimiser, convertir, modifier et sécuriser tes PDF.</p></div><a class="BtnSolid sm" href="pdf.html">Ouvrir PDF</a></div><h3 class="CatH" style="--c:#E5603E">Organiser PDF</h3><div class="TlGrid"><a class="Tl" href="pdf.html#fusionner" style="--c:#E5603E"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l6 6M20 4l-6 6M12 10v10M9 17l3 3 3-3"/></svg></span><span><b>Fusionner PDF</b><small>Assemble plusieurs PDF en un seul document, dans l’ordre voulu.</small></span></a><a class="Tl" href="pdf.html#diviser" style="--c:#E5603E"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v8M12 11l-7 8M12 11l7 8M5 15v4h4M19 15v4h-4"/></svg></span><span><b>Diviser PDF</b><small>Découpe un PDF par plages, page par page ou tous les N pages.</small></span></a><a class="Tl" href="pdf.html#supprimer" style="--c:#E5603E"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></span><span><b>Supprimer des pages</b><small>Retire les pages dont tu n’as pas besoin.</small></span></a><a class="Tl" href="pdf.html#extraire" style="--c:#E5603E"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19v-4a6 6 0 0 1 6-6h8M15 5l4 4-4 4"/></svg></span><span><b>Extraire des pages</b><small>Garde seulement les pages choisies, en un fichier ou une page par fichier.</small></span></a><a class="Tl" href="pdf.html#organiser" style="--c:#E5603E"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="7" height="18" rx="1.5"/><path d="M15 6h5M15 12h5M15 18h5"/></svg></span><span><b>Organiser PDF</b><small>Réordonne, duplique ou retire des pages en indiquant le nouvel ordre.</small></span></a><a class="Tl" href="pdf.html#numeriser" style="--c:#E5603E"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M8 12h8"/></svg></span><span><b>Numériser au format PDF</b><small>Transforme des photos de documents en PDF propre (couleur, gris ou noir et blanc).</small></span></a></div><h3 class="CatH" style="--c:#6BA43A">Optimiser le PDF</h3><div class="TlGrid"><a class="Tl" href="pdf.html#compresser" style="--c:#6BA43A"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l6 6M10 5v5H5M20 4l-6 6M14 5v5h5M4 20l6-6M10 19v-5H5M20 20l-6-6M14 19v-5h5"/></svg></span><span><b>Compresser PDF</b><small>Réduit le poids du fichier.</small></span></a><a class="Tl" href="pdf.html#reparer" style="--c:#6BA43A"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6a4 4 0 0 0 5 5l-9 9a2 2 0 0 1-3-3z"/></svg></span><span><b>Réparer PDF</b><small>Tente de récupérer un PDF abîmé ou qui ne s’ouvre pas.</small></span></a><a class="Tl" href="pdf.html#ocr" style="--c:#6BA43A"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 10h10M7 14h6"/></svg></span><span><b>OCR PDF</b><small>Rend un PDF scanné recherchable en ajoutant une couche de texte invisible.</small></span></a></div><h3 class="CatH" style="--c:#D9902F">Convertir en PDF</h3><div class="TlGrid"><a class="Tl" href="pdf.html#jpg-en-pdf" style="--c:#D9902F"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="m4 18 5-5 4 4 3-3 4 4"/></svg></span><span><b>JPG en PDF</b><small>Regroupe des images (JPG, PNG, WebP) dans un seul PDF.</small></span></a><a class="Tl" href="pdf.html#word-en-pdf" style="--c:#D9902F"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 2 6 3-5 3 5 2-6"/></svg></span><span><b>Word en PDF</b><small>Convertit un document Word (.docx) en PDF.</small></span></a><a class="Tl" href="pdf.html#powerpoint-en-pdf" style="--c:#D9902F"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M10 8v8M10 8h3a2 2 0 0 1 0 4h-3"/></svg></span><span><b>PowerPoint en PDF</b><small>Convertit les textes d’un .pptx en PDF (une diapositive par page).</small></span></a><a class="Tl" href="pdf.html#excel-en-pdf" style="--c:#D9902F"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m8 8 8 8M16 8l-8 8"/></svg></span><span><b>Excel en PDF</b><small>Convertit les feuilles d’un classeur Excel ou CSV en PDF.</small></span></a><a class="Tl" href="pdf.html#html-en-pdf" style="--c:#D9902F"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12"/></svg></span><span><b>HTML en PDF</b><small>Convertit une page ou un code HTML en PDF.</small></span></a></div><h3 class="CatH" style="--c:#4A8FD0">Convertir depuis PDF</h3><div class="TlGrid"><a class="Tl" href="pdf.html#pdf-en-jpg" style="--c:#4A8FD0"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="m4 18 5-5 4 4 3-3 4 4"/></svg></span><span><b>PDF en JPG</b><small>Exporte chaque page en image (JPG ou PNG).</small></span></a><a class="Tl" href="pdf.html#pdf-en-word" style="--c:#4A8FD0"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 2 6 3-5 3 5 2-6"/></svg></span><span><b>PDF en Word</b><small>Extrait le texte d’un PDF dans un document Word (.docx).</small></span></a><a class="Tl" href="pdf.html#pdf-en-powerpoint" style="--c:#4A8FD0"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M10 8v8M10 8h3a2 2 0 0 1 0 4h-3"/></svg></span><span><b>PDF en PowerPoint</b><small>Crée une présentation à partir des pages du PDF.</small></span></a><a class="Tl" href="pdf.html#pdf-en-excel" style="--c:#4A8FD0"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m8 8 8 8M16 8l-8 8"/></svg></span><span><b>PDF en Excel</b><small>Détecte les lignes et colonnes de texte et les place dans un classeur.</small></span></a><a class="Tl" href="pdf.html#pdf-en-pdfa" style="--c:#4A8FD0"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h10l4 4v14H5zM15 3v4h4M9 15l2 2 4-4"/></svg></span><span><b>PDF en PDF/A</b><small>Prépare une version d’archivage (PDF/A-1b) en aplatissant les pages.</small></span></a></div><h3 class="CatH" style="--c:#A05A9E">Modifier PDF</h3><div class="TlGrid"><a class="Tl" href="pdf.html#pivoter" style="--c:#A05A9E"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v5h-5"/></svg></span><span><b>Faire pivoter PDF</b><small>Fait pivoter toutes les pages ou une sélection.</small></span></a><a class="Tl" href="pdf.html#numeroter" style="--c:#A05A9E"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 6h3v5M5 11h4M12 6h6M12 12h6M5 17h14"/></svg></span><span><b>Ajouter des numéros de pages</b><small>Ajoute une numérotation personnalisée.</small></span></a><a class="Tl" href="pdf.html#filigrane" style="--c:#A05A9E"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span><span><b>Ajouter un filigrane</b><small>Appose un texte en filigrane sur les pages.</small></span></a><a class="Tl" href="pdf.html#rogner" style="--c:#A05A9E"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v14a2 2 0 0 0 2 2h14M2 6h14a2 2 0 0 1 2 2v14"/></svg></span><span><b>Rogner PDF</b><small>Recadre les pages sur la zone que tu dessines.</small></span></a><a class="Tl" href="pdf.html#modifier" style="--c:#A05A9E"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/></svg></span><span><b>Modifier PDF</b><small>Ajoute du texte, des formes, un surlignage ou une image sur les pages.</small></span></a><a class="Tl" href="pdf.html#formulaires" style="--c:#A05A9E"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 12h6"/></svg></span><span><b>Formulaires PDF</b><small>Remplit les champs d’un formulaire PDF existant et l’aplatit si besoin.</small></span></a></div><h3 class="CatH" style="--c:#4A6FA5">Sécurité PDF</h3><div class="TlGrid"><a class="Tl" href="pdf.html#deverrouiller" style="--c:#4A6FA5"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></svg></span><span><b>Déverrouiller PDF</b><small>Supprime la protection d’un PDF (mot de passe d’ouverture ou restrictions).</small></span></a><a class="Tl" href="pdf.html#proteger" style="--c:#4A6FA5"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg></span><span><b>Protéger PDF</b><small>Chiffre le PDF avec un mot de passe et des autorisations.</small></span></a><a class="Tl" href="pdf.html#signer" style="--c:#4A6FA5"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17c3-6 5-9 6-9s-1 8 1 8 3-5 5-5 1 5 3 5M3 21h18"/></svg></span><span><b>Signer PDF</b><small>Appose ta signature manuscrite ou une image de signature.</small></span></a><a class="Tl" href="pdf.html#censurer" style="--c:#4A6FA5"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="18" height="6" rx="1" fill="currentColor"/></svg></span><span><b>Censurer PDF</b><small>Masque définitivement des zones ou des mots dans le PDF.</small></span></a><a class="Tl" href="pdf.html#comparer" style="--c:#4A6FA5"><span class="TlIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="8" height="16" rx="1.5"/><rect x="13" y="4" width="8" height="16" rx="1.5"/></svg></span><span><b>Comparer PDF</b><small>Superpose deux PDF et met en évidence les différences, page par page.</small></span></a></div></section><section class="HubSec" id="colors" style="--c:#A05A9E"><div class="HubSecHd"><span class="HubIc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="8.5" cy="10" r="1.2"/><circle cx="12" cy="7.5" r="1.2"/><circle cx="15.5" cy="10" r="1.2"/></svg></span><div><h2>Couleurs</h2><p>Palettes, contrastes et dégradés pour tes projets.</p></div><span class="Badge">En cours de création</span></div><p class="Empty">Les outils couleurs seront listés ici dès qu’ils seront prêts.</p></section></main>
+<div class="app">
+<nav class="rail" aria-label="Sections">
+<a class="rail-brand" href="#accueil"><img class="mark" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRkY4QTRDIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRTg1MzBGIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSIxNiIgeT0iMTYiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIzLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxyZWN0IHg9IjM0IiB5PSIxNiIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiByeD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjMuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHJlY3QgeD0iMTYiIHk9IjM0IiB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHJ4PSIzIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMy41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cmVjdCB4PSIzNCIgeT0iMzQiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIzLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==" alt="" width="44" height="44"><span class="LogoTx">Lennouille</span></a>
+<ul class="rail-nav"><li><a class="rail-btn" href="#accueil" data-sec="accueil" aria-current="page"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span class="lb">Accueil</span></a></li></ul>
+<p class="rail-group">Outils</p>
+<ul class="rail-nav"><li><a class="rail-btn" href="#img" data-sec="img"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="m4 18 5-5 4 4 3-3 4 4"/></svg></span><span class="lb">Images</span></a></li><li><a class="rail-btn" href="#pdf" data-sec="pdf"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h10l4 4v14H5zM15 3v4h4M9 15l2 2 4-4"/></svg></span><span class="lb">PDF</span></a></li><li><a class="rail-btn" href="#colors" data-sec="colors"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="8.5" cy="10" r="1.2"/><circle cx="12" cy="7.5" r="1.2"/><circle cx="15.5" cy="10" r="1.2"/></svg></span><span class="lb">Couleurs</span></a></li></ul>
+<div class="rail-end"></div>
+<a class="rail-credit" href="https://lennouille.fr/" target="_blank" rel="noopener">Lennouille — UI/UX Design</a>
+</nav>
+<main class="workspace">
+<header class="PageHead home-head" id="accueil"><img class="home-mark" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRkY4QTRDIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRTg1MzBGIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9InVybCgjZykiLz48cmVjdCB4PSIxNiIgeT0iMTYiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIzLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxyZWN0IHg9IjM0IiB5PSIxNiIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiByeD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjMuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHJlY3QgeD0iMTYiIHk9IjM0IiB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHJ4PSIzIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMy41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cmVjdCB4PSIzNCIgeT0iMzQiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIzLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==" alt="" width="60" height="60"><p class="Eyebrow">Accueil</p><h1 class="MainTitle">Tous mes outils, <em>au même endroit.</em></h1><p class="MainDesc">Des outils gratuits qui fonctionnent dans ton navigateur : tes fichiers ne quittent jamais ton appareil.</p></header>
+<section class="hub-sec" id="img" aria-labelledby="h-img"><div class="hub-head"><span class="tool-ic hub-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="m4 18 5-5 4 4 3-3 4 4"/></svg></span><div><h2 id="h-img">Images</h2><p>10 outils pour compresser, redimensionner, convertir et retravailler tes images.</p></div><a class="btn btn-accent btn-sm" href="img.html">Ouvrir Images <span aria-hidden="true">→</span></a></div><ul class="tool-grid"><li><a class="tool-card" href="img.html#compresser"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3v4a2 2 0 0 1-2 2H3" /> <path d="M15 3v4a2 2 0 0 0 2 2h4" /> <path d="M9 21v-4a2 2 0 0 0-2-2H3" /> <path d="M15 21v-4a2 2 0 0 1 2-2h4" /></svg></span><span class="tool-num mono">01</span></span><h3>Compresser</h3><p>Réduisez le poids d'une image en gardant son format, avec aperçu en temps réel.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="img.html#redimensionner"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v6h6" /> <path d="M20 10V4h-6" /> <path d="M4 20l7-7" /> <path d="M20 4l-7 7" /></svg></span><span class="tool-num mono">02</span></span><h3>Redimensionner</h3><p>Changez les dimensions en pourcentage ou en pixels exacts, ratio verrouillable.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="img.html#convertir"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8" /> <path d="M21 3v5h-5" /> <path d="M21 12a9 9 0 0 1-15 6.7L3 16" /> <path d="M3 21v-5h5" /></svg></span><span class="tool-num mono">03</span></span><h3>Convertir</h3><p>Passez d'un format à l'autre : PNG, JPG, WEBP, AVIF ou SVG.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="img.html#recadrer"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v14a2 2 0 0 0 2 2h14" /> <path d="M18 22V8a2 2 0 0 0-2-2H2" /></svg></span><span class="tool-num mono">04</span></span><h3>Recadrer</h3><p>Recadrez à la souris, pivotez librement ou par pas de 90°, retournez en miroir.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="img.html#ameliorer"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6L12 3z" /> <path d="M19 15l.7 2.3L22 18l-2.3.7L19 21l-.7-2.3L16 18l2.3-.7L19 15z" /></svg></span><span class="tool-num mono">05</span></span><h3>Améliorer</h3><p>Agrandissez jusqu'à 4× grâce au ré-échantillonnage Lanczos et à la netteté adaptative.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="img.html#detourer"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="3 3" /> <circle cx="12" cy="12" r="5" /></svg></span><span class="tool-num mono">06</span></span><h3>Détourer</h3><p>Supprimez l'arrière-plan puis retouchez au pinceau, export en fond transparent.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="img.html#filigrane"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-3 4-5 6.5-5 9a5 5 0 0 0 10 0c0-2.5-2-5-5-9z" /></svg></span><span class="tool-num mono">07</span></span><h3>Filigrane</h3><p>Ajoutez un texte ou un logo, en position libre ou répété en mosaïque.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="img.html#favicon"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 7.5l1.4 2.9 3.2.4-2.3 2.2.6 3.2-2.9-1.5-2.9 1.5.6-3.2-2.3-2.2 3.2-.4z"/></svg></span><span class="tool-num mono">08</span></span><h3>Favicon</h3><p>Créez les icônes ICO, PNG, Apple et Android d'un site à partir d'une seule image, avec le code à copier.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="img.html#exif"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="tool-num mono">09</span></span><h3>Métadonnées</h3><p>Retirez la position GPS, l'appareil et les autres informations cachées de vos photos, sans perte de qualité.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="img.html#partage"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.3M8.2 13.2l7.6 4.3"/></svg></span><span class="tool-num mono">10</span></span><h3>Image de partage</h3><p>Composez l'image affichée quand vous partagez un lien : titre, fond et logo, au bon format.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li></ul></section><section class="hub-sec" id="pdf" aria-labelledby="h-pdf"><div class="hub-head"><span class="tool-ic hub-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h10l4 4v14H5zM15 3v4h4M9 15l2 2 4-4"/></svg></span><div><h2 id="h-pdf">PDF</h2><p>30 outils pour organiser, optimiser, convertir, modifier et sécuriser tes PDF.</p></div><a class="btn btn-accent btn-sm" href="pdf.html">Ouvrir PDF <span aria-hidden="true">→</span></a></div><div class="cat-head"><h3>Organiser PDF</h3><span>6 outils</span></div><ul class="tool-grid"><li><a class="tool-card" href="pdf.html#fusionner"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l6 6M20 4l-6 6M12 10v10M9 17l3 3 3-3"/></svg></span><span class="tool-num mono">01</span></span><h4>Fusionner PDF</h4><p>Assemble plusieurs PDF en un seul document, dans l’ordre voulu.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#diviser"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v8M12 11l-7 8M12 11l7 8M5 15v4h4M19 15v4h-4"/></svg></span><span class="tool-num mono">02</span></span><h4>Diviser PDF</h4><p>Découpe un PDF par plages, page par page ou tous les N pages.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#supprimer"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></span><span class="tool-num mono">03</span></span><h4>Supprimer des pages</h4><p>Retire les pages dont tu n’as pas besoin.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#extraire"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19v-4a6 6 0 0 1 6-6h8M15 5l4 4-4 4"/></svg></span><span class="tool-num mono">04</span></span><h4>Extraire des pages</h4><p>Garde seulement les pages choisies, en un fichier ou une page par fichier.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#organiser"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="7" height="18" rx="1.5"/><path d="M15 6h5M15 12h5M15 18h5"/></svg></span><span class="tool-num mono">05</span></span><h4>Organiser PDF</h4><p>Réordonne, duplique ou retire des pages en indiquant le nouvel ordre.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#numeriser"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M8 12h8"/></svg></span><span class="tool-num mono">06</span></span><h4>Numériser au format PDF</h4><p>Transforme des photos de documents en PDF propre (couleur, gris ou noir et blanc).</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li></ul><div class="cat-head"><h3>Optimiser le PDF</h3><span>3 outils</span></div><ul class="tool-grid"><li><a class="tool-card" href="pdf.html#compresser"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l6 6M10 5v5H5M20 4l-6 6M14 5v5h5M4 20l6-6M10 19v-5H5M20 20l-6-6M14 19v-5h5"/></svg></span><span class="tool-num mono">07</span></span><h4>Compresser PDF</h4><p>Réduit le poids du fichier.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#reparer"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6a4 4 0 0 0 5 5l-9 9a2 2 0 0 1-3-3z"/></svg></span><span class="tool-num mono">08</span></span><h4>Réparer PDF</h4><p>Tente de récupérer un PDF abîmé ou qui ne s’ouvre pas.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#ocr"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 10h10M7 14h6"/></svg></span><span class="tool-num mono">09</span></span><h4>OCR PDF</h4><p>Rend un PDF scanné recherchable en ajoutant une couche de texte invisible.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li></ul><div class="cat-head"><h3>Convertir en PDF</h3><span>5 outils</span></div><ul class="tool-grid"><li><a class="tool-card" href="pdf.html#jpg-en-pdf"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="m4 18 5-5 4 4 3-3 4 4"/></svg></span><span class="tool-num mono">10</span></span><h4>JPG en PDF</h4><p>Regroupe des images (JPG, PNG, WebP) dans un seul PDF.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#word-en-pdf"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 2 6 3-5 3 5 2-6"/></svg></span><span class="tool-num mono">11</span></span><h4>Word en PDF</h4><p>Convertit un document Word (.docx) en PDF.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#powerpoint-en-pdf"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M10 8v8M10 8h3a2 2 0 0 1 0 4h-3"/></svg></span><span class="tool-num mono">12</span></span><h4>PowerPoint en PDF</h4><p>Convertit les textes d’un .pptx en PDF (une diapositive par page).</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#excel-en-pdf"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m8 8 8 8M16 8l-8 8"/></svg></span><span class="tool-num mono">13</span></span><h4>Excel en PDF</h4><p>Convertit les feuilles d’un classeur Excel ou CSV en PDF.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#html-en-pdf"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12"/></svg></span><span class="tool-num mono">14</span></span><h4>HTML en PDF</h4><p>Convertit une page ou un code HTML en PDF.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li></ul><div class="cat-head"><h3>Convertir depuis PDF</h3><span>5 outils</span></div><ul class="tool-grid"><li><a class="tool-card" href="pdf.html#pdf-en-jpg"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="m4 18 5-5 4 4 3-3 4 4"/></svg></span><span class="tool-num mono">15</span></span><h4>PDF en JPG</h4><p>Exporte chaque page en image (JPG ou PNG).</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#pdf-en-word"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 2 6 3-5 3 5 2-6"/></svg></span><span class="tool-num mono">16</span></span><h4>PDF en Word</h4><p>Extrait le texte d’un PDF dans un document Word (.docx).</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#pdf-en-powerpoint"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M10 8v8M10 8h3a2 2 0 0 1 0 4h-3"/></svg></span><span class="tool-num mono">17</span></span><h4>PDF en PowerPoint</h4><p>Crée une présentation à partir des pages du PDF.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#pdf-en-excel"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m8 8 8 8M16 8l-8 8"/></svg></span><span class="tool-num mono">18</span></span><h4>PDF en Excel</h4><p>Détecte les lignes et colonnes de texte et les place dans un classeur.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#pdf-en-pdfa"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h10l4 4v14H5zM15 3v4h4M9 15l2 2 4-4"/></svg></span><span class="tool-num mono">19</span></span><h4>PDF en PDF/A</h4><p>Prépare une version d’archivage (PDF/A-1b) en aplatissant les pages.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li></ul><div class="cat-head"><h3>Modifier PDF</h3><span>6 outils</span></div><ul class="tool-grid"><li><a class="tool-card" href="pdf.html#pivoter"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v5h-5"/></svg></span><span class="tool-num mono">20</span></span><h4>Faire pivoter PDF</h4><p>Fait pivoter toutes les pages ou une sélection.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#numeroter"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 6h3v5M5 11h4M12 6h6M12 12h6M5 17h14"/></svg></span><span class="tool-num mono">21</span></span><h4>Ajouter des numéros de pages</h4><p>Ajoute une numérotation personnalisée.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#filigrane"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span><span class="tool-num mono">22</span></span><h4>Ajouter un filigrane</h4><p>Appose un texte en filigrane sur les pages.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#rogner"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v14a2 2 0 0 0 2 2h14M2 6h14a2 2 0 0 1 2 2v14"/></svg></span><span class="tool-num mono">23</span></span><h4>Rogner PDF</h4><p>Recadre les pages sur la zone que tu dessines.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#modifier"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/></svg></span><span class="tool-num mono">24</span></span><h4>Modifier PDF</h4><p>Ajoute du texte, des formes, un surlignage ou une image sur les pages.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#formulaires"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 12h6"/></svg></span><span class="tool-num mono">25</span></span><h4>Formulaires PDF</h4><p>Remplit les champs d’un formulaire PDF existant et l’aplatit si besoin.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li></ul><div class="cat-head"><h3>Sécurité PDF</h3><span>5 outils</span></div><ul class="tool-grid"><li><a class="tool-card" href="pdf.html#deverrouiller"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></svg></span><span class="tool-num mono">26</span></span><h4>Déverrouiller PDF</h4><p>Supprime la protection d’un PDF (mot de passe d’ouverture ou restrictions).</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#proteger"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg></span><span class="tool-num mono">27</span></span><h4>Protéger PDF</h4><p>Chiffre le PDF avec un mot de passe et des autorisations.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#signer"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17c3-6 5-9 6-9s-1 8 1 8 3-5 5-5 1 5 3 5M3 21h18"/></svg></span><span class="tool-num mono">28</span></span><h4>Signer PDF</h4><p>Appose ta signature manuscrite ou une image de signature.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#censurer"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="18" height="6" rx="1" fill="currentColor"/></svg></span><span class="tool-num mono">29</span></span><h4>Censurer PDF</h4><p>Masque définitivement des zones ou des mots dans le PDF.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li><li><a class="tool-card" href="pdf.html#comparer"><span class="tool-card-top"><span class="tool-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="8" height="16" rx="1.5"/><rect x="13" y="4" width="8" height="16" rx="1.5"/></svg></span><span class="tool-num mono">30</span></span><h4>Comparer PDF</h4><p>Superpose deux PDF et met en évidence les différences, page par page.</p><span class="tool-go">Ouvrir l'outil <span aria-hidden="true">→</span></span></a></li></ul></section><section class="hub-sec" id="colors" aria-labelledby="h-colors"><div class="hub-head"><span class="tool-ic hub-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="8.5" cy="10" r="1.2"/><circle cx="12" cy="7.5" r="1.2"/><circle cx="15.5" cy="10" r="1.2"/></svg></span><div><h2 id="h-colors">Couleurs</h2><p>Palettes, contrastes et dégradés pour tes projets.</p></div><span class="Badge">En cours de création</span></div><div class="card"><p class="Empty">Les outils couleurs seront listés ici dès qu’ils seront prêts.</p></div></section>
 <footer class="SiteFoot"><a href="https://lennouille.fr/" target="_blank" rel="noopener">lennouille.fr</a></footer>
+</main>
 </div>
 <script>
-(()=>{const b=document.getElementById('tg'),r=document.documentElement,K='lenn.theme',m=matchMedia('(prefers-color-scheme: dark)');const cur=()=>r.getAttribute('data-theme')||(m.matches?'dark':'light');const lb=()=>b.textContent=cur()=='dark'?'Mode clair':'Mode sombre';b.onclick=()=>{const n=cur()=='dark'?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem(K,n)}catch(e){}lb()};lb()})();
+(function(){var L=[].slice.call(document.querySelectorAll('.rail .rail-btn[data-sec]')),S=['accueil','img','pdf','colors'].map(function(i){return document.getElementById(i)});
+function f(){var c='accueil',y=innerHeight*.35,end=innerHeight+scrollY>=document.documentElement.scrollHeight-4;S.forEach(function(s){if(s.getBoundingClientRect().top<=y)c=s.id});if(end)c=S[S.length-1].id;L.forEach(function(a){a.dataset.sec===c?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current')})}
+addEventListener('scroll',f,{passive:true});f()})();
 </script>
 </body>
 </html>
