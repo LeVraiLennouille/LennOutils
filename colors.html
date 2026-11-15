@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Atelier — outils couleur</title>
+  <meta name="description" content="Convertisseur de couleurs, contraste, mélangeur, roue et harmonies, simulateur de daltonisme, palettes de graphiques et extracteur de palette, entièrement dans le navigateur.">
+  <link rel="canonical" href="https://outils.lennouille.fr/colors.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Lenny Gadroy">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lennouille">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Atelier — outils couleur">
+  <meta property="og:description" content="Convertir, contrôler un contraste, mélanger, composer des harmonies, simuler le daltonisme, créer ou extraire des palettes, dans le navigateur.">
+  <meta property="og:url" content="https://outils.lennouille.fr/colors.html">
+  <meta property="og:image" content="https://outils.lennouille.fr/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Atelier — outils couleur">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"LennOutils — couleurs","url":"https://outils.lennouille.fr/colors.html","description":"Convertisseur de couleurs, contraste, mélangeur, roue et harmonies, simulateur de daltonisme, palettes de graphiques et extracteur de palette, entièrement dans le navigateur.","inLanguage":"fr","applicationCategory":"DesignApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@type":"Person","name":"Lenny Gadroy","url":"https://lennouille.fr/"},"publisher":{"@type":"Organization","name":"Lennouille","url":"https://lennouille.fr/"},"image":"https://outils.lennouille.fr/assets/og.png","alternateName":"Atelier"}</script>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#FF6B2D">
+  <link href="style.css" rel="stylesheet">
+  <style>
+    /* Page unique : une seule vue (data-view) est visible à la fois */
+    [data-view][hidden]{display:none!important}
+    [data-view] [tabindex="-1"]:focus{outline:none}
+  </style>
+  <script src="js/theme.js"></script>
+  <script src="js/navsheet.js" defer></script>
+  <script src="js/palette.js" defer></script>
+</head>
+
+<body class="home-body">
+  <div class="app">
+
+    <nav class="rail" aria-label="Outils">
+      <a class="rail-brand" href="#accueil" aria-label="Atelier — retour à l'accueil"><img class="mark" src="assets/icon.svg" alt="" width="44" height="44"><span class="LogoTx">Atelier</span></a>
+      <ul class="rail-nav" id="rail-nav">
+        <li><a class="rail-btn" title="Accueil" href="#accueil">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+            <span class="lb">Accueil</span>
+          </a></li>
+      </ul>
+      <!-- Les groupes « Outils couleur » et « Atelier » sont ajoutés par js/color/colors-nav.js -->
+      <div class="rail-end"></div>
+      <a class="rail-credit" href="https://lennouille.fr/" target="_blank" rel="noopener">Lennouille — UI/UX Design</a>
+    </nav>
+
+    <main class="home" id="view-accueil" data-view="accueil"></main>
+    <main class="workspace" id="view-convertisseur" data-view="convertisseur" hidden></main>
+    <main class="workspace" id="view-contraste" data-view="contraste" hidden></main>
+    <main class="workspace" id="view-melange" data-view="melange" hidden></main>
+    <main class="workspace" id="view-roue" data-view="roue" hidden></main>
+    <main class="workspace" id="view-daltonisme" data-view="daltonisme" hidden></main>
+    <main class="workspace" id="view-graphiques" data-view="graphiques" hidden></main>
+    <main class="workspace" id="view-extracteur" data-view="extracteur" hidden></main>
+  </div>
+  <script src="js/common.js"></script>
+  <script src="js/batch.js"></script>
+  <script src="js/color/core.js"></script>
+  <script src="js/color/convertisseur.js"></script>
+  <script src="js/color/contraste.js"></script>
+  <script src="js/color/melange.js"></script>
+  <script src="js/color/roue.js"></script>
+  <script src="js/color/daltonisme.js"></script>
+  <script src="js/color/graphiques.js"></script>
+  <script src="js/color/extracteur.js"></script>
+  <script src="js/color/nav.js"></script>
+</body>
+
+</html>
