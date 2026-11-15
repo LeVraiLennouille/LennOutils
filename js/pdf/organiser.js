@@ -1,0 +1,8 @@
+/* Atelier PDF — Organiser et diviser */
+(()=>{
+const {$,base,ld,rg,pg,out}=PDFK;
+PDFK.tools.push(
+['organiser','org','Organiser PDF','Réordonne, duplique ou retire des pages en indiquant le nouvel ordre.','org',{acc:'.pdf',opts:[['p','Nouvel ordre des pages','x','3, 1, 2, 4-6'],['b','Ajouter une page blanche à la fin','c',0]],run:async([f],o)=>{const s=await ld(f),ix=pg(o.p,s.getPageCount()),{PDFDocument:D}=PDFLib,d=await D.create();if(!ix.length)throw Error('Indique l’ordre des pages.');for(const i of ix)d.addPage((await d.copyPages(s,[i]))[0]);if(o.b){const b=s.getPage(0).getSize();d.addPage([b.width,b.height])}return[out(base(f)+'-organise.pdf',await d.save(),ix.length+' page(s)')]}}],
+['diviser','org','Diviser PDF','Découpe un PDF par plages, page par page ou tous les N pages.','split',{acc:'.pdf',opts:[['mode','Mode','s','r',[['r','Par plages'],['e','Une page par fichier'],['n','Tous les N pages']]],['r','Plages (une par fichier)','x','1-3, 4-'],['n','N pages','n',2]],run:async([f],o)=>{const s=await ld(f),N=s.getPageCount(),{PDFDocument:D}=PDFLib;const g=o.mode=='e'?[...Array(N)].map((_,i)=>[i]):o.mode=='n'?Array.from({length:Math.ceil(N/Math.max(1,o.n))},(_,i)=>Array.from({length:Math.min(o.n,N-i*o.n)},(_,j)=>i*o.n+j)):o.r.split(',').filter(x=>x.trim()).map(t=>rg(t,N));if(!g.length)throw Error('Aucune plage indiquée.');const r=[];for(const[i,x]of g.entries()){const d=await D.create();(await d.copyPages(s,x)).forEach(p=>d.addPage(p));r.push(out(`${base(f)}-${i+1}.pdf`,await d.save()))}return r}}],
+);
+})();

@@ -1,0 +1,13 @@
+/* Atelier PDF — groupes : une vue par famille d’outils, avec sélecteur d’outil */
+(()=>{
+const {$,E}=PDFK,{mount}=PDFK;
+const BYID=Object.fromEntries(PDFK.tools.map(t=>[t[0],t]));
+/* ---- groupes : une vue (data-view) par famille d'outils, avec sélecteur d'outil ---- */
+const GR={"fusionner": [["", ["fusionner"]]], "organiser": [["", ["organiser", "diviser"]]], "supprimer": [["", ["supprimer", "extraire"]]], "compresser": [["", ["compresser"]]], "convertir": [["En PDF", ["jpg-en-pdf", "word-en-pdf", "powerpoint-en-pdf", "excel-en-pdf", "html-en-pdf", "numeriser"]], ["Depuis PDF", ["pdf-en-jpg", "pdf-en-word", "pdf-en-powerpoint", "pdf-en-excel"]]], "modifier": [["", ["modifier", "pivoter", "numeroter", "filigrane", "rogner"]]], "securite": [["", ["proteger", "deverrouiller", "censurer", "signer"]]], "comparer": [["", ["comparer"]]]},LB={"organiser": "Organiser", "diviser": "Diviser", "supprimer": "Supprimer", "extraire": "Extraire", "modifier": "Éditer", "pivoter": "Pivoter", "numeroter": "Numéros de page", "filigrane": "Filigrane", "rogner": "Rogner", "proteger": "Protéger", "deverrouiller": "Déverrouiller", "censurer": "Censurer", "signer": "Signer", "jpg-en-pdf": "JPG", "word-en-pdf": "Word", "powerpoint-en-pdf": "PowerPoint", "excel-en-pdf": "Excel", "html-en-pdf": "HTML", "numeriser": "Numériser", "pdf-en-jpg": "JPG", "pdf-en-word": "Word", "pdf-en-powerpoint": "PowerPoint", "pdf-en-excel": "Excel"};
+function initGroup(v){const rows=GR[v.dataset.view],ids=rows.flatMap(r=>r[1]),body=$('.panel-body',v),bar=$('.tool-switch',v),dsc=$('.tool-desc',v);let cur=ids[0];
+ const pick=id=>{cur=id;v.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.t==id)));const t=BYID[id];dsc.hidden=ids.length<2;dsc.textContent=t[3];body.className='panel-body';body.innerHTML='';mount(t,body)};
+ if(ids.length>1){bar.innerHTML=rows.map(([l,L])=>`<div class="toolbar-row">${l?`<span class="hint">${l}</span>`:''}<div class="seg wrap" role="group" aria-label="${l||'Outil'}">${L.map(i=>`<button type="button" data-t="${i}" aria-pressed="false">${LB[i]||BYID[i][2]}</button>`).join('')}</div></div>`).join('');bar.onclick=ev=>{const b=ev.target.closest('[data-t]');if(b)pick(b.dataset.t)}}
+ v.addEventListener('lennreset',()=>pick(cur));pick(cur)}
+document.addEventListener('lennview',ev=>{const v=ev.detail;if(v&&GR[v.dataset.view]&&!v.dataset.ready){v.dataset.ready='1';initGroup(v)}});
+{const c=document.querySelector('[data-view]:not([hidden])');if(c)document.dispatchEvent(new CustomEvent('lennview',{detail:c}))}
+})();
