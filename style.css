@@ -468,3 +468,63 @@ canvas.stage-media{cursor:crosshair}
   .rail{overflow-y:auto}
   a.rail-btn{padding-block:6px}
 }
+
+/* ---------- Page courante dans le groupe « Atelier » ---------- */
+.rail-btn[data-here]{background:var(--Soft);font-weight:700}
+
+/* =====================================================================
+   OUTILS COULEUR (colors.html)
+   ===================================================================== */
+input[aria-invalid="true"]{border-color:var(--Danger)}
+h3.sec{font-size:1.05rem;margin:0 0 12px}
+.stage-col>h3.sec{margin-top:8px}
+/* Nuancier */
+.sw-row{display:flex;min-height:96px;border:1px solid var(--Borders);border-radius:var(--R2);overflow:hidden}
+.sw{flex:1;min-width:0;display:flex;align-items:flex-end;justify-content:center;padding:8px 2px;border:0;font:700 .72rem/1.2 var(--font);cursor:pointer;transition:flex .2s}
+.sw:hover{flex:1.5}
+.sw span{max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.sw:focus-visible{outline-offset:-4px}
+/* Convertisseur */
+.cv-row{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:12px;align-items:center;padding:6px 0}
+.cv-row label{font-weight:800;font-size:.85rem;color:var(--Mu)}
+.cv-prev{height:120px;margin-top:16px;border:1px solid var(--Borders);border-radius:var(--R2)}
+/* Contraste */
+.ct-score{display:flex;align-items:baseline;justify-content:center;gap:4px;padding:44px 20px;border:1px solid var(--Borders);border-radius:var(--R);box-shadow:var(--Shadow);font-weight:800}
+.ct-score b{font-size:clamp(3rem,9vw,5rem);line-height:1;font-variant-numeric:tabular-nums}
+.ct-score span{font-size:1.4rem}
+.ct-table{width:100%;border-collapse:collapse;font-size:.92rem}
+.ct-table th,.ct-table td{padding:12px 8px;border-bottom:1px solid var(--Borders);text-align:left}
+.ct-table thead th{font-size:.78rem;color:var(--MinMuted)}
+.ct-table tbody th{font-weight:700}
+.ct-table td{font-weight:700}
+.ct-table td small{font-weight:500;color:var(--MinMuted);margin-left:4px}
+.ct-table .ok{color:var(--OkTx)}
+.ct-table .ko{color:var(--DangerTx)}
+.ct-fix{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.ct-fix:empty{display:none}
+.ct-fix .Ghost{white-space:normal;text-align:left}
+/* Roue */
+.wh-card{display:grid;place-items:center}
+#wh{width:min(100%,360px);height:auto;touch-action:none;cursor:crosshair}
+.wh-stack{display:grid;gap:0;margin:4px 0 16px;border:1px solid var(--Borders);border-radius:var(--R2);overflow:hidden}
+.wh-stack .sw{min-height:52px;align-items:center;justify-content:flex-start;padding:0 14px;font-size:.85rem}
+.wh-all{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 24px}
+.wh-all .sw-row{min-height:64px}
+.wh-all .toolbar-row{margin-bottom:8px}
+/* Daltonisme */
+.da-head,.da-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.da-head{margin-bottom:8px;font-size:.74rem;font-weight:700;color:var(--MinMuted)}
+.da-row{margin-bottom:6px}
+.da-row .sw{min-height:56px;border-radius:var(--R3)}
+.da-imgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:4px}
+.da-imgs figure{margin:0;display:grid;gap:6px}
+.da-imgs canvas{width:100%;height:auto;border-radius:var(--R3);border:1px solid var(--Borders)}
+.da-imgs figcaption{font-size:.78rem;font-weight:700;color:var(--Mu)}
+/* Graphiques */
+.gr-prev{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:20px;align-items:center}
+.gr-prev svg{width:100%;height:auto}
+.stat .v.warn{color:var(--DangerTx)}
+@media(max-width:560px){.cv-row{grid-template-columns:1fr auto}.cv-row label{grid-column:1/-1}.wh-all,.gr-prev{grid-template-columns:1fr}.da-head{display:none}}
+.btn-text{border:0}
+.control-card .seg button{padding:7px 8px;font-size:.8rem}
+.control-card .btn-block{white-space:normal}
