@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Atelier — utilitaires</title>
-  <meta name="description" content="Générateur de QR code avec logo, comparateur de code (HTML, CSS, JS) et formateur ou minifieur JSON, CSS et JavaScript, entièrement dans le navigateur.">
+  <meta name="description" content="Générateur de QR code avec logo, texte factice (Lorem ipsum, recette, pirates), comparateur de code (HTML, CSS, JS) et formateur ou minifieur JSON, CSS et JavaScript, entièrement dans le navigateur.">
   <link rel="canonical" href="https://outils.lennouille.fr/utils.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="Lenny Gadroy">
@@ -13,7 +13,7 @@
   <meta property="og:site_name" content="Lennouille">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:title" content="Atelier — utilitaires">
-  <meta property="og:description" content="Créer un QR code, comparer deux versions d’un code, formater ou minifier du JSON, du CSS et du JavaScript, dans le navigateur.">
+  <meta property="og:description" content="Créer un QR code, générer du texte factice, comparer deux versions d’un code, formater ou minifier du JSON, du CSS et du JavaScript, dans le navigateur.">
   <meta property="og:url" content="https://outils.lennouille.fr/utils.html">
   <meta property="og:image" content="https://outils.lennouille.fr/assets/og.png">
   <meta property="og:image:width" content="1200">
@@ -21,7 +21,7 @@
   <meta property="og:image:alt" content="Atelier — utilitaires">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"LennOutils — utilitaires","url":"https://outils.lennouille.fr/utils.html","description":"Générateur de QR code avec logo, comparateur de code (HTML, CSS, JS) et formateur ou minifieur JSON, CSS et JavaScript, entièrement dans le navigateur.","inLanguage":"fr","applicationCategory":"DeveloperApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@type":"Person","name":"Lenny Gadroy","url":"https://lennouille.fr/"},"publisher":{"@type":"Organization","name":"Lennouille","url":"https://lennouille.fr/"},"image":"https://outils.lennouille.fr/assets/og.png","alternateName":"Atelier"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"LennOutils — utilitaires","url":"https://outils.lennouille.fr/utils.html","description":"Générateur de QR code avec logo, texte factice (Lorem ipsum, recette, pirates), comparateur de code (HTML, CSS, JS) et formateur ou minifieur JSON, CSS et JavaScript, entièrement dans le navigateur.","inLanguage":"fr","applicationCategory":"DeveloperApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@type":"Person","name":"Lenny Gadroy","url":"https://lennouille.fr/"},"publisher":{"@type":"Organization","name":"Lennouille","url":"https://lennouille.fr/"},"image":"https://outils.lennouille.fr/assets/og.png","alternateName":"Atelier"}</script>
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#FF6B2D">
   <link href="style.css" rel="stylesheet">
@@ -54,16 +54,19 @@
     <main class="workspace" id="view-qr" data-view="qr" hidden></main>
     <main class="workspace" id="view-diff" data-view="diff" hidden></main>
     <main class="workspace" id="view-format" data-view="format" hidden></main>
+    <main class="workspace" id="view-lorem" data-view="lorem" hidden></main>
   </div>
   <script src="js/common.js"></script>
   <script src="js/utils/qrcore.js"></script>
   <script src="js/utils/diffcore.js"></script>
   <script src="js/utils/fmtcore.js"></script>
+  <script src="js/utils/loremcore.js"></script>
   <script src="js/utils/jscore.js"></script>
   <script src="js/utils/kit.js"></script>
   <script src="js/utils/qr.js"></script>
   <script src="js/utils/diff.js"></script>
   <script src="js/utils/format.js"></script>
+  <script src="js/utils/lorem.js"></script>
   <script src="js/utils/nav.js"></script>
 </body>
 

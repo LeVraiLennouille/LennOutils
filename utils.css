@@ -47,3 +47,13 @@ textarea.fm-ta.text-input{height:300px}
 .df-cut{margin:0;padding:10px 14px;color:var(--Mu);font-family:var(--font,inherit)}
 .df-btns{display:flex;flex-direction:column;gap:8px}
 @media (max-width:760px){.df-inputs{grid-template-columns:1fr}}
+
+.lr-themes{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.lr-themes button{border:1px solid var(--Borders);background:var(--Card);color:var(--Tx);border-radius:var(--R);padding:8px 10px;font:inherit;font-size:13px;cursor:pointer;text-align:left;line-height:1.25;box-shadow:none;min-height:0}
+.lr-themes button:hover{border-color:var(--Primary)}
+.lr-themes button[aria-pressed="true"]{background:var(--Primary);border-color:var(--Primary);color:#fff;font-weight:600}
+.lr-h{font-size:1rem;margin:0}
+.lr-preview{line-height:1.7;color:var(--Tx)}
+.lr-preview h2{font-size:1.2rem;margin:1.4em 0 .5em}
+.lr-preview h2:first-child{margin-top:.2em}
+.lr-preview p{margin:0 0 1em}
