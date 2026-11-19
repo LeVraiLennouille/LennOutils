@@ -59,7 +59,7 @@
         ${tog('df-ws', 'Ignorer les espaces et l’indentation', false)}
         ${tog('df-case', 'Ignorer la casse', false)}
         ${tog('df-blank', 'Ignorer les lignes vides', false)}
-        <div class="field"><label for="df-fmt">Mettre en forme avant de comparer</label><select id="df-fmt"><option value="none">Non (texte brut)</option><option value="auto">Automatique</option><option value="json">JSON</option><option value="css">CSS</option><option value="js">JavaScript</option></select><p class="hint" id="df-fmt-note">Utile pour comparer deux fichiers minifiés ou indentés différemment. HTML : comparaison brute.</p></div>
+        <div class="field"><label for="df-fmt">Mettre en forme avant de comparer</label><select id="df-fmt"><option value="none">Non (texte brut)</option><option value="auto">Automatique</option><option value="html">HTML</option><option value="css">CSS</option><option value="js">JavaScript</option><option value="json">JSON</option></select><p class="hint" id="df-fmt-note">Utile pour comparer deux fichiers minifiés ou indentés différemment (HTML, CSS, JS, JSON).</p></div>
       </div>
       <div class="card control-card"><h3>Actions</h3>
         <div class="df-btns">
@@ -143,8 +143,8 @@
     if (errs.length) note.textContent = 'Mise en forme impossible, comparaison du texte brut — ' + errs.join(' · ');
     else if ($('#df-fmt', host).value !== 'none') {
       const l = [pa.lang, pb.lang].filter(Boolean);
-      note.textContent = l.length ? 'Mis en forme avant comparaison (' + [...new Set(l)].join(', ') + '). HTML : comparaison brute.' : 'Aucun langage reconnu : comparaison du texte brut.';
-    } else note.textContent = 'Utile pour comparer deux fichiers minifiés ou indentés différemment. HTML : comparaison brute.';
+      note.textContent = l.length ? 'Mis en forme avant comparaison (' + [...new Set(l)].join(', ') + ').' : 'Aucun langage reconnu : comparaison du texte brut.';
+    } else note.textContent = 'Utile pour comparer deux fichiers minifiés ou indentés différemment (HTML, CSS, JS, JSON).';
     last = DiffCore.diff(pa.text, pb.text, { ignoreSpace: $('#df-ws', host).checked, ignoreCase: $('#df-case', host).checked, ignoreBlank: $('#df-blank', host).checked });
     expanded = new Set();
     res.hidden = false;

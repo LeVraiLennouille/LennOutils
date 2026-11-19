@@ -80,7 +80,7 @@
     } catch (e) { return null; }
   }
 
-  const LANGS = { json: { label: 'JSON', ext: 'json', mime: 'application/json' }, css: { label: 'CSS', ext: 'css', mime: 'text/css' }, js: { label: 'JavaScript', ext: 'js', mime: 'text/javascript' } };
+  const LANGS = { html: { label: 'HTML', ext: 'html', mime: 'text/html' }, json: { label: 'JSON', ext: 'json', mime: 'application/json' }, css: { label: 'CSS', ext: 'css', mime: 'text/css' }, js: { label: 'JavaScript', ext: 'js', mime: 'text/javascript' } };
 
   function detect(text, name) {
     const ext = name && /\.([a-z0-9]+)$/i.exec(name);
@@ -88,10 +88,12 @@
       const e = ext[1].toLowerCase();
       if (e === 'json' || e === 'jsonc' || e === 'map') return 'json';
       if (e === 'css') return 'css';
+      if (['html', 'htm', 'xhtml', 'svg'].includes(e)) return 'html';
       if (['js', 'mjs', 'cjs', 'jsx'].includes(e)) return 'js';
     }
     const t = text.trim();
     if (!t) return null;
+    if (/^<(!doctype|html|head|body|div|p|span|section|main|nav|header|footer|ul|ol|table|form|a|img|h[1-6]|svg|script|style|link|meta|!--)\b/i.test(t) && /<\/[a-z]|\/>|<!doctype/i.test(t)) return 'html';
     if (/^[\[{]/.test(t)) {
       try { FmtCore.json.validate(t, { tolerant: true }); return 'json'; } catch (e) { }
     }
@@ -103,6 +105,7 @@
 
   function runFmt(lang, text, mode, o) {
     o = o || {};
+    if (lang === 'html') return mode === 'min' ? HTMLCore.minify(text) : HTMLCore.format(text, o);
     if (lang === 'json') return mode === 'min' ? FmtCore.json.minify(text, o) : FmtCore.json.format(text, o);
     if (lang === 'css') return mode === 'min' ? FmtCore.css.minify(text) : FmtCore.css.format(text, o);
     if (lang === 'js') return mode === 'min' ? JSCore.minify(text) : JSCore.beautify(text, o);
@@ -113,7 +116,13 @@
     qr: '<rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><path d="M14 14h3v3h-3zM20 14v.01M14 20v.01M17.5 20H21v-3"/>',
     diff: '<rect x="3" y="4" width="8" height="16" rx="1.6"/><rect x="13" y="4" width="8" height="16" rx="1.6"/><path d="M5.5 9h3M5.5 13h3M15.5 9h3M17 7.5v3"/>',
     lorem: '<path d="M4 6h16M4 10h11M4 14h16M4 18h9"/>',
+    count: '<path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/>',
     format: '<path d="M8 4c-2 0-3 1-3 3v2c0 1.2-.8 2-2 3 1.2 1 2 1.8 2 3v2c0 2 1 3 3 3M16 4c2 0 3 1 3 3v2c0 1.2.8 2 2 3-1.2 1-2 1.8-2 3v2c0 2-1 3-3 3"/>',
+    web: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/>',
+    echelle: '<path d="M3 19 8 5l5 14M5 14h6"/><path d="M15 19l3-8 3 8M16 17h4"/>',
+    clamp: '<path d="M4 12h16M4 12l3-3M4 12l3 3M20 12l-3-3M20 12l-3 3"/>',
+    seo: '<circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/>',
+    svg: '<path d="M5 19c6 0 4-14 14-14"/><circle cx="5" cy="19" r="1.5"/><circle cx="19" cy="5" r="1.5"/>',
     images: '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/>',
     couleurs: '<circle cx="12" cy="12" r="9"/><path d="M12 12V3M12 12l7.8 4.5M12 12l-7.8 4.5"/>',
     pdf: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 13h6M9 17h6"/>',
@@ -125,7 +134,8 @@
     ['qr', 'QR code', 'Créer <em>un QR code</em>', 'Texte, lien, Wi‑Fi, e‑mail ou carte de visite : choisissez les couleurs et le style des modules, ajoutez votre logo, puis exportez en PNG ou en SVG.', 'Texte, lien, Wi‑Fi, e‑mail ou vCard, avec couleurs, logo et export PNG ou SVG.'],
     ['diff', 'Comparateur', 'Comparer <em>deux versions</em>', 'Collez deux versions d’un fichier HTML, CSS, JS, JSON ou de n’importe quel texte : les lignes et les mots modifiés sont surlignés.', 'Différences ligne par ligne et mot par mot, côte à côte ou unifiées, avec export en patch.'],
     ['format', 'Formateur', 'Formater <em>ou minifier du code</em>', 'JSON, CSS et JavaScript : une mise en forme lisible ou une version compacte, avec les erreurs de syntaxe localisées.', 'Indentation propre ou version compacte de vos JSON, CSS et JS, avec le gain de poids.'],
-    ['lorem', 'Texte factice', 'Générer <em>du texte factice</em>', 'Cinq paragraphes avec leurs titres, prêts à copier pour vos maquettes : le classique « Lorem ipsum », une recette de gâteau au chocolat ou un récit de pirates.', 'Lorem ipsum classique, recette de gâteau au chocolat ou récit de pirates, en cinq paragraphes titrés.']
+    ['lorem', 'Texte factice', 'Générer <em>du texte factice</em>', 'Cinq paragraphes avec leurs titres, prêts à copier pour vos maquettes : le classique « Lorem ipsum », une recette de gâteau au chocolat ou un récit de pirates.', 'Lorem ipsum classique, recette de gâteau au chocolat ou récit de pirates, en cinq paragraphes titrés.'],
+    ['count', 'Compteur de texte', 'Compter <em>et mesurer la lisibilité</em>', 'Mots, caractères, phrases, temps de lecture et score de lisibilité adapté au français, avec les limites courantes (titre SEO, meta description, SMS, X).', 'Mots, caractères, temps de lecture et score de lisibilité en français, avec les limites SEO et réseaux.']
   ];
 
   const mk = (k, body) => {

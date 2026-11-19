@@ -3,6 +3,7 @@
   const { $, $$, esc, seg, bindSeg, tog, copy, download, readText, debounce, size, bytes, lines, gzipSize, LANGS, detect, runFmt, mk, toast } = Kit;
 
   const SAMPLES = {
+    html: '<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><title>Accueil</title><style>.btn{color:#fff;background:#ff6b2d}</style></head><body><main><h1>Bonjour</h1><p>Un <strong>texte</strong> avec un <a href="#">lien</a>.</p><ul><li>Un</li><li>Deux</li></ul><button class="btn" type="button">Envoyer</button></main><script>document.querySelector(".btn").addEventListener("click",()=>console.log("ok"))</script></body></html>',
     json: '{"nom":"Lennouille","outils":["images","couleurs","pdf"],"actif":true,"version":1.0,"auteur":{"prenom":"Lenny","site":"https://lennouille.fr"}}',
     css: '.btn{color:#fff;background:#ff6b2d;padding:8px 16px}.btn:hover,.btn:focus-visible{background:#d9531a}@media (min-width:600px){.btn{padding:12px 24px}}',
     js: 'function somme(a,b){if(typeof a!=="number"||typeof b!=="number"){throw new TypeError("Nombres attendus")}return a+b}const liste=[1,2,3].map(x=>somme(x,1));console.log(liste)'
@@ -11,7 +12,7 @@
   mk('format', `<div class="stage-col">
     <div class="card fm-pane">
       <div class="df-in-head"><label for="fm-in">Code d’entrée</label><span class="df-in-tools"><span class="hint" id="fm-in-n"></span><button type="button" class="Ghost" id="fm-open">Ouvrir un fichier</button></span></div>
-      <textarea class="text-input df-ta fm-ta" id="fm-in" spellcheck="false" autocomplete="off" autocapitalize="off" wrap="off" placeholder="Collez ici du JSON, du CSS ou du JavaScript"></textarea>
+      <textarea class="text-input df-ta fm-ta" id="fm-in" spellcheck="false" autocomplete="off" autocapitalize="off" wrap="off" placeholder="Collez ici du HTML, du CSS, du JavaScript ou du JSON"></textarea>
       <input type="file" id="fm-file" hidden>
       <div class="qr-msg is-error" id="fm-err" hidden></div>
     </div>
@@ -21,7 +22,7 @@
       <p class="hint fm-stat" id="fm-stat"></p>
     </div></div>
     <div class="controls-col">
-      <div class="card control-card"><h3>Langage</h3>${seg('fm-lang', [['auto', 'Auto'], ['json', 'JSON'], ['css', 'CSS'], ['js', 'JS']], 'auto')}<p class="hint" id="fm-detected"></p></div>
+      <div class="card control-card"><h3>Langage</h3>${seg('fm-lang', [['auto', 'Auto'], ['html', 'HTML'], ['css', 'CSS'], ['js', 'JS'], ['json', 'JSON']], 'auto')}<p class="hint" id="fm-detected"></p></div>
       <div class="card control-card"><h3>Action</h3>${seg('fm-mode', [['fmt', 'Formater'], ['min', 'Minifier']], 'fmt')}
         <div class="field fm-indent"><label for="fm-indent">Indentation</label><select id="fm-indent"><option value="2" selected>2 espaces</option><option value="4">4 espaces</option><option value="tab">Tabulation</option></select></div>
         <div id="fm-json-opts">${tog('fm-sort', 'Trier les clés (JSON)', false)}${tog('fm-tol', 'Accepter commentaires et virgules finales (JSON)', false)}</div>
@@ -118,7 +119,7 @@
   });
   $('#fm-use', host).addEventListener('click', () => { IN.value = OUT.value; run(); });
   $('#fm-sample', host).addEventListener('click', () => {
-    const k = S.lang === 'auto' ? 'js' : S.lang;
+    const k = S.lang === 'auto' ? 'html' : S.lang;
     IN.value = SAMPLES[k]; S.file = ''; run();
   });
   $('#fm-clear', host).addEventListener('click', () => { IN.value = ''; S.file = ''; run(); IN.focus(); });

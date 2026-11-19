@@ -287,7 +287,7 @@
     };
 
     const lines = [];
-    let cur = '', atStart = true, level = 0, pendingNl = false, blankReq = false, lastKept = null;
+    let cur = '', atStart = true, level = (o && o.baseLevel) || 0, pendingNl = false, blankReq = false, lastKept = null;
     const frames = [{ kind: 'top', ternary: 0, expanded: true }];
     const top = () => frames[frames.length - 1];
     const flush = () => { if (cur.trim() !== '') lines.push(cur.replace(/\s+$/, '')); cur = ''; atStart = true; };

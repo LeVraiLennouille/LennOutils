@@ -323,6 +323,7 @@
         out = out.replace(/\s+$/, '');
         out += min ? ':' : ': ';
         pending = false;
+        hold = !min;
         return;
       }
       if (!min && ctx === 'sel' && depth === 0 && '>+~'.includes(c)) {
