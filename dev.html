@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Atelier — dev</title>
+  <meta name="description" content="Convertisseur CSV vers JSON et tableau HTML, testeur d’expressions régulières avec surlignage, encodeurs Base64, URL, entités HTML, lecture de JWT et hash SHA, entièrement dans le navigateur.">
+  <link rel="canonical" href="https://outils.lennouille.fr/dev.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Lenny Gadroy">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lennouille">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Atelier — dev">
+  <meta property="og:description" content="Convertir des tableaux, tester des regex, encoder et décoder en Base64, URL et HTML, lire un JWT et calculer des hash, dans le navigateur.">
+  <meta property="og:url" content="https://outils.lennouille.fr/dev.html">
+  <meta property="og:image" content="https://outils.lennouille.fr/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Atelier — dev">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"LennOutils — dev","url":"https://outils.lennouille.fr/dev.html","description":"Générateur de QR code avec logo, texte factice (Lorem ipsum, recette, pirates), compteur de texte et lisibilité, comparateur de code (HTML, CSS, JS) et formateur ou minifieur JSON, CSS et JavaScript, entièrement dans le navigateur.","inLanguage":"fr","applicationCategory":"DeveloperApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@type":"Person","name":"Lenny Gadroy","url":"https://lennouille.fr/"},"publisher":{"@type":"Organization","name":"Lennouille","url":"https://lennouille.fr/"},"image":"https://outils.lennouille.fr/assets/og.png","alternateName":"Atelier"}</script>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#FF6B2D">
+  <link href="style.css" rel="stylesheet">
+  <link href="utils.css" rel="stylesheet">
+  <style>    [data-view][hidden]{display:none!important}
+    [data-view] [tabindex="-1"]:focus{outline:none}
+</style>
+  <script src="js/theme.js"></script>
+  <script src="js/navsheet.js" defer></script>
+  <script src="js/palette.js" defer></script>
+</head>
+
+<body class="home-body">
+  <div class="app">
+
+    <nav class="rail" aria-label="Outils">
+      <a class="rail-brand" href="#accueil" aria-label="Atelier — retour à l'accueil"><img class="mark" src="assets/icon.svg" alt="" width="44" height="44"><span class="LogoTx">Atelier</span></a>
+      <ul class="rail-nav" id="rail-nav">
+        <li><a class="rail-btn" title="Accueil" href="#accueil">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+            <span class="lb">Accueil</span>
+          </a></li>
+      </ul>
+
+      <div class="rail-end"></div>
+      <a class="rail-credit" href="https://lennouille.fr/" target="_blank" rel="noopener">Lennouille — UI/UX Design</a>
+    </nav>
+
+    <main class="home" id="view-accueil" data-view="accueil"></main>
+    <main class="workspace" id="view-csv" data-view="csv" hidden></main>
+    <main class="workspace" id="view-regex" data-view="regex" hidden></main>
+    <main class="workspace" id="view-encode" data-view="encode" hidden></main>
+  </div>
+  <script src="js/common.js"></script>
+  <script src="js/utils/kit.js"></script>
+  <script src="js/dev/page.js"></script>
+  <script src="js/dev/csvcore.js"></script>
+  <script src="js/dev/regexcore.js"></script>
+  <script src="js/dev/csv.js"></script>
+  <script src="js/dev/regex.js"></script>
+  <script src="js/dev/encode.js"></script>
+  <script src="js/utils/nav.js"></script>
+</body>
+
+</html>
